@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent"
+                  android:layout_height="match_parent" android:gravity="center_vertical" android:id="@+id/linearLayout"
+                  android:layout_gravity="center_horizontal">
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                      android:layout_height="wrap_content" android:gravity="center" android:baselineAligned="false">
+            <LinearLayout android:orientation="vertical"
+                          android:layout_width="fill_parent" android:layout_height="fill_parent"
+                          android:padding="16dp" android:background="@color/black_transparent">
+                <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
+                              android:layout_height="wrap_content" android:layout_gravity="center">
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                                  android:layout_height="fill_parent"
+                                  android:id="@+id/linearLayout3">
+                        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content"
+                                      android:layout_height="wrap_content">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                      android:textAppearance="?android:attr/textAppearanceMedium"
+                                      android:id="@+id/textView3"
+                                      android:text="@string/settings_screen_color_theme_label"/>
+                            <TextView
+                                    android:layout_width="150dp"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:id="@+id/settings_screen_label_color_theme"
+                                    android:visibility="visible" android:text="@string/color_theme_default"/>
+                        </LinearLayout>
+                        <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
+                                 android:id="@+id/settings_screen_seekbar_color_theme"/>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                        <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="@string/settings_screen_quality_label"
+                                    />
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:id="@+id/settings_screen_label_quality" android:visibility="visible"
+                                    android:text="@string/quality_low"/>
+                        </LinearLayout>
+                        <SeekBar
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/settings_screen_seekbar_quality"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                                  android:layout_height="fill_parent"
+                                  android:id="@+id/linearLayout2">
+                        <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                      android:textAppearance="?android:attr/textAppearanceMedium"
+                                      android:id="@+id/textView4" android:text="@string/settings_screen_energy_saving_label"/>
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:id="@+id/settings_screen_label_energy_saving" android:singleLine="false"
+                                    android:visibility="visible" android:text="@string/energy_saving_none"/>
+                        </LinearLayout>
+                        <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
+                                 android:id="@+id/settings_screen_seekbar_energy_saving"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                                  android:layout_height="fill_parent" android:id="@+id/linearLayout4"
+                                  android:gravity="center">
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent">
+                <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:id="@+id/settings_screen_button_our_products_id"
+                        android:text="@string/start_screen_button_our_products"/>
+                <Button style="@style/faustgamesButtonRedTheme" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:text="@string/start_screen_button_donate"
+                        android:id="@+id/settings_screen_button_donate_id" android:layout_gravity="center_horizontal"
+                        android:background="@drawable/button_red"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

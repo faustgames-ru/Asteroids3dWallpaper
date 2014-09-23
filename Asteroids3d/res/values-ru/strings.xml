@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Asteroids 3D</string>
+    <string name="description">Астероиды 3D</string>
+    <string name="start_screen_button_settings">Настройки</string>
+    <string name="start_screen_button_set_wallpaper">Установить обои</string>
+    <string name="start_screen_button_donate">Донат</string>
+    <string name="settings_screen_button_back">Назад</string>
+    <string name="settings_screen_performance_label">Производительность</string>
+    <string name="settings_screen_quality_label">Качетсво</string>
+    <string name="settings_screen_color_theme_label">Цветовая схема</string>
+    <string name="settings_screen_energy_saving_label">Энергосбережение</string>
+    <string name="Min">Мин</string>
+    <string name="Max">Макс</string>
+    <string name="start_screen_button_our_products">Наши продукты</string>
+    <string name="energy_saving_none">(нет)</string>
+    <string name="quality_auto">(авто)</string>
+    <string name="quality_low">(низкое)</string>
+    <string name="quality_medium">(среднее)</string>
+    <string name="quality_high">(высокое)</string>
+    <string name="quality_highest">(наивысшее)</string>
+    <string name="color_theme_default">(обычная)</string>
+    <string name="color_theme_red">(красная)</string>
+    <string name="color_theme_green">(зеленая)</string>
+    <string name="color_theme_blue">(синяя)</string>
+
+    <string name="color_theme_fire">(огонь)</string>
+    <string name="color_theme_cold">(холод)</string>
+    <string name="color_theme_toxic">(кислота)</string>
+    <string name="color_theme_blood">(кровь)</string>
+    <string name="color_theme_electric">(электро)</string>
+</resources>

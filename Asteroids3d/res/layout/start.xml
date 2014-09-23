@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:gravity="center_vertical">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="clip_horizontal" android:layout_gravity="center">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" android:layout_gravity="center"
+                    android:gravity="center" android:background="@color/black_transparent">
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="16dp" android:baselineAligned="false"
+                        >
+                    <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:layout_gravity="center"
+                            android:gravity="center">
+                        <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent">
+                            <Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/start_screen_button_set_wallpaper"
+                                    android:id="@+id/start_screen_button_set_wallpaper"/>
+                            <Button
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/start_screen_button_settings"
+                                    android:id="@+id/start_screen_button_settings"/>
+                            <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                                    android:id="@+id/start_screen_button_our_products" android:layout_gravity="center_horizontal"
+                                    android:text="@string/start_screen_button_our_products"/>
+                        </LinearLayout>
+                        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/start_screen_button_donate"
+                                android:id="@+id/start_screen_button_donate"
+                                android:layout_gravity="center_horizontal"
+                                style="@style/faustgamesButtonRedTheme" android:background="@drawable/button_red"
+                                android:layout_marginTop="16dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                  android:layout_height="wrap_content" android:padding="16dp" android:gravity="center"
+                  android:id="@+id/linearLayout" android:layout_gravity="right">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent"
+                      android:layout_height="fill_parent" android:layout_gravity="center">
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
+                          android:layout_height="wrap_content" android:layout_gravity="center">
+                <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:text="@string/start_screen_button_settings" android:id="@+id/button4"/>
+                <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/start_screen_button_set_wallpaper" android:id="@+id/start_screen_button_set_wallpaper"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content"
+                      android:layout_height="fill_parent" android:padding="8dp">
+            <Button style="@style/faustgamesButtonRedTheme" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:text="@string/start_screen_button_donate"
+                    android:id="@+id/button6" android:layout_gravity="center_horizontal"
+                    android:background="@drawable/button_red"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
