@@ -1,6 +1,5 @@
 package com.FaustGames.Core.Rendering.Effects.Attributes;
 
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.IParticlesVertex;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.ParticlesEmitterVertex;
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ public class AttributesBufferParticlesEmitter extends AttributesBuffer {
     public AttributesBufferParticlesEmitter() {
     }
 
-    public void applyAttribute(Attribute attribute, int offset, int size) {
+    public void applyAttribute(EffectAttribute attribute, int offset, int size) {
         applyAttribute(attribute, offset, size, ATTRIB_COUNT * 4);
     }
 
@@ -29,7 +28,7 @@ public class AttributesBufferParticlesEmitter extends AttributesBuffer {
     public void onApply() { }
 
     @Override
-    public void onApply(ArrayList<Attribute> attributes) {
+    public void onApply(ArrayList<EffectAttribute> attributes) {
         applyAttribute(attributes.get(0), ATTRIB_OFFSET_MIDPOINT, 3);
         applyAttribute(attributes.get(1), ATTRIB_OFFSET_POSITION*4, 3);
         applyAttribute(attributes.get(2), ATTRIB_OFFSET_TEX_POSITION*4, 2);

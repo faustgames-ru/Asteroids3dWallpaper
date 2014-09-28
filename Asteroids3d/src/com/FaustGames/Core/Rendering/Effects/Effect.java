@@ -1,11 +1,11 @@
 package com.FaustGames.Core.Rendering.Effects;
 
 import android.content.Context;
-import android.opengl.ETC1Util;
 import android.opengl.GLES20;
 import com.FaustGames.Core.GLHelper;
-import com.FaustGames.Core.Rendering.Effects.Attributes.Attribute;
+import com.FaustGames.Core.Rendering.Effects.Attributes.EffectAttribute;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeBuffer;
+import com.FaustGames.Core.Rendering.Effects.Attributes.VertexBufferAttribute;
 import com.FaustGames.Core.Rendering.Effects.Parameters.EffectParameter;
 import com.FaustGames.Core.Rendering.IndexBuffer;
 
@@ -21,7 +21,7 @@ public class Effect {
     int mProgram;
     public ArrayList<EffectParameter> Parameters = new ArrayList<EffectParameter>();
 
-    public ArrayList<Attribute> Attributes= new ArrayList<Attribute>();
+    public ArrayList<EffectAttribute> Attributes= new ArrayList<EffectAttribute>();
     public static ArrayList<Effect> Effects = new ArrayList<Effect>();
 
     public static void Create(Context context) {
@@ -65,6 +65,10 @@ public class Effect {
             }
         }
         return null;
+    }
+
+    public Effect(String vertexShader, String fragmentShader, String[] parameters, VertexBufferAttribute[] attributes) {
+        Constructor(vertexShader, fragmentShader, parameters, attributes);
     }
 
     public Effect(String vertexShader, String fragmentShader, String[] parameters, String[] attributes) {
@@ -131,13 +135,23 @@ public class Effect {
         GLHelper.checkGlError("GLES20.glDrawElements");
     }
 
+    private void Constructor(String vertexShader, String fragmentShader, String[] parameters, VertexBufferAttribute[] attributes) {
+        mVertexShaderCode = vertexShader;
+        mFragmentShaderCode = fragmentShader;
+        for (int i = 0; i < parameters.length; i++)
+            Parameters.add(new EffectParameter(parameters[i]));
+        for (int i = 0; i < attributes.length; i++)
+            Attributes.add(new EffectAttribute(attributes[i]));
+        Effects.add(this);
+    }
+
     private void Constructor(String vertexShader, String fragmentShader, String[] parameters, String[] attributes) {
         mVertexShaderCode = vertexShader;
         mFragmentShaderCode = fragmentShader;
         for (int i = 0; i < parameters.length; i++)
             Parameters.add(new EffectParameter(parameters[i]));
         for (int i = 0; i < attributes.length; i++)
-            Attributes.add(new Attribute(attributes[i]));
+            Attributes.add(new EffectAttribute(attributes[i]));
         Effects.add(this);
     }
 

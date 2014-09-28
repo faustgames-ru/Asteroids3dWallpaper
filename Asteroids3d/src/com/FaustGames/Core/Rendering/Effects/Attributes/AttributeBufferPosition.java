@@ -10,7 +10,7 @@ import java.nio.FloatBuffer;
 
 public class AttributeBufferPosition extends AttributeBuffer {
 
-    public AttributeBufferPosition(Attribute attribute) {
+    public AttributeBufferPosition(EffectAttribute attribute) {
         super(attribute);
     }
 

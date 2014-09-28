@@ -89,7 +89,7 @@ public class BasicActivity  extends Activity {
 
         UIViewContainer = new FrameLayout(this);
 
-        mFrame.addView(UIViewContainer);
+        //mFrame.addView(UIViewContainer);
 
         setContentView(mFrame);
 

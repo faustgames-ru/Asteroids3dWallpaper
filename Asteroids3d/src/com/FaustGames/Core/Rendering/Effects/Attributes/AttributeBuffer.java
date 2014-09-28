@@ -5,10 +5,10 @@ import java.nio.ByteBuffer;
 public class AttributeBuffer {
     public ByteBuffer Data;
 
-    Attribute mAttribute;
+    EffectAttribute mAttribute;
     public AttributeType Type;
 
-    public AttributeBuffer(Attribute attribute) {
+    public AttributeBuffer(EffectAttribute attribute) {
         mAttribute = attribute;
     }
 

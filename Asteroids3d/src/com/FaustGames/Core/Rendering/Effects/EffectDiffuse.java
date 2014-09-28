@@ -11,10 +11,10 @@ import com.FaustGames.Core.Rendering.Textures.Texture;
 
 public class EffectDiffuse extends Effect {
 
-    public Attribute Position;
-    public Attribute Normal;
-    public Attribute TexturePosition;
-    public Attribute TransformIndex;
+    public EffectAttribute Position;
+    public EffectAttribute Normal;
+    public EffectAttribute TexturePosition;
+    public EffectAttribute TransformIndex;
 
     public EffectDiffuse() {
         super("", "",

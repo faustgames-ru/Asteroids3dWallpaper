@@ -13,7 +13,7 @@ public class Content {
     private Content(Context context){
 
         boolean limitSize = !DeviceConfiguration.isTablet;
-
+        TextureDrawableResource noise = new TextureDrawableResource(R.drawable.noise, R.drawable.noise);
         SkyBox = new SkyBoxResource(
                 //new TextureDrawableResource(R.drawable.skybox_hd_xp, R.drawable.skybox_hd_small_xp),
                 //new TextureDrawableResource(R.drawable.skybox_hd_xm, R.drawable.skybox_hd_small_xm),
@@ -21,12 +21,19 @@ public class Content {
                 //new TextureDrawableResource(R.drawable.skybox_hd_ym, R.drawable.skybox_hd_small_ym),
                 //new TextureDrawableResource(R.drawable.skybox_hd_zp, R.drawable.skybox_hd_small_zp),
                 //new TextureDrawableResource(R.drawable.skybox_hd_zm, R.drawable.skybox_hd_small_zm));
-                new TextureMapResource(context, "skybox_hd_xp", false),
-                new TextureMapResource(context, "skybox_hd_xm", false),
-                new TextureMapResource(context, "skybox_hd_yp", false),
-                new TextureMapResource(context, "skybox_hd_ym", false),
-                new TextureMapResource(context, "skybox_hd_zp", false),
-                new TextureMapResource(context, "skybox_hd_zm", false));
+                noise,
+                noise,
+                noise,
+                noise,
+                noise,
+                noise
+                //new TextureMapResource(context, "skybox_hd_xp", false),
+                //new TextureMapResource(context, "skybox_hd_xm", false),
+                //new TextureMapResource(context, "skybox_hd_yp", false),
+                //new TextureMapResource(context, "skybox_hd_ym", false),
+                //new TextureMapResource(context, "skybox_hd_zp", false),
+                //new TextureMapResource(context, "skybox_hd_zm", false)
+                );
 
         LensFlareMaps = new LensFlareMapsResource(new TextureMapResource(context, "lens_flare", limitSize));
 

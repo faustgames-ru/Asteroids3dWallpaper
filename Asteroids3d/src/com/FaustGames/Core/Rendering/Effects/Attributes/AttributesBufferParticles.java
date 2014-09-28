@@ -1,26 +1,25 @@
 package com.FaustGames.Core.Rendering.Effects.Attributes;
 
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.ILensFlareVertex;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.IParticlesVertex;
 
 public class AttributesBufferParticles extends AttributesBuffer {
-    Attribute mPosition;
-    Attribute mScreenOffset;
-    Attribute mTexturePosition;
-    Attribute mTransformIndex;
+    EffectAttribute mPosition;
+    EffectAttribute mScreenOffset;
+    EffectAttribute mTexturePosition;
+    EffectAttribute mTransformIndex;
 
     public AttributesBufferParticles(
-            Attribute position,
-            Attribute screenOffset,
-            Attribute texturePosition,
-            Attribute transformIndex) {
+            EffectAttribute position,
+            EffectAttribute screenOffset,
+            EffectAttribute texturePosition,
+            EffectAttribute transformIndex) {
         mPosition = position;
         mScreenOffset = screenOffset;
         mTexturePosition = texturePosition;
         mTransformIndex = transformIndex;
     }
 
-    public void applyAttribute(Attribute attribute, int offset, int size) {
+    public void applyAttribute(EffectAttribute attribute, int offset, int size) {
         applyAttribute(attribute, offset, size, 36);
     }
 

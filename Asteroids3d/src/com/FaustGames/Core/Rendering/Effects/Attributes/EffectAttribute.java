@@ -6,13 +6,16 @@ import com.FaustGames.Core.GLHelper;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Attribute {
+public class EffectAttribute {
     int mAttributeHandler;
     public String Name;
 
     public static Map<String,String> BuffersMap = new HashMap<String,String>();
 
-    public Attribute(String name) {
+    public EffectAttribute(VertexBufferAttribute attribute) {
+        Name = attribute.Name;
+    }
+    public EffectAttribute(String name) {
         Name = name;
     }
 

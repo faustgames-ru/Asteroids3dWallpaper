@@ -131,7 +131,8 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
             }
             lastTime = time;
         }
-        //Log.d("asteroids3d fps", "asteroids3d fps : " + Statistics.Fps);
+
+        Log.d("asteroids3d fps", "asteroids3d fps : " + Statistics.Fps);
         sleep();
     }
 

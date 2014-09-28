@@ -190,12 +190,11 @@ public class Scene implements IUpdatable, ILoadable {
     }
 
     private void renderSkyBox() {
-        GLES20.glDepthMask(true);
+        GLES20.glDepthMask(false);
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
 
-        //GLES20.glDisable(GLES20.GL_BLEND);
-        //GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE);
-        GLES20.glDisable(GLES20.GL_BLEND);
+        GLES20.glEnable(GLES20.GL_BLEND);
+        GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE_MINUS_SRC_ALPHA);
         mSkyBox.render(mCamera);
     }
 
@@ -265,20 +264,20 @@ public class Scene implements IUpdatable, ILoadable {
             //mPostProcessRoot.setAsRenderTarget();
         }
 
+
         GLES20.glCullFace(GLES20.GL_FRONT);
         renderMeshBatch();
 
         GLES20.glDisable(GLES20.GL_CULL_FACE);
         renderSkyBox();
 
-
         GLES20.glEnable(GLES20.GL_CULL_FACE);
         GLES20.glCullFace(GLES20.GL_BACK);
         renderNebula();
-
+/*
         GLES20.glDisable(GLES20.GL_CULL_FACE);
         renderEmitters();
-
+*/
 
         if (Configuration.Default.DisplayLensFlare)
             renderLensFlareBatch(false);

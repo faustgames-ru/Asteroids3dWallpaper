@@ -26,7 +26,6 @@ public class EffectSkyBox extends Effect {
     @Override
     public void onCreate(Context context) {
         super.onCreate(context);
-        super.onCreate(context);
         setCode(
                 loadFromRaw(context, R.raw.effect_skybox_vertex),
                 loadFromRaw(context, R.raw.effect_skybox_fragment));

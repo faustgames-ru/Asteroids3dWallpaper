@@ -2,7 +2,7 @@
 
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: E:\\users\\_faust\\sources\\FaustGames-repository\\faustgames\\wallpapers\\Asteroids3d\\src\\com\\android\\vending\\billing\\IInAppBillingService.aidl
+ * Original file: C:\\sources\\github\\Asteroids3dWallpaper\\Asteroids3d\\src\\com\\android\\vending\\billing\\IInAppBillingService.aidl
  */
 package com.android.vending.billing;
 /**

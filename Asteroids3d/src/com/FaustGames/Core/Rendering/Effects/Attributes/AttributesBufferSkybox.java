@@ -1,6 +1,5 @@
 package com.FaustGames.Core.Rendering.Effects.Attributes;
 
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.IMeshVertex;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.IPositionTexture;
 
 import java.util.ArrayList;
@@ -11,17 +10,17 @@ public class AttributesBufferSkybox extends AttributesBuffer {
     public static final int Stride = 5 * 4;
     public static final int StrideFloat = 5;
 
-    Attribute mPosition;
-    Attribute mTexturePosition;
+    EffectAttribute mPosition;
+    EffectAttribute mTexturePosition;
 
     public AttributesBufferSkybox(
-            Attribute position,
-            Attribute texturePosition) {
+            EffectAttribute position,
+            EffectAttribute texturePosition) {
         mPosition = position;
         mTexturePosition = texturePosition;
     }
 
-    public void applyAttribute(Attribute attribute, int offset, int size) {
+    public void applyAttribute(EffectAttribute attribute, int offset, int size) {
         applyAttribute(attribute, offset, size, Stride);
     }
 
@@ -32,7 +31,7 @@ public class AttributesBufferSkybox extends AttributesBuffer {
     }
 
     @Override
-    public void onApply(ArrayList<Attribute> attributes) {
+    public void onApply(ArrayList<EffectAttribute> attributes) {
         applyAttribute(attributes.get(0), PositionStride, 3);
         applyAttribute(attributes.get(1), TexturePositionStride, 2);
     }

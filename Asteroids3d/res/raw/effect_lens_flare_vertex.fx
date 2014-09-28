@@ -35,7 +35,7 @@ void main()
 	}
 	else
 	{
-		gl_Position = pos + vec4(pos.x * (-1.0 + a_Offset), pos.y * (-1.0 + a_Offset), 0, 0) + vec4(x * a_Offset * 2.0, y * a_Offset * u_Aspect * 0.5, 0.0, 0.0);
+		gl_Position = pos + vec4(pos.x * (-1.0 + a_Offset), pos.y * (-1.0 + a_Offset), 0, 0) + vec4(x * a_Offset, y * a_Offset * u_Aspect, 0.0, 0.0);
 		v_Color = vec4(0.25, 0.25, 0.25, 0.0);
 	}
 	

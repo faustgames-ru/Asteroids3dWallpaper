@@ -1,13 +1,9 @@
 package com.FaustGames.Core.Rendering.Effects.Attributes;
 
 import android.opengl.GLES20;
-import com.FaustGames.Core.GLHelper;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.IMeshVertex;
-import com.FaustGames.Core.Shader;
 
 import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
 
 public class AttributesBufferMesh extends AttributesBuffer {
     public static final int PositionStride = 0;
@@ -22,20 +18,20 @@ public class AttributesBufferMesh extends AttributesBuffer {
     //public ByteBuffer Data;
     //public int Size;
 
-    Attribute mPosition;
-    Attribute mNormal;
-    Attribute mBiNormal;
-    Attribute mTangent;
-    Attribute mTexturePosition;
-    Attribute mTransformIndex;
+    EffectAttribute mPosition;
+    EffectAttribute mNormal;
+    EffectAttribute mBiNormal;
+    EffectAttribute mTangent;
+    EffectAttribute mTexturePosition;
+    EffectAttribute mTransformIndex;
 
     public AttributesBufferMesh(
-            Attribute position,
-            Attribute normal,
-            Attribute biNormal,
-            Attribute tangent,
-            Attribute texturePosition,
-            Attribute transformIndex) {
+            EffectAttribute position,
+            EffectAttribute normal,
+            EffectAttribute biNormal,
+            EffectAttribute tangent,
+            EffectAttribute texturePosition,
+            EffectAttribute transformIndex) {
         mPosition = position;
         mNormal = normal;
         mBiNormal = biNormal;
@@ -44,11 +40,11 @@ public class AttributesBufferMesh extends AttributesBuffer {
         mTransformIndex = transformIndex;
     }
 
-    public void applyAttribute(Attribute attribute, int offset, int size) {
+    public void applyAttribute(EffectAttribute attribute, int offset, int size) {
         applyAttribute(attribute, offset, size, Stride);
     }
 
-    public void applyForDepth(Attribute position, Attribute transformIndex) {
+    public void applyForDepth(EffectAttribute position, EffectAttribute transformIndex) {
         GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, buffers[0]);
         applyAttribute(position, PositionStride, 3);
         applyAttribute(transformIndex, TransformIndexStride, 1);

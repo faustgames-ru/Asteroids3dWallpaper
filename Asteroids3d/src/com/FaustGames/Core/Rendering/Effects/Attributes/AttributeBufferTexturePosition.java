@@ -9,7 +9,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
 public class AttributeBufferTexturePosition extends AttributeBuffer {
-    public AttributeBufferTexturePosition(Attribute attribute) {
+    public AttributeBufferTexturePosition(EffectAttribute attribute) {
         super(attribute);
     }
 

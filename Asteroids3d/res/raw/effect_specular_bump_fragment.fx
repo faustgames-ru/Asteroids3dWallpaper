@@ -56,11 +56,11 @@ void main()
 	vec3 normal = normalize(2.0 * texture2D (u_Normal, v_TexturePosition).rgb - 1.0);
 	float lamberFactor= dot (normalize(v_Light), normal);
 	vec4 glowMaterial = texture2D (u_Glow, v_TexturePosition) * (lamberFactor * -0.65 + 0.35 ) * u_GlowLevel * 2.0;
-	vec4 color = u_AmbientLight;
-	color += max(glowMaterial, 0.0) * u_GlowColor;
+	vec4 color = max(glowMaterial, 0.0) * u_GlowColor;
 	vec4 diffuseMaterial = texture2D (u_Diffuse, v_TexturePosition);
 	vec4 specularMaterial = texture2D (u_Specular, v_TexturePosition);
 	float shininess = pow (dot (normalize(v_HalfVector), normal), 4.0);
+	color += u_AmbientLight * normal.z;
 	color += diffuseMaterial * u_DiffuseLight * lamberFactor;
 	color += specularMaterial * u_SpecularLight * shininess;
 	//gl_FragColor = applyFog(color, v_distance, v_Eye, normalize(v_RayDirection), normalize(v_SunDirection));

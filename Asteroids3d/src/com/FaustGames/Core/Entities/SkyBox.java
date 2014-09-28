@@ -8,19 +8,20 @@ import com.FaustGames.Core.ILoadable;
 import com.FaustGames.Core.IRenderable;
 import com.FaustGames.Core.Mathematics.MathF;
 import com.FaustGames.Core.Mathematics.Matrix;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeBufferFloat;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeBufferPosition;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeBufferTexturePosition;
+import com.FaustGames.Core.Mathematics.Vertex;
+import com.FaustGames.Core.Rendering.Color;
+import com.FaustGames.Core.Rendering.Effects.Attributes.*;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.IPositionTexture;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.Position;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.PositionTexture;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.PositionTextureIndex;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributesBufferSkybox;
 import com.FaustGames.Core.Rendering.IndexBuffer;
 import com.FaustGames.Core.Rendering.Textures.Texture;
 import com.FaustGames.Core.Rendering.Textures.TextureETC1;
 import com.FaustGames.Core.Rendering.Textures.TextureFactory;
 import com.FaustGames.Core.Shader;
+
+import java.util.Vector;
 
 public class SkyBox implements IRenderable, ILoadable {
     static final float Distance = 2048;
@@ -118,6 +119,7 @@ public class SkyBox implements IRenderable, ILoadable {
             IndexBuffer mIndexBuffer = new IndexBuffer(new short[]{
                     0, 1, 3, 0, 3, 2,
             });
+
     /*
     IndexBuffer mIndexBuffer = new IndexBuffer(new short[] {
             0, 1, 10, 0, 10, 9,
@@ -186,7 +188,9 @@ public class SkyBox implements IRenderable, ILoadable {
             70, 71, 80, 70, 80, 79
     });
 */
-    AttributesBufferSkybox mBuffer;
+    VertexBuffer mBuffer;
+    VertexBuffer mBatchBuffer;
+    IndexBuffer mBatchIndexBuffer;
     Texture mXP;
     Texture mXM;
     Texture mYP;
@@ -201,23 +205,332 @@ public class SkyBox implements IRenderable, ILoadable {
         mSkyBoxResource = skyBoxResource;
     }
 
+    public VertexColor EmptyVertexColor;
+
+    public class VertexColor
+    {
+        public Color Stars;
+        public Color Clouds0;
+        public Color Clouds1;
+
+
+        public VertexColor() {
+            Stars = new Color(
+                    MathF.rand(0.9f, 1.0f),
+                    MathF.rand(0.9f, 1.0f),
+                    MathF.rand(0.9f, 1.0f),
+                    1.0f);
+
+            float c0 = MathF.rand(0.0f, 1.0f);
+            if (c0 < 0.5)
+                c0 = MathF.rand(0.0f, 0.3f);
+            else
+                c0 = MathF.rand(0.0f, 1.0f);
+
+            float c1 = MathF.rand(0.0f, 1.0f);
+            if (c1 < 0.5)
+                c1 = MathF.rand(0.0f, 0.3f);
+            else
+                c1 = MathF.rand(0.0f, 1.0f);
+
+            Clouds0 = new Color(
+                    MathF.rand(0.7f, 1.0f),
+                    MathF.rand(0.7f, 1.0f),
+                    MathF.rand(0.7f, 1.0f),
+                    c0);
+            Clouds1 = new Color(
+                    MathF.rand(0.7f, 1.0f),
+                    MathF.rand(0.7f, 1.0f),
+                    MathF.rand(0.7f, 1.0f),
+                    c1);
+        }
+    }
+
+    public VertexColor[][][] ColorSpace;
+
+    int GetAddress(float v, int detail) {
+        int i = Math.round((v + 1.0f) * 0.5f * (detail - 1));
+        if (i < 0)
+            i = 0;
+        if (i > (detail - 1))
+            i = detail - 1;
+        return i;
+    }
+
+    VertexColor GetColor(Vertex position, int detail) {
+
+        float dot0 = Vertex.dotProduct(position, new Vertex(1, 1, 0).normalize());
+        if (MathF.abs(dot0) < 0.001)
+            return EmptyVertexColor;
+        dot0 = Vertex.dotProduct(position, new Vertex(-1, 1, 0).normalize());
+        if (MathF.abs(dot0) < 0.001)
+            return EmptyVertexColor;
+        dot0 = Vertex.dotProduct(position, new Vertex(0, 1, 1).normalize());
+        if (MathF.abs(dot0) < 0.001)
+            return EmptyVertexColor;
+        dot0 = Vertex.dotProduct(position, new Vertex(0, 1, -1).normalize());
+        if (MathF.abs(dot0) < 0.001)
+            return EmptyVertexColor;
+        /*
+        float dot1 = Vertex.dotProduct(position, new Vertex(-1, 1, 1).normalize());
+        if (MathF.abs(dot1) > 0.95)
+            return EmptyVertexColor;
+        float dot2 = Vertex.dotProduct(position, new Vertex(1, -1, 1).normalize());
+        if (MathF.abs(dot2) > 0.95)
+            return EmptyVertexColor;
+        float dot3 = Vertex.dotProduct(position, new Vertex(1,  1, -1).normalize());
+        if (MathF.abs(dot3) > 0.95)
+            return EmptyVertexColor;
+        */
+        return ColorSpace
+                [GetAddress(position.getX(), detail)]
+                [GetAddress(position.getY(), detail)]
+                [GetAddress(position.getZ(), detail)];
+    }
+
+    public int AddBoxPlane(int detail, float[] vertices, int offset, Matrix transform)    {
+        return AddBoxPlane(detail, vertices, offset, transform, detail, -1, detail, -1);
+    }
+
+    public int AddBoxPlane(int detail, float[] vertices, int offset, Matrix transform, int exceptXFrom, int exceptXTo, int exceptYFrom, int exceptYTo)
+    {
+        float stepX = 2.0f / detail;
+        float stepY = 2.0f / detail;
+        int i = offset;
+        float x = -1.0f;
+        for (int xi = 0; xi <= detail; xi++) {
+            float y = -1.0f;
+            for (int yi = 0; yi <= detail; yi++) {
+
+                float l = MathF.sqrt(1.0f + x * x + y * y);
+                float z = 1.0f;
+                float d = 1.0f;
+                float a = 1.0f;
+                if (exceptXFrom < exceptXTo) {
+                    if ((exceptXFrom < xi)&&(xi<exceptXTo)) {
+                        a = 0.0f;
+                    }
+                }
+                if (exceptYFrom < exceptYTo) {
+                    if ((exceptYFrom < yi)&&(yi<exceptYTo)) {
+                        a = 0.0f;
+                    }
+                }
+                float xx = x * d / l;
+                float yy = y * d / l;
+                z = z * d / l;
+
+
+                Vertex vt =  new Vertex(x, y, 1.0f);
+
+                float tx = (MathF.atan2(vt.getX(), d) * 4.0f / MathF.PI + 1.0f) * 0.5f;
+                float ty = 1.0f - (MathF.atan2(vt.getY(), d) * 4.0f / MathF.PI + 1.0f) * 0.5f;
+
+                Vertex n = new Vertex(xx, yy, z) .normalize();//??;
+                Vertex v =  transform.transform(n);
+                VertexColor color = GetColor(v.normalize(), detail);
+
+                vertices[i++] = v.getX();
+                vertices[i++] = v.getY();
+                vertices[i++] = v.getZ();
+                vertices[i++] = tx;
+                vertices[i++] = ty;
+
+
+                vertices[i++] = color.Clouds0.getR();
+                vertices[i++] = color.Clouds0.getG();
+                vertices[i++] = color.Clouds0.getB();
+                vertices[i++] = color.Clouds0.getA();
+
+                vertices[i++] = color.Clouds1.getR();
+                vertices[i++] = color.Clouds1.getG();
+                vertices[i++] = color.Clouds1.getB();
+                vertices[i++] = color.Clouds1.getA();
+
+                vertices[i++] = color.Stars.getR();
+                vertices[i++] = color.Stars.getG();
+                vertices[i++] = color.Stars.getB();
+                vertices[i++] = color.Stars.getA();
+
+                vertices[i++] = a;
+                y += stepY;
+            }
+            x += stepX;
+        }
+        return i;
+    }
+
+    public int AddBoxPlaneIndices(int detail, short[] indices, int offset, int vertexOffset, int stride)
+    {
+        return AddBoxPlaneIndices(detail, indices, offset, vertexOffset, stride, detail, -1, detail, -1, false);
+    }
+
+    public int AddBoxPlaneIndices(int detail, short[] indices, int offset, int vertexOffset, int stride, int exceptXFrom, int exceptXTo, int exceptYFrom, int exceptYTo, boolean capX)
+    {
+        int i = offset;
+        int vi = vertexOffset / stride;
+        for (int xi = 0; xi < detail; xi++) {
+            for (int yi = 0; yi < detail; yi++) {
+                if ((exceptXFrom < xi) && (xi < exceptXTo)) {
+                    vi++;
+                    continue;
+                }
+                if ((exceptYFrom < yi) && (yi < exceptYTo)) {
+                    vi++;
+                    continue;
+                }
+                /*
+                if ((capX) && (xi == 0)) {
+                    if ((yi == 0)) {
+                        indices[i++] = (short) (vi + 0);
+                        indices[i++] = (short) (vi + detail + 2);
+                        indices[i++] = (short) (vi + detail + 1);
+                    }
+                    else
+                    {
+
+                        indices[i++] = (short) (vi + 1);
+                        indices[i++] = (short) (vi + detail + 2);
+                        indices[i++] = (short) (vi + detail + 1);
+
+                    }
+                }
+                else  if ((capX) && (xi == (detail-1))) {
+                    if ((yi == 0)) {
+                        indices[i++] = (short) (vi + 0);
+                        indices[i++] = (short) (vi + 1);
+                        indices[i++] = (short) (vi + detail + 1);
+                    }
+                    else
+                    {
+                        indices[i++] = (short) (vi + 0);
+                        indices[i++] = (short) (vi + 1);
+                        indices[i++] = (short) (vi + detail + 2);
+                    }
+                }
+                else */
+                {
+                    indices[i++] = (short) (vi + 0);
+                    indices[i++] = (short) (vi + 1);
+                    indices[i++] = (short) (vi + detail + 2);
+                    indices[i++] = (short) (vi + 0);
+                    indices[i++] = (short) (vi + detail + 2);
+                    indices[i++] = (short) (vi + detail + 1);
+                }
+                vi++;
+            }
+            vi++;
+        }
+        return i;
+    }
+
     public void create(Context context)
     {
-        mBuffer = Shader.SkyBox.creatBuffer();
+        mBuffer = new VertexBuffer(new VertexBufferAttribute[]{VertexBufferAttribute.Position, VertexBufferAttribute.TexturePosition});
+        mBatchBuffer = new VertexBuffer(new VertexBufferAttribute[]{
+                VertexBufferAttribute.Position,
+                VertexBufferAttribute.TexturePosition,
+                VertexBufferAttribute.CloudsColor0,
+                VertexBufferAttribute.CloudsColor1,
+                VertexBufferAttribute.StartsColor,
+                VertexBufferAttribute.Alpha
+        });
         mBuffer.setValues(mVertices);
+
+        EmptyVertexColor = new VertexColor();
+        EmptyVertexColor.Clouds0.rgba[3] = 0.0f;
+        EmptyVertexColor.Clouds1.rgba[3] = 0.0f;
+        int stride = mBatchBuffer.FloatStride;
+        int detail = 6;
+
+        ColorSpace = new VertexColor[detail][][];
+        for (int i = 0; i < ColorSpace.length; i++) {
+            ColorSpace[i] = new VertexColor[detail][];
+            for (int j = 0; j < ColorSpace.length; j++) {
+                ColorSpace[i][j] = new VertexColor[detail];
+                for (int k = 0; k < ColorSpace.length; k++) {
+                    ColorSpace[i][j][k] = new VertexColor();
+                }
+            }
+        }
+
+        int jointsVerticesOffset = 0;// ((detail + 1)*(detail + 1)*5)*stride;
+        int jointsIndicesOffset = 0;//detail*6 * 6;
+
+        int planesCount = 6;
+
+        float[] vertices = new float[((detail + 1)*(detail + 1)*planesCount)*stride + jointsVerticesOffset];
+        short[] indices = new short[detail*detail*planesCount*6 + jointsIndicesOffset];
+
+        int offset = 0;
+        int indexOffset = 0;
+
+        indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride);
+        offset = AddBoxPlane(detail, vertices, offset, mZPTransform.createTranspose());
+
+        indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride);
+        offset = AddBoxPlane(detail, vertices, offset, mZMTransform.createTranspose());
+
+        indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride);
+        offset = AddBoxPlane(detail, vertices, offset, mXPTransform.createTranspose());
+
+        indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride);
+        offset = AddBoxPlane(detail, vertices, offset, mXMTransform.createTranspose());
+
+        indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride);
+        offset = AddBoxPlane(detail, vertices, offset, mYPTransform.createTranspose());
+
+        indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride);
+        offset = AddBoxPlane(detail, vertices, offset, mYMTransform.createTranspose());
+
+/*
+        indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride, detail, -1, 0, detail-1, true);
+        offset = AddBoxPlane(detail, vertices, offset, Matrix.Multiply(mZPTransform,Matrix.createRotationX(0, -1)).createTranspose(), detail, -1, 0, detail);
+
+        indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride, detail, -1, 0, detail, false);
+        offset = AddBoxPlane(detail, vertices, offset, Matrix.Multiply(mXPTransform,Matrix.createRotationZ(1, 0)).createTranspose(), detail, -1, 0, detail+1);
+
+        indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride, detail, -1, 0, detail, false);
+        offset = AddBoxPlane(detail, vertices, offset, Matrix.Multiply(mXMTransform,Matrix.createRotationZ(-1, 0)).createTranspose(), detail, -1, 0, detail+1);
+
+        indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride, detail, -1, -1, detail-1, false);
+        offset = AddBoxPlane(detail, vertices, offset, Matrix.Multiply(mXPTransform,Matrix.createRotationZ(-1, 0)).createTranspose(), detail, -1, -1, detail);
+
+        indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride, detail, -1, -1, detail-1, false);
+        offset = AddBoxPlane(detail, vertices, offset, Matrix.Multiply(mXMTransform,Matrix.createRotationZ(1, 0)).createTranspose(), detail, -1, -1, detail);
+*/
+        /*
+        offset = AddBoxPlane(detail, vertices, offset,
+                mZMTransform.createTranspose(),
+                Matrix.createRotationZ(MathF.PI / 2.0f).createTranspose(),
+                Matrix.Multiply(Matrix.createRotationZ(MathF.PI / 2.0f), Matrix.createScaling(1.0f, 1.0f, 1.0f)).createTranspose() ,
+                1);
+        */
+
+        mBatchBuffer.setValues(vertices);
+        mBatchIndexBuffer = new IndexBuffer(indices);
     }
 
     public void load(Context context){
-        mXP = TextureFactory.CreateTexture(context, mSkyBoxResource.XP, false);
-        mXM = TextureFactory.CreateTexture(context, mSkyBoxResource.XM, false);
-        mYP = TextureFactory.CreateTexture(context, mSkyBoxResource.YP, false);
-        mYM = TextureFactory.CreateTexture(context, mSkyBoxResource.YM, false);
-        mZP = TextureFactory.CreateTexture(context, mSkyBoxResource.ZP, false);
-        mZM = TextureFactory.CreateTexture(context, mSkyBoxResource.ZM, false);
+        mXP = TextureFactory.CreateTexture(context, mSkyBoxResource.XP, true);
+        mXM = TextureFactory.CreateTexture(context, mSkyBoxResource.XM, true);
+        mYP = TextureFactory.CreateTexture(context, mSkyBoxResource.YP, true);
+        mYM = TextureFactory.CreateTexture(context, mSkyBoxResource.YM, true);
+        mZP = TextureFactory.CreateTexture(context, mSkyBoxResource.ZP, true);
+        mZM = TextureFactory.CreateTexture(context, mSkyBoxResource.ZM, true);
         mBuffer.createVBO();
+        mBatchBuffer.createVBO();
     }
 
     public void render(Camera camera, Texture texture, Matrix model){
+        Shader.SkyBoxProcedural.setView(camera.getViewTransform());
+        Shader.SkyBoxProcedural.setProjection(camera.getProjectionTransform());
+        Shader.SkyBoxProcedural.setModel(model);
+        Shader.SkyBoxProcedural.setTexture(texture);
+        Shader.SkyBoxProcedural.apply();
+        mBuffer.apply(Shader.SkyBoxProcedural.Attributes);
+        Shader.SkyBoxProcedural.draw(mIndexBuffer);
+        /*
         Shader.SkyBox.setTexture(texture);
         Shader.SkyBox.setView(camera.getViewTransform());
         Shader.SkyBox.setProjection(camera.getProjectionTransform());
@@ -230,9 +543,17 @@ public class SkyBox implements IRenderable, ILoadable {
 
         Shader.SkyBox.apply();
         Shader.SkyBox.draw(mIndexBuffer);
+        */
     }
-
+    /*
     Matrix mZPTransform = Matrix.Multiply(Matrix.createTranslate(0, 0, 1), Matrix.createScaling(Distance, Distance, Distance));
+    Matrix mZMTransform = Matrix.Multiply(mZPTransform, Matrix.createRotationY(0, -1));
+    Matrix mXPTransform = Matrix.Multiply(mZPTransform, Matrix.createRotationY(1, 0));
+    Matrix mXMTransform = Matrix.Multiply(mZPTransform, Matrix.createRotationY(-1, 0));
+    Matrix mYPTransform = Matrix.Multiply(mZPTransform, Matrix.createRotationX(-1, 0));
+    Matrix mYMTransform = Matrix.Multiply(mZPTransform, Matrix.createRotationX(1, 0));
+    */
+    Matrix mZPTransform = Matrix.createScaling(Distance, Distance, Distance);
     Matrix mZMTransform = Matrix.Multiply(mZPTransform, Matrix.createRotationY(0, -1));
     Matrix mXPTransform = Matrix.Multiply(mZPTransform, Matrix.createRotationY(1, 0));
     Matrix mXMTransform = Matrix.Multiply(mZPTransform, Matrix.createRotationY(-1, 0));
@@ -240,6 +561,7 @@ public class SkyBox implements IRenderable, ILoadable {
     Matrix mYMTransform = Matrix.Multiply(mZPTransform, Matrix.createRotationX(1, 0));
 
     public void render(Camera camera){
+        /*
         mBuffer.apply();
         render(camera, mYM, mZPTransform);
         render(camera, mYP, mZMTransform);
@@ -247,6 +569,14 @@ public class SkyBox implements IRenderable, ILoadable {
         render(camera, mXP, mXMTransform);
         render(camera, mZP, mYPTransform);
         render(camera, mZM, mYMTransform);
+        */
+        mBatchBuffer.apply(Shader.SkyBoxProcedural.Attributes);
+        Shader.SkyBoxProcedural.setView(camera.getViewTransform());
+        Shader.SkyBoxProcedural.setProjection(camera.getProjectionTransform());
+        Shader.SkyBoxProcedural.setModel(Matrix.Identity);
+        Shader.SkyBoxProcedural.setTexture(mYM);
+        Shader.SkyBoxProcedural.apply();
+        Shader.SkyBoxProcedural.draw(mBatchIndexBuffer );
     }
 
     public void unload() {

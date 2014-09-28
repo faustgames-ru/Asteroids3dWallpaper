@@ -9,17 +9,17 @@ public class AttributeBufferNebula extends AttributesBuffer {
     public static final int Stride = 5 * 4;
     public static final int StrideFloat = 5;
 
-    Attribute mPosition;
-    Attribute mTexturePosition;
+    EffectAttribute mPosition;
+    EffectAttribute mTexturePosition;
 
     public AttributeBufferNebula(
-            Attribute position,
-            Attribute texturePosition) {
+            EffectAttribute position,
+            EffectAttribute texturePosition) {
         mPosition = position;
         mTexturePosition = texturePosition;
     }
 
-    public void applyAttribute(Attribute attribute, int offset, int size) {
+    public void applyAttribute(EffectAttribute attribute, int offset, int size) {
         applyAttribute(attribute, offset, size, Stride);
     }
 

@@ -2,7 +2,6 @@ package com.FaustGames.Core.Rendering.Effects.Attributes;
 
 import android.opengl.GLES20;
 import com.FaustGames.Core.GLHelper;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.IMeshVertex;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 public abstract class AttributesBuffer {
     public ByteBuffer Data;
 
-    public void applyAttribute(Attribute attribute, int offset, int size, int stride) {
+    public void applyAttribute(EffectAttribute attribute, int offset, int size, int stride) {
 
         GLES20.glEnableVertexAttribArray(attribute.mAttributeHandler);
         GLHelper.checkGlError("GLES20.glEnableVertexAttribArray");
@@ -38,11 +37,12 @@ public abstract class AttributesBuffer {
         GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, 0);
     }
 
-    public void apply(ArrayList<Attribute> attributes) {
+    public void apply(ArrayList<EffectAttribute> attributes) {
         GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, buffers[0]);
         onApply(attributes);
         GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, 0);
     }
+
     public void apply() {
         GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, buffers[0]);
         onApply();
@@ -70,7 +70,7 @@ public abstract class AttributesBuffer {
     }
 
     public abstract void onApply();
-    public void onApply(ArrayList<Attribute> attributes) {
+    public void onApply(ArrayList<EffectAttribute> attributes) {
 
     }
 

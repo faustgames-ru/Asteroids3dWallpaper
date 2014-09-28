@@ -3,14 +3,13 @@ package com.FaustGames.Core.Rendering.Effects.Attributes;
 import android.opengl.GLES20;
 import com.FaustGames.Core.GLHelper;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.IFloat;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.IPosition;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
 public class AttributeBufferFloat extends AttributeBuffer {
-    public AttributeBufferFloat(Attribute attribute) {
+    public AttributeBufferFloat(EffectAttribute attribute) {
         super(attribute);
     }
 

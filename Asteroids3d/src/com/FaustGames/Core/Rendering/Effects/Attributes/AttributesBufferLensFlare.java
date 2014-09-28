@@ -3,16 +3,16 @@ package com.FaustGames.Core.Rendering.Effects.Attributes;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.ILensFlareVertex;
 
 public class AttributesBufferLensFlare extends AttributesBuffer {
-    Attribute mPosition;
-    Attribute mScreenOffset;
-    Attribute mTexturePosition;
-    Attribute mOffset;
+    EffectAttribute mPosition;
+    EffectAttribute mScreenOffset;
+    EffectAttribute mTexturePosition;
+    EffectAttribute mOffset;
 
     public AttributesBufferLensFlare(
-            Attribute position,
-            Attribute screenOffset,
-            Attribute texturePosition,
-            Attribute offset) {
+            EffectAttribute position,
+            EffectAttribute screenOffset,
+            EffectAttribute texturePosition,
+            EffectAttribute offset) {
         mPosition = position;
         mScreenOffset = screenOffset;
         mTexturePosition = texturePosition;
@@ -40,7 +40,7 @@ public class AttributesBufferLensFlare extends AttributesBuffer {
         fillData(bufferData);
     }
 
-    public void applyAttribute(Attribute attribute, int offset, int size) {
+    public void applyAttribute(EffectAttribute attribute, int offset, int size) {
         applyAttribute(attribute, offset, size, 36);
     }
 

@@ -4,8 +4,8 @@ import com.FaustGames.Core.Mathematics.Matrix;
 import com.FaustGames.Core.Rendering.Effects.Attributes.*;
 
 public class EffectRenderDepth extends Effect {
-    public Attribute Position;
-    public Attribute TransformIndex;
+    public EffectAttribute Position;
+    public EffectAttribute TransformIndex;
 
     public EffectRenderDepth() {
         super(
