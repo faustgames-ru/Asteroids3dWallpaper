@@ -14,6 +14,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.WindowManager;
 import com.FaustGames.Core.BasicRenderView;
+import com.FaustGames.Core.Content.EntityResource;
 import com.FaustGames.Core.Content.TextureMapResource;
 import com.FaustGames.Core.DeviceConfiguration;
 import com.FaustGames.Core.Entities.Camera;
@@ -87,6 +88,7 @@ public class ServiceWallpaper extends WallpaperService implements Thread.Uncaugh
             mContent = Content.instance;
             //if (mScene == null)
             {
+                /*
                 mSkyBox = new SkyBox(mContent.SkyBox);
                 mScene = new Scene(mSkyBox, mContent.LensFlareMaps, mContent.Nebula,
                         mContent.MeshDefaultMaps,
@@ -95,6 +97,9 @@ public class ServiceWallpaper extends WallpaperService implements Thread.Uncaugh
                         mContent.SmallMeshBatch,
                         mContent.SmallMeshBatch1,
                         mContent.Particle, mContent.Cloud);
+                */
+                mScene = new Scene();
+                mScene.setEntities(mContent.getResources());
                 GyroscopeController = new GyroscopeController(context, mScene);
             }
         }

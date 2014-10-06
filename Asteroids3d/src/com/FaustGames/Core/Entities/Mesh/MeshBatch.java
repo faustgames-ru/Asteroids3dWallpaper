@@ -1,11 +1,16 @@
 package com.FaustGames.Core.Entities.Mesh;
 
 import android.content.Context;
+import android.opengl.GLES20;
 import com.FaustGames.Core.*;
+import com.FaustGames.Core.Content.EntityResource;
+import com.FaustGames.Core.Content.EntityResourceMesh;
 import com.FaustGames.Core.Content.MeshBatchResource;
 import com.FaustGames.Core.Content.MeshMapsResource;
 import com.FaustGames.Core.Entities.Camera;
+import com.FaustGames.Core.Entities.Entity;
 import com.FaustGames.Core.Entities.Light;
+import com.FaustGames.Core.Entities.Scene;
 import com.FaustGames.Core.Mathematics.MathF;
 import com.FaustGames.Core.Mathematics.Matrix;
 import com.FaustGames.Core.Mathematics.Matrix3;
@@ -26,18 +31,16 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 
-public class MeshBatch implements IRenderable, ILoadable, IUpdatable {
+public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdatable, ICreate, IDepthMapRender {
     //public ArrayList<Mesh> mMeshes;
-    MeshMapsResource mResources;
-    MeshBatchResource mBatchResource;
-
+    EntityResourceMesh _resources;
     public boolean Created = false;
 
-    public MeshBatch(MeshMapsResource resources, MeshBatchResource batchResource){
+    public MeshBatch(Scene scene, EntityResourceMesh resources){
         //mMeshes = meshes;
-        mResources = resources;
-        mBatchResource = batchResource;
-
+        _resources = resources;
+        mLight = scene.getLight();
+        MeshBatchResource batchResource = _resources.getGeometryResource();
         mTransforms = new Matrix[batchResource.Count];
         mNormalTransforms = new Matrix3[batchResource.Count];
         mMeshTransforms = new MeshTransform[batchResource.Count];
@@ -76,21 +79,25 @@ public class MeshBatch implements IRenderable, ILoadable, IUpdatable {
          */
     public void create(Context context){
         mMeshBuffer = Shader.SpecularBump.createMeshBuffer();
-        mMeshBuffer.setValues(mBatchResource.VertexBuffer);
-        mMeshIndexBuffer = new IndexBuffer(mBatchResource.IndexBuffer);
+        mMeshBuffer.setValues(_resources.getGeometryResource().VertexBuffer);
+        mMeshIndexBuffer = new IndexBuffer(_resources.getGeometryResource().IndexBuffer);
         Created = true;
     }
 
     public void renderBump(Camera camera) {
+        GLES20.glEnable(GLES20.GL_CULL_FACE);
+        GLES20.glCullFace(GLES20.GL_FRONT);
+        GLES20.glDisable(GLES20.GL_BLEND);
+        GLES20.glDepthMask(true);
+        GLES20.glEnable(GLES20.GL_DEPTH_TEST);
+
         Shader.SpecularBump.setEye(camera.getPosition());
         //Shader.SpecularBump.setFogDensity(ColorTheme.Default.FogDensity);
 
         Shader.SpecularBump.setGlowLevel(0.5f + MathF.abs(mTime) * 0.5f);
         Shader.SpecularBump.setGlowColor(ColorTheme.Default.Glow);
-        Shader.SpecularBump.setSpecularMap(mSpecular);
-        Shader.SpecularBump.setDiffuseMap(mDiffuse);
-        Shader.SpecularBump.setNormalMap(mNormal);
-        Shader.SpecularBump.setGlowMap(mGlow);
+        Shader.SpecularBump.setNormalSpecularMap(mNormalSpecular);
+        Shader.SpecularBump.setDiffuseGlowMap(mDiffuseGlow);
 
         Shader.SpecularBump.setProjectionTransform(camera.getProjectionTransform());
         Shader.SpecularBump.setViewTransform(camera.getViewTransform());
@@ -113,18 +120,14 @@ public class MeshBatch implements IRenderable, ILoadable, IUpdatable {
 
     @Override
     public void load(Context context) {
-        mDiffuse = TextureFactory.CreateTexture(context, mResources.Diffuse, false);
-        mSpecular = TextureFactory.CreateTexture(context, mResources.Specular, false);
-        mNormal = TextureFactory.CreateTexture(context, mResources.Bump, false);
-        mGlow =  TextureFactory.CreateTexture(context, mResources.Glow, false);
+        mDiffuseGlow = TextureFactory.CreateTexture(context, _resources.getDiffuseGlow(), false);
+        mNormalSpecular = TextureFactory.CreateTexture(context, _resources.getNormalSpecularMap(), false);
         mMeshBuffer.createVBO();
     }
 
     public void loadClone(MeshBatch meshBatch) {
-        mDiffuse = meshBatch.mDiffuse;
-        mSpecular = meshBatch.mSpecular;
-        mNormal = meshBatch.mNormal;
-        mGlow =  meshBatch.mGlow;
+        mDiffuseGlow = meshBatch.mDiffuseGlow;
+        mNormalSpecular = meshBatch.mNormalSpecular;
         mMeshBuffer.createVBO();
     }
 
@@ -137,10 +140,8 @@ public class MeshBatch implements IRenderable, ILoadable, IUpdatable {
     Matrix3[] mNormalTransforms;
     MeshTransform[] mMeshTransforms;
 
-    public Texture mDiffuse;
-    public Texture mSpecular;
-    public Texture mGlow;
-    public Texture mNormal;
+    public Texture mDiffuseGlow;
+    public Texture mNormalSpecular;
 
     Light mLight;
     float mTime = 0;
@@ -187,18 +188,32 @@ public class MeshBatch implements IRenderable, ILoadable, IUpdatable {
             mMeshIndexBuffer.destroy();
     }
     public void unload() {
-        if (mDiffuse != null)
-            mDiffuse.destroy();
-        if (mNormal != null)
-            mGlow.destroy();
-        if (mNormal != null)
-            mNormal.destroy();
-        if (mSpecular != null)
-            mSpecular.destroy();
+        if (mDiffuseGlow != null)
+            mDiffuseGlow.destroy();
+        if (mNormalSpecular != null)
+            mNormalSpecular.destroy();
         if (mMeshBuffer != null)
             mMeshBuffer.destroy();
         if (mMeshIndexBuffer != null)
             mMeshIndexBuffer.destroy();
+    }
+
+    @Override
+    public void renderDepth(Camera camera) {
+        GLES20.glDepthMask(true);
+        GLES20.glEnable(GLES20.GL_DEPTH_TEST);
+        GLES20.glDisable(GLES20.GL_BLEND);
+        GLES20.glEnable(GLES20.GL_CULL_FACE);
+        GLES20.glCullFace(GLES20.GL_FRONT);
+
+        Shader.RenderDepth.setViewTransform(camera.getViewTransform());
+        Shader.RenderDepth.setProjectionTransform(camera.getProjectionTransform());
+
+        Shader.RenderDepth.setModelTransforms(mTransforms);
+        Shader.RenderDepth.apply();
+        mMeshBuffer.applyForDepth(Shader.RenderDepth.Position, Shader.RenderDepth.TransformIndex);
+        Shader.RenderDepth.draw(getIndexBuffer());
+
     }
 }
 

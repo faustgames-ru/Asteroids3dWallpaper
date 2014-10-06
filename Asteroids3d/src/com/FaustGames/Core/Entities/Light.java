@@ -3,8 +3,10 @@ package com.FaustGames.Core.Entities;
 import com.FaustGames.Core.Mathematics.MathF;
 import com.FaustGames.Core.Mathematics.Matrix;
 import com.FaustGames.Core.Mathematics.Vertex;
+import com.FaustGames.Core.Rendering.Color;
 
 public class Light {
+    Color Color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     Vertex mPosition;
     Matrix mTransform;
     float mLensBrightness = 1.0f;

@@ -8,6 +8,8 @@ public class Shader {
         Effect.Create(context);
     }
     public static EffectPositionTexture PositionTexture = new EffectPositionTexture();
+    public static EffectLensLight LensLight = new EffectLensLight();
+    public static EffectPositionColorTexture PositionColorTexture = new EffectPositionColorTexture();
     public static EffectSkyBoxProcedural SkyBoxProcedural = new EffectSkyBoxProcedural();
     public static EffectSkyBox SkyBox = new EffectSkyBox();
     public static EffectSpecularBump SpecularBump = new EffectSpecularBump();

@@ -221,22 +221,24 @@ public class SkyBox implements IRenderable, ILoadable {
                     MathF.rand(0.9f, 1.0f),
                     1.0f);
 
-            float c0 = MathF.rand(0.0f, 1.0f);
+            float c0 = MathF.saturate(MathF.rand(-1.0f, 1.2f));
+            /*
             if (c0 < 0.5)
                 c0 = MathF.rand(0.0f, 0.3f);
             else
                 c0 = MathF.rand(0.0f, 1.0f);
-
-            float c1 = MathF.rand(0.0f, 1.0f);
+            */
+            float c1 = MathF.saturate(MathF.rand(-1.0f, 1.2f));
+            /*
             if (c1 < 0.5)
                 c1 = MathF.rand(0.0f, 0.3f);
             else
                 c1 = MathF.rand(0.0f, 1.0f);
-
+            */
             Clouds0 = new Color(
-                    MathF.rand(0.7f, 1.0f),
-                    MathF.rand(0.7f, 1.0f),
-                    MathF.rand(0.7f, 1.0f),
+                    MathF.rand(0.8f, 1.0f),
+                    MathF.rand(0.8f, 1.0f),
+                    MathF.rand(0.8f, 1.0f),
                     c0);
             Clouds1 = new Color(
                     MathF.rand(0.7f, 1.0f),
@@ -258,7 +260,7 @@ public class SkyBox implements IRenderable, ILoadable {
     }
 
     VertexColor GetColor(Vertex position, int detail) {
-
+        /*
         float dot0 = Vertex.dotProduct(position, new Vertex(1, 1, 0).normalize());
         if (MathF.abs(dot0) < 0.001)
             return EmptyVertexColor;
@@ -271,6 +273,7 @@ public class SkyBox implements IRenderable, ILoadable {
         dot0 = Vertex.dotProduct(position, new Vertex(0, 1, -1).normalize());
         if (MathF.abs(dot0) < 0.001)
             return EmptyVertexColor;
+        */
         /*
         float dot1 = Vertex.dotProduct(position, new Vertex(-1, 1, 1).normalize());
         if (MathF.abs(dot1) > 0.95)
@@ -441,7 +444,7 @@ public class SkyBox implements IRenderable, ILoadable {
         EmptyVertexColor.Clouds0.rgba[3] = 0.0f;
         EmptyVertexColor.Clouds1.rgba[3] = 0.0f;
         int stride = mBatchBuffer.FloatStride;
-        int detail = 6;
+        int detail = 4;
 
         ColorSpace = new VertexColor[detail][][];
         for (int i = 0; i < ColorSpace.length; i++) {
@@ -454,8 +457,8 @@ public class SkyBox implements IRenderable, ILoadable {
             }
         }
 
-        int jointsVerticesOffset = 0;// ((detail + 1)*(detail + 1)*5)*stride;
-        int jointsIndicesOffset = 0;//detail*6 * 6;
+        int jointsVerticesOffset = ((detail + 1)*(detail + 1)*5)*stride;
+        int jointsIndicesOffset = detail*6 * 6;
 
         int planesCount = 6;
 
@@ -483,7 +486,7 @@ public class SkyBox implements IRenderable, ILoadable {
         indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride);
         offset = AddBoxPlane(detail, vertices, offset, mYMTransform.createTranspose());
 
-/*
+
         indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride, detail, -1, 0, detail-1, true);
         offset = AddBoxPlane(detail, vertices, offset, Matrix.Multiply(mZPTransform,Matrix.createRotationX(0, -1)).createTranspose(), detail, -1, 0, detail);
 
@@ -498,7 +501,7 @@ public class SkyBox implements IRenderable, ILoadable {
 
         indexOffset = AddBoxPlaneIndices(detail, indices, indexOffset, offset, stride, detail, -1, -1, detail-1, false);
         offset = AddBoxPlane(detail, vertices, offset, Matrix.Multiply(mXMTransform,Matrix.createRotationZ(1, 0)).createTranspose(), detail, -1, -1, detail);
-*/
+
         /*
         offset = AddBoxPlane(detail, vertices, offset,
                 mZMTransform.createTranspose(),
@@ -570,6 +573,7 @@ public class SkyBox implements IRenderable, ILoadable {
         render(camera, mZP, mYPTransform);
         render(camera, mZM, mYMTransform);
         */
+
         mBatchBuffer.apply(Shader.SkyBoxProcedural.Attributes);
         Shader.SkyBoxProcedural.setView(camera.getViewTransform());
         Shader.SkyBoxProcedural.setProjection(camera.getProjectionTransform());

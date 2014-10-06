@@ -1,10 +1,7 @@
 package com.FaustGames.Core.Rendering.Textures;
 
 import android.content.Context;
-import com.FaustGames.Core.Content.TextureDrawableResource;
-import com.FaustGames.Core.Content.TextureImageResource;
-import com.FaustGames.Core.Content.TextureMapResource;
-import com.FaustGames.Core.Content.TextureResource;
+import com.FaustGames.Core.Content.*;
 
 public class TextureFactory {
     public static  Texture CreateTexture(Context context, TextureResource textureResource, boolean wrap) {
@@ -15,6 +12,8 @@ public class TextureFactory {
             return new TextureUncompressed(context, (TextureImageResource)textureResource, wrap);
         if (textureResource instanceof TextureDrawableResource)
             return new TextureDrawable(context, (TextureDrawableResource)textureResource, wrap);
+        if (textureResource instanceof TextureRawResource)
+            return new TextureRaw(context, (TextureRawResource)textureResource, wrap);
 
         return null;
     }

@@ -11,7 +11,9 @@ varying vec2 v_TexturePosition;
 varying vec4 v_Position;
 varying vec4 v_PositionCenter;
 varying float v_Blend;
+varying float v_Mix;
 varying vec4 v_Color;
+
 void main()
 {
 	vec4 pos = u_ViewMatrix * vec4(a_Position, 1.0);
@@ -40,12 +42,16 @@ void main()
 	}
 	
 	if (a_ScreenOffset[2] > 0.5)
+	{
 		v_Position = 0.5 + gl_Position * 0.5;
+		v_Mix = 1.0;
+	}
 	else 
 	{
 		v_Position = v_PositionCenter;
 		if (viewZ > 0.0 ) 
 			gl_Position.z = 0.01;
+		v_Mix = 0.0;
 	}
 	
 	v_Blend = clamp(0.8 + len * 0.5, 0.0, 1.0);

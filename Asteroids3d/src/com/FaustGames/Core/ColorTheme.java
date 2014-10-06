@@ -32,11 +32,11 @@ public class ColorTheme {
 
     public int TitleId = R.string.color_theme_default;
     public Color Light = new Color(1, 1, 1.0f, 1);
-    public Color LightSpecular = new Color(1, 1, 1.0f, 1);
-    public Color LightAmbient= new Color(0.1f, 0.1f, 0.1f, 1);
+    public Color LightSpecular = new Color(0.5f, 0.5f, 0.25f, 1);
+    public Color LightAmbient= new Color(0.1f, 0.1f, 0.2f, 1);
     public Color SkyBoxColor= new Color(1.0f, 1.0f, 1.0f, 1);
     public Color Lens = new Color(1.0f, 1.0f, 1.0f, 1);
-    public Color Glow = new Color(1, 0.75f, 0.5f, 1);
+    public Color Glow = new Color(1.0f, 0.9f, 0.75f, 1);
     public Color NebulaBack = new Color(1, 0.25f, 0.25f, 1);
     public Color NebulaFront= new Color(1, 0.5f, 0.5f, 1);
     public float FogDensity = 0.1f;

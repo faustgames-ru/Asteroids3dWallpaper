@@ -3,21 +3,12 @@ package com.FaustGames.Core.Entities;
 import android.content.Context;
 import com.FaustGames.Core.*;
 import com.FaustGames.Core.Content.NebulaResource;
-import com.FaustGames.Core.Entities.Mesh.Mesh;
 import com.FaustGames.Core.Mathematics.MathF;
-import com.FaustGames.Core.Mathematics.Matrix;
-import com.FaustGames.Core.Mathematics.Matrix3;
-import com.FaustGames.Core.Rendering.Color;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeBufferFloat;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeBufferNebula;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeBufferPosition;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.IMeshVertex;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.INebulaVertex;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.PositionTexture;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributesBufferMesh;
 import com.FaustGames.Core.Rendering.IndexBuffer;
 import com.FaustGames.Core.Rendering.Textures.Texture;
-import com.FaustGames.Core.Rendering.Textures.TextureETC1;
 import com.FaustGames.Core.Rendering.Textures.TextureFactory;
 
 public class NebulaBatch implements IRenderable, ILoadable, IUpdatable {

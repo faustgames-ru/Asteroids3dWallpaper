@@ -80,6 +80,13 @@ public class Vertex {
                 v1.getZ() + v2.getZ());
     }
 
+    public static Vertex add(Vertex v1, Vertex v2, Vertex v3){
+        return new Vertex(
+                v1.getX() + v2.getX() + v3.getX(),
+                v1.getY() + v2.getY() + v3.getY(),
+                v1.getZ() + v2.getZ() + v3.getZ());
+    }
+
     public static Vertex mul(Vertex v1, Vertex v2){
         return new Vertex(
                 v1.getX() * v2.getX(),

@@ -12,10 +12,12 @@ public class VertexBufferAttribute {
     }
 
     public static VertexBufferAttribute Position = new VertexBufferAttribute(AttributeNames.Position, 3);
+    public static VertexBufferAttribute Center = new VertexBufferAttribute(AttributeNames.Center, 3);
     public static VertexBufferAttribute TexturePosition = new VertexBufferAttribute(AttributeNames.TexturePosition, 2);
     public static VertexBufferAttribute CloudsColor0 = new VertexBufferAttribute(AttributeNames.CloudsColor0, 4);
     public static VertexBufferAttribute CloudsColor1 = new VertexBufferAttribute(AttributeNames.CloudsColor1, 4);
     public static VertexBufferAttribute StartsColor = new VertexBufferAttribute(AttributeNames.StartsColor, 4);
+    public static VertexBufferAttribute Color = new VertexBufferAttribute(AttributeNames.Color, 4);
     public static VertexBufferAttribute Alpha = new VertexBufferAttribute(AttributeNames.Alpha, 1);
     public static VertexBufferAttribute Normal = new VertexBufferAttribute(AttributeNames.Normal, 3);
     public static VertexBufferAttribute Tangent = new VertexBufferAttribute(AttributeNames.Tangent, 3);

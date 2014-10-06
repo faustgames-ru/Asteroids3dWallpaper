@@ -3,22 +3,14 @@ package com.FaustGames.Core.Entities;
 import android.content.Context;
 import com.FaustGames.Core.ColorTheme;
 import com.FaustGames.Core.Content.LensFlareMapsResource;
-import com.FaustGames.Core.Entities.Mesh.Mesh;
 import com.FaustGames.Core.ILoadable;
 import com.FaustGames.Core.IRenderable;
-import com.FaustGames.Core.Mathematics.MathF;
-import com.FaustGames.Core.Mathematics.Matrix;
-import com.FaustGames.Core.Mathematics.Matrix3;
-import com.FaustGames.Core.Mathematics.Vertex;
-import com.FaustGames.Core.Rendering.Color;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.ILensFlareVertex;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.IMeshVertex;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.LensFlareVertex;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.PositionTexture;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributesBufferLensFlare;
 import com.FaustGames.Core.Rendering.IndexBuffer;
 import com.FaustGames.Core.Rendering.Textures.Texture;
-import com.FaustGames.Core.Rendering.Textures.TextureETC1;
 import com.FaustGames.Core.Rendering.Textures.TextureFactory;
 import com.FaustGames.Core.Rendering.Textures.TextureRenderTarget;
 import com.FaustGames.Core.Shader;
@@ -73,7 +65,7 @@ public class LensFlareBatch implements IRenderable, ILoadable {
     };
 
     lensRingContainer[] mContainres = new lensRingContainer[]{
-            new lensRingContainer(mOffsets1, 1.0f, 0),
+            new lensRingContainer(mOffsets1, 1.0f, 0.5f),
             new lensRingContainer(mOffsets1, 0.98f, 0),
             //new lensRingContainer(mOffsets2, 0.25f, 0),
             //new lensRingContainer(mOffsets2, -0.25f, 0),

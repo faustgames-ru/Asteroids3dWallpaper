@@ -10,10 +10,12 @@ public class Content {
         if (instance == null)
             instance = new Content(context);
     }
-    private Content(Context context){
+    private Content(Context context) {
 
         boolean limitSize = !DeviceConfiguration.isTablet;
+
         TextureDrawableResource noise = new TextureDrawableResource(R.drawable.noise, R.drawable.noise);
+        /*
         SkyBox = new SkyBoxResource(
                 //new TextureDrawableResource(R.drawable.skybox_hd_xp, R.drawable.skybox_hd_small_xp),
                 //new TextureDrawableResource(R.drawable.skybox_hd_xm, R.drawable.skybox_hd_small_xm),
@@ -36,7 +38,8 @@ public class Content {
                 );
 
         LensFlareMaps = new LensFlareMapsResource(new TextureMapResource(context, "lens_flare", limitSize));
-
+        */
+/*
         MeshDefaultMaps = new MeshMapsResource(
                 new TextureDrawableResource(R.drawable.asteroid_180_nrm, R.drawable.asteroid_180_nrm_small),
                 //new TextureMapResource(context, "asteroid_180_nrm", false),
@@ -52,7 +55,8 @@ public class Content {
                 new TextureMapResource(context, "asteroid_80", true),
                 new TextureMapResource(context, "asteroid_80_glw", true)
         );
-
+*/
+/*
         //Glass = new TextureMapResource(context, "glass");
         Particle = new TextureMapResource(context, "particle", true);
         Cloud = new TextureMapResource(context, "cloud", true);
@@ -64,7 +68,33 @@ public class Content {
         Nebula = new NebulaResource(
                 new TextureMapResource(context, "nebula1", true),
                 new TextureMapResource(context, "nebula2", true));
+*/
+        Lights = new EntityResourceLights(new TextureDrawableResource(R.drawable.star_light));
+        LensFlare = new EntityResourceLensFlare(new TextureDrawableResource(R.drawable.lens_light));
+        ProceduralSkybox = new EntityResourceProceduralSkybox(noise);
 
+        Meshes = new EntityResourceMesh[]{
+            new EntityResourceMesh(
+                    new MeshBatchResource(context, "asteroids_180_v", "asteroids_180_i", "asteroids_180_t", false),
+                    new TextureRawResource(R.raw.asteroid_180_nrm_spc),
+                    new TextureRawResource(R.raw.asteroid_180_dif_glw)
+                    ),
+            new EntityResourceMesh(
+                    new MeshBatchResource(context, "asteroids_80_v", "asteroids_80_i", "asteroids_80_t", false),
+                    new TextureRawResource(R.raw.asteroid_80_nrm_spc),
+                    new TextureRawResource(R.raw.asteroid_80_dif_glw)
+            )
+        };
+    }
+
+    public EntityResource[] getResources(){
+        return new EntityResource[]{
+            ProceduralSkybox,
+            Lights,
+            Meshes[0],
+            Meshes[1],
+            LensFlare,
+        };
     }
 
     public SkyBoxResource SkyBox;
@@ -79,4 +109,9 @@ public class Content {
     //public TextureMapResource Glass;
     public TextureMapResource Particle;
     public TextureMapResource Cloud;
+
+    public EntityResourceLights Lights;
+    public EntityResourceProceduralSkybox ProceduralSkybox;
+    public EntityResourceLensFlare LensFlare;
+    public EntityResourceMesh[] Meshes;
 }

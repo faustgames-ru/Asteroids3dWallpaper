@@ -50,6 +50,9 @@ public class MathF {
     public static float rand(float from, float to) {
         return from + mRandom.nextFloat() * (to - from);
     }
+    public static float saturate(float v) {
+        return v < 0?0:v>1?1:v;
+    }
 
     public static int rand(int max) {
         int result = (int)rand((float)max);

@@ -17,10 +17,10 @@ public class EffectSpecularBump extends Effect {
     int mViewMatrixParameterIndex;
     int mProjectionMatrixParameterIndex;
     int mLightPositionParameterIndex;
-    int mSpecularParameterIndex;
-    int mDiffuseParameterIndex;
-    int mNormalParameterIndex;
-    int mGlowParameterIndex;
+    //int mSpecularParameterIndex;
+    int mDiffuseGlowParameterIndex;
+    int mNormalSpecularParameterIndex;
+    //int mGlowParameterIndex;
     int mSpecularLightParameterIndex;
     int mDiffuseLightParameterIndex;
     int mAmbientLightParameterIndex;
@@ -41,10 +41,10 @@ public class EffectSpecularBump extends Effect {
                     "u_ViewMatrix",
                     "u_ProjectionMatrix",
                     "u_LightPosition",
-                    "u_Specular",
-                    "u_Diffuse",
-                    "u_Normal",
-                    "u_Glow",
+                    //"u_Specular",
+                    "u_DiffuseGlow",
+                    "u_NormalSpecular",
+                    //"u_Glow",
                     "u_SpecularLight",
                     "u_DiffuseLight",
                     "u_AmbientLight",
@@ -66,14 +66,12 @@ public class EffectSpecularBump extends Effect {
         mViewMatrixParameterIndex = 3;
         mProjectionMatrixParameterIndex = 4;
         mLightPositionParameterIndex = 5;
-        mSpecularParameterIndex = 6;
-        mDiffuseParameterIndex = 7;
-        mNormalParameterIndex = 8;
-        mGlowParameterIndex = 9;
-        mSpecularLightParameterIndex = 10;
-        mDiffuseLightParameterIndex = 11;
-        mAmbientLightParameterIndex = 12;
-        mTimeParameterIndex = 13;
+        mDiffuseGlowParameterIndex = 6;
+        mNormalSpecularParameterIndex = 7;
+        mSpecularLightParameterIndex = 8;
+        mDiffuseLightParameterIndex = 9;
+        mAmbientLightParameterIndex = 10;
+        mTimeParameterIndex = 11;
 
         mPositionAttributeIndex = 0;
         mNormalAttributeIndex = 1;
@@ -96,7 +94,7 @@ public class EffectSpecularBump extends Effect {
         Parameters.get(mTimeParameterIndex).setFloat(value);
     }
     public void setGlowColor(Color value){
-        Parameters.get(14).setColor(value);
+        Parameters.get(12).setColor(value);
     }
     public void setNormalTransform(Matrix3 matrix){
         Parameters.get(mNormalMatrixParameterIndex).setMatrix(matrix);
@@ -125,21 +123,12 @@ public class EffectSpecularBump extends Effect {
         Parameters.get(mAmbientLightParameterIndex).setColor(ambient);
     }
 
-    public void setSpecularMap(Texture texture){
-        Parameters.get(mSpecularParameterIndex).setTexture(0, texture);
+    public void setDiffuseGlowMap(Texture texture){
+        Parameters.get(mDiffuseGlowParameterIndex).setTexture(1, texture);
     }
 
-
-    public void setDiffuseMap(Texture texture){
-        Parameters.get(mDiffuseParameterIndex).setTexture(1, texture);
-    }
-
-    public void setNormalMap(Texture texture){
-        Parameters.get(mNormalParameterIndex).setTexture(2, texture);
-    }
-
-    public void setGlowMap(Texture texture){
-        Parameters.get(mGlowParameterIndex).setTexture(3, texture);
+    public void setNormalSpecularMap(Texture texture){
+        Parameters.get(mNormalSpecularParameterIndex).setTexture(2, texture);
     }
 
     public AttributeBufferPosition createPositionBuffer(){
@@ -167,7 +156,7 @@ public class EffectSpecularBump extends Effect {
     }
 
     public void setEye(Vertex v) {
-        Parameters.get(15).setPosition(v);
+        Parameters.get(13).setPosition(v);
     }
 
     public AttributesBufferMesh createMeshBuffer(){

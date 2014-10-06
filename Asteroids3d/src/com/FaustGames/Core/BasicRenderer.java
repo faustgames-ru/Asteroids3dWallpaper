@@ -52,7 +52,7 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
 
         mDestroyed = false;
 
-        mScene.unload();
+        //mScene.unload();
 
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         GLES20.glClearDepthf(1.0f);
@@ -99,12 +99,18 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
             long time = System.currentTimeMillis();
             if (lastTime > 0)
                 update((float)(time - lastTime) * 0.001f);
-
+            /*
             GLES20.glClearColor(
                     ColorTheme.Default.LightAmbient.getR(),
                     ColorTheme.Default.LightAmbient.getG(),
                     ColorTheme.Default.LightAmbient.getB(),
                     ColorTheme.Default.LightAmbient.getA());
+            */
+            GLES20.glClearColor(
+                    0,
+                    0,
+                    0,
+                    0);
             GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
             mScene.render();
 
@@ -188,6 +194,6 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
 
     public void destroyContext() {
         Shader.unload();
-        mScene.unload();
+        //mScene.unload();
     }
 }
