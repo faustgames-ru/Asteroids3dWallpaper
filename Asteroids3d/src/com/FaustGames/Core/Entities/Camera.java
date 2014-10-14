@@ -2,6 +2,7 @@ package com.FaustGames.Core.Entities;
 
 import com.FaustGames.Core.Entities.Transforms.Rotation;
 import com.FaustGames.Core.Entities.Transforms.Translation;
+import com.FaustGames.Core.Geometry.*;
 import com.FaustGames.Core.IUpdatable;
 import com.FaustGames.Core.Mathematics.MathF;
 import com.FaustGames.Core.Mathematics.Matrix;
@@ -12,14 +13,14 @@ import com.FaustGames.Core.Physics.AngularValue;
 import java.sql.Statement;
 import java.util.Vector;
 
-public class Camera implements IUpdatable {
+public class Camera implements IUpdatable, IGeometryTreeItem, IGeometryShapeSphere, IGeometryDynamic {
     Matrix mProjection = Matrix.Identity;
     Matrix mLensProjection = Matrix.Identity;
     Matrix mSkyBoxTransform = Matrix.Identity;
     Matrix mViewTransform = Matrix.Identity;
     Matrix mFullTransform = Matrix.Identity;
     Matrix3 mNormal = Matrix3.Identity;
-    float mFov = MathF.PI / 2.0f;
+    float mFov = MathF.PI / 4.0f;
     float mHeight = 100;
     float mDistance = 32.0f;
     public float Aspect;
@@ -63,6 +64,7 @@ public class Camera implements IUpdatable {
                     mFullTransform.getXX(), mFullTransform.getXY(), mFullTransform.getXZ(),
                     mFullTransform.getYX(), mFullTransform.getYY(), mFullTransform.getYZ(),
                     mFullTransform.getZX(), mFullTransform.getZY(), mFullTransform.getZZ());
+            _bounds.apply(position, getRadius());
         }
     }
 
@@ -123,7 +125,51 @@ public class Camera implements IUpdatable {
         return mNormal;
     }
 
+    @Override
+    public float getRadius() {
+        return 5;
+    }
+
+    Bounds _bounds = new Bounds();
+
     public Vertex getPosition() {
         return position;
+    }
+
+    @Override
+    public void applyBonce(Vertex direction) {
+
+    }
+
+    @Override
+    public float getBonce() {
+        return 0;
+    }
+
+    @Override
+    public Bounds getBounds() {
+        return _bounds;
+    }
+
+    int _geometryTreeNodeId;
+
+    @Override
+    public int getGeometryTreeNodeId() {
+        return _geometryTreeNodeId;
+    }
+
+    @Override
+    public void setGeometryTreeNodeId(int value) {
+        _geometryTreeNodeId = value;
+    }
+
+    @Override
+    public ShapesType getShapeType() {
+        return ShapesType.Sphere;
+    }
+
+    @Override
+    public float getMass() {
+        return 1e20f;
     }
 }

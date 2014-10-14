@@ -10,7 +10,7 @@ uniform vec4 u_GlowColor;
 varying vec2 v_TexturePosition;
 varying vec3 v_Light;
 varying vec3 v_HalfVector;
-varying float v_distance;
+varying float v_Distance;
 varying vec3 v_RayDirection;
 varying vec3 v_SunDirection;
 varying vec3 v_Eye;
@@ -32,8 +32,8 @@ void main()
 
 	float specularMaterial = mapNormalSpecular.w;
 
-	float shininess = pow(dot(normalize(v_HalfVector), normal), 4.0);
+	float shininess = pow(dot(normalize(v_HalfVector), -normal), 8.0);
 	color += diffuseMaterial * clamp(u_AmbientLight * normal.z + u_DiffuseLight * lamberFactor, 0.0, 1.0);
-	color += specularMaterial * u_SpecularLight * shininess;
+	color += u_SpecularLight * (shininess * specularMaterial);
 	gl_FragColor = color;
 }

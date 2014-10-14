@@ -19,14 +19,30 @@ public class Emitter {
     public FloatValueRange RebornTime;
     public FloatValueRange InitPhase;
 
+    public static Emitter createDefault(){
+        return new Emitter();
+    }
+
+    public static Emitter createFires(){
+        Emitter result = new Emitter();
+        result.InitFires();
+        return result;
+    }
+
+    public static Emitter createClouds(){
+        Emitter result = new Emitter();
+        result.InitClouds();
+        return result;
+    }
+
     public Emitter()
     {
         Position = new VectorValueRange(new Vertex(-30f, -30f, -30f), new Vertex(30f, 30f, 30f));
         Velocity = new VectorValueRange(new Vertex(0.25f, -0.5f, -0.5f), new Vertex(0.25f, 0.5f, 0.5f));
         Acceleration = new VectorValueRange(new Vertex(0.0f, 0.0f, 0.0f), new Vertex(0.1f, 0.0f, 0.0f));
         Color = new VectorValueRange(0.65f, 1.0f);
-        Count = 200;
-        Scale = new FloatValueRange(0.1f, 0.2f);
+        Count = 400;
+        Scale = new FloatValueRange(0.2f, 0.4f);
         LifeTime = new FloatValueRange(2.0f, 3.0f);
         RebornTime = new FloatValueRange(0.0f, 0.5f);
         InitPhase = new FloatValueRange(0.0f, LifeTime.Max - LifeTime.Min);
@@ -38,12 +54,12 @@ public class Emitter {
             Position = new VectorValueRange(new Vertex(-20f, -20f, -20f), new Vertex(20f, 20f, 20f));
         else
             Position = new VectorValueRange(new Vertex(-20f, -20f, -20f), new Vertex(20f, 20f, 20f));
-        Velocity = new VectorValueRange(new Vertex(1f, -1f, -1f), new Vertex(1f, 1f, 1f));
+        Velocity = new VectorValueRange(new Vertex(5f, -5f, -5f), new Vertex(5f, 5f, 5f));
         Acceleration = new VectorValueRange(new Vertex(2.0f, 0.0f, 0.0f), new Vertex(2.5f, 0.0f, 0.0f));
         Color = new VectorValueRange(0.65f, 1.0f);
-        Count = 200;
+        Count = 400;
         if (DeviceConfiguration.isTablet)
-            Scale = new FloatValueRange(0.05f, 0.2f);
+            Scale = new FloatValueRange(0.1f, 0.3f);
         else
             Scale = new FloatValueRange(0.05f, 0.2f);
         LifeTime = new FloatValueRange(0.5f, 1.0f);
@@ -54,17 +70,17 @@ public class Emitter {
     public void InitClouds()
     {
         if (DeviceConfiguration.isTablet)
-            Position = new VectorValueRange(new Vertex(-15f, -15f, -15f), new Vertex(15f, 15f, 15f));
+            Position = new VectorValueRange(new Vertex(-20f, -20f, -20f), new Vertex(20f, 20f, 20f));
         else
-            Position = new VectorValueRange(new Vertex(-15f, -15f, -15f), new Vertex(15f, 15f, 15f));
-        Velocity = new VectorValueRange(new Vertex(-0.125f, -0.125f, -0.125f), new Vertex(0.125f, 0.125f, 0.125f));
-        Acceleration = new VectorValueRange(new Vertex(-0.1f, 0.0f, 0.0f), new Vertex(0.1f, 0.0f, 0.0f));
+            Position = new VectorValueRange(new Vertex(-20f, -20f, -20f), new Vertex(20f, 20f, 20f));
+        Velocity = new VectorValueRange(new Vertex(-2f, -2f, -2f), new Vertex(2f, 2f, 2f));
+        Acceleration = new VectorValueRange(new Vertex(-1f, 0.0f, 0.0f), new Vertex(1f, 0.0f, 0.0f));
         Color = new VectorValueRange(0.65f, 1.0f);
-        Count = 20;
+        Count = 10;
         if (DeviceConfiguration.isTablet)
             Scale = new FloatValueRange(30.0f, 40.0f);
         else
-            Scale = new FloatValueRange(10.0f, 20.0f);
+            Scale = new FloatValueRange(5.0f, 15.0f);
         LifeTime = new FloatValueRange(3.0f, 6.0f);
         RebornTime = new FloatValueRange(0.0f, 0.5f);
         InitPhase = new FloatValueRange(0.0f, LifeTime.Max - LifeTime.Min);

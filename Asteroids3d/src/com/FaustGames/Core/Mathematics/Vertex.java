@@ -28,6 +28,21 @@ public class Vertex {
         xyz[2] = z;
     }
 
+    public void limit(float min, float max){
+        if (getX() < min)
+            setX(min);
+        if (getY() < min)
+            setY(min);
+        if (getZ() < min)
+            setZ(min);
+        if (getX() > max)
+            setX(max);
+        if (getY() > max)
+            setY(max);
+        if (getZ() > max)
+            setZ(max);
+    }
+
     public Vertex inverse() {
         return new Vertex(-getX(), -getY(), -getZ());
     }
@@ -78,13 +93,6 @@ public class Vertex {
                 v1.getX() + v2.getX(),
                 v1.getY() + v2.getY(),
                 v1.getZ() + v2.getZ());
-    }
-
-    public static Vertex add(Vertex v1, Vertex v2, Vertex v3){
-        return new Vertex(
-                v1.getX() + v2.getX() + v3.getX(),
-                v1.getY() + v2.getY() + v3.getY(),
-                v1.getZ() + v2.getZ() + v3.getZ());
     }
 
     public static Vertex mul(Vertex v1, Vertex v2){
@@ -176,5 +184,46 @@ public class Vertex {
 
     public float[] toArray() {
         return xyz;
+    }
+
+    public void clear() {
+        setX(0.0f);
+        setY(0.0f);
+        setZ(0.0f);
+    }
+
+    public static void inverse(Vertex direction, Vertex result){
+        result.setX(-direction.getX());
+        result.setY(-direction.getY());
+        result.setZ(-direction.getZ());
+    }
+
+    public static void sub(Vertex position0, Vertex position1, Vertex result){
+        result.setX(position0.getX() - position1.getX());
+        result.setY(position0.getY() - position1.getY());
+        result.setZ(position0.getZ() - position1.getZ());
+    }
+
+
+    public static void sub(Vertex position0, float position1, Vertex result){
+        result.setX(position0.getX() - position1);
+        result.setY(position0.getY() - position1);
+        result.setZ(position0.getZ() - position1);
+    }
+
+    public static void add(Vertex position0, float position1, Vertex result){
+        result.setX(position0.getX() + position1);
+        result.setY(position0.getY() + position1);
+        result.setZ(position0.getZ() + position1);
+    }
+
+    public static void div(Vertex direction, float value){
+        direction.setX(direction.getX() / value);
+        direction.setY(direction.getY() / value);
+        direction.setZ(direction.getZ() / value);
+    }
+
+    public static float lengthSqr(Vertex position0, Vertex position1) {
+        return MathF.sqr(position0.getX() - position1.getX()) + MathF.sqr(position0.getY()-position1.getY()) + MathF.sqr(position0.getZ()-position1.getZ());
     }
 }

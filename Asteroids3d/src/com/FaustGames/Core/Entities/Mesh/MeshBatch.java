@@ -11,6 +11,9 @@ import com.FaustGames.Core.Entities.Camera;
 import com.FaustGames.Core.Entities.Entity;
 import com.FaustGames.Core.Entities.Light;
 import com.FaustGames.Core.Entities.Scene;
+import com.FaustGames.Core.Geometry.Bounds;
+import com.FaustGames.Core.Geometry.IGeometryContainer;
+import com.FaustGames.Core.Geometry.IGeometryTreeItem;
 import com.FaustGames.Core.Mathematics.MathF;
 import com.FaustGames.Core.Mathematics.Matrix;
 import com.FaustGames.Core.Mathematics.Matrix3;
@@ -31,52 +34,36 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 
-public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdatable, ICreate, IDepthMapRender {
+public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdatable, ICreate, IDepthMapRender, IGeometryContainer {
     //public ArrayList<Mesh> mMeshes;
     EntityResourceMesh _resources;
     public boolean Created = false;
+    Scene _scene;
+
+    public MeshBatchItem[] _items;
 
     public MeshBatch(Scene scene, EntityResourceMesh resources){
-        //mMeshes = meshes;
+        _scene = scene;
         _resources = resources;
         mLight = scene.getLight();
         MeshBatchResource batchResource = _resources.getGeometryResource();
+        _items = new MeshBatchItem[resources.getDuplicatesCount() + 1];
+        _items[0] = new MeshBatchItem(_resources, true, _meshes);
+        for (int j = 1; j < _items.length; j++) {
+            _items[j] = new MeshBatchItem(_resources, true, _meshes);
+        }
+/*
         mTransforms = new Matrix[batchResource.Count];
         mNormalTransforms = new Matrix3[batchResource.Count];
-        mMeshTransforms = new MeshTransform[batchResource.Count];
         for (int j = 0; j < mTransforms.length; j++) {
-            mTransforms[j] = batchResource.Positions[j];
-            mNormalTransforms[j] =new Matrix3(
-                    mTransforms[j].getXX(), mTransforms[j].getXY(), mTransforms[j].getXZ(),
-                    mTransforms[j].getYX(), mTransforms[j].getYY(), mTransforms[j].getYZ(),
-                    mTransforms[j].getZX(), mTransforms[j].getZY(), mTransforms[j].getZZ());
-
-            int r = MathF.rand(2);
-            if (r == 0)
-            {
-                mMeshTransforms[j] = new MeshTransform();
-                mMeshTransforms[j].rotationVelocity = MathF.rand(-0.5f, 0.5f);
-            }
-            else if (r == 1)
-            {
-                mMeshTransforms[j] = new MeshTransformX();
-                mMeshTransforms[j].rotationVelocity = MathF.rand(-0.25f, 0.25f);
-            }
-            else
-            {
-                mMeshTransforms[j] = new MeshTransformY();
-                mMeshTransforms[j].rotationVelocity = MathF.rand(-0.25f, 0.25f);
-            }
-
-            mMeshTransforms[j].Origin = mTransforms[j];
+            mTransforms[j] = batchResource.Positions[j].Transform;
+            mNormalTransforms[j] = new Matrix3();
+            mNormalTransforms[j].fromMatrix4(mTransforms[j]);
+            _meshes.add(new GeometryItemMesh(batchResource.Positions[j].Position, batchResource.Positions[j].R, 1.0f, 0.1f, mTransforms[j]));
         }
+*/
     }
-        /*
-    public MeshBatch(MeshMapsResource resources, ArrayList<Mesh> meshes){
-        mMeshes = meshes;
-        mResources = resources;
-    }
-         */
+
     public void create(Context context){
         mMeshBuffer = Shader.SpecularBump.createMeshBuffer();
         mMeshBuffer.setValues(_resources.getGeometryResource().VertexBuffer);
@@ -92,7 +79,6 @@ public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdata
         GLES20.glEnable(GLES20.GL_DEPTH_TEST);
 
         Shader.SpecularBump.setEye(camera.getPosition());
-        //Shader.SpecularBump.setFogDensity(ColorTheme.Default.FogDensity);
 
         Shader.SpecularBump.setGlowLevel(0.5f + MathF.abs(mTime) * 0.5f);
         Shader.SpecularBump.setGlowColor(ColorTheme.Default.Glow);
@@ -101,16 +87,18 @@ public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdata
 
         Shader.SpecularBump.setProjectionTransform(camera.getProjectionTransform());
         Shader.SpecularBump.setViewTransform(camera.getViewTransform());
-        //synchronized (mMeshes) {
-        Shader.SpecularBump.setModelTransforms(mTransforms);
-        Shader.SpecularBump.setNormalModelTransforms(mNormalTransforms);
-        //}
         Shader.SpecularBump.setNormalTransform(camera.getNormal());
 
         Shader.SpecularBump.setLight(mLight.getPosition(), ColorTheme.Default.Light, ColorTheme.Default.LightSpecular, ColorTheme.Default.LightAmbient);
-        Shader.SpecularBump.apply();
-        mMeshBuffer.apply();
-        Shader.SpecularBump.draw(mMeshIndexBuffer);
+
+        for (int i = 0; i < _items.length; i++) {
+        //for (int i = 0; i < 1; i++) {
+            Shader.SpecularBump.setModelTransforms(_items[i].getTransforms());
+            Shader.SpecularBump.setNormalModelTransforms(_items[i].getNormalsTransforms());
+            Shader.SpecularBump.apply();
+            mMeshBuffer.apply();
+            Shader.SpecularBump.draw(mMeshIndexBuffer);
+        }
     }
 
     @Override
@@ -125,20 +113,11 @@ public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdata
         mMeshBuffer.createVBO();
     }
 
-    public void loadClone(MeshBatch meshBatch) {
-        mDiffuseGlow = meshBatch.mDiffuseGlow;
-        mNormalSpecular = meshBatch.mNormalSpecular;
-        mMeshBuffer.createVBO();
-    }
-
     IndexBuffer mMeshIndexBuffer;
     public AttributesBufferMesh mMeshBuffer;
-    //public AttributeBufferPosition mPositionsBuffer;
-    //public AttributeBufferFloat mTransformIndexBuffer;
 
-    Matrix[] mTransforms;
-    Matrix3[] mNormalTransforms;
-    MeshTransform[] mMeshTransforms;
+    //Matrix[] mTransforms;
+    //Matrix3[] mNormalTransforms;
 
     public Texture mDiffuseGlow;
     public Texture mNormalSpecular;
@@ -146,30 +125,16 @@ public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdata
     Light mLight;
     float mTime = 0;
 
-    public Matrix[] getTransforms(){
-        return mTransforms;
-    }
-
     public void setLight(Light light){
         mLight = light;
     }
 
-    public AttributesBufferMesh getMeshBuffer(){
-        return mMeshBuffer;
-    }
-
     @Override
     public void update(float timeDelta) {
-
-        for (int j = 0; j < mTransforms.length; j++) {
-            //mMeshTransforms[j].update(timeDelta);
-            mMeshTransforms[j].update(0.0f);
-            //mTransforms[j] = mMeshTransforms[j].getMatrix();
-            mTransforms[j] = mMeshTransforms[j].Origin;
-            mNormalTransforms[j] =new Matrix3(
-                    mTransforms[j].getXX(), mTransforms[j].getXY(), mTransforms[j].getXZ(),
-                    mTransforms[j].getYX(), mTransforms[j].getYY(), mTransforms[j].getYZ(),
-                    mTransforms[j].getZX(), mTransforms[j].getZY(), mTransforms[j].getZZ());
+        for (int i = 0; i < _meshes.size(); i++)
+        {
+            _meshes.get(i).update(timeDelta);
+            _scene.GeometryTree.update(_meshes.get(i));
         }
 
         mTime += timeDelta;
@@ -208,50 +173,23 @@ public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdata
 
         Shader.RenderDepth.setViewTransform(camera.getViewTransform());
         Shader.RenderDepth.setProjectionTransform(camera.getProjectionTransform());
-
-        Shader.RenderDepth.setModelTransforms(mTransforms);
-        Shader.RenderDepth.apply();
-        mMeshBuffer.applyForDepth(Shader.RenderDepth.Position, Shader.RenderDepth.TransformIndex);
-        Shader.RenderDepth.draw(getIndexBuffer());
-
+        for (int i = 0; i < _items.length; i++) {
+        //for (int i = 0; i < 1; i++) {
+            Shader.RenderDepth.setModelTransforms(_items[i].getTransforms());
+            Shader.RenderDepth.apply();
+            mMeshBuffer.applyForDepth(Shader.RenderDepth.Position, Shader.RenderDepth.TransformIndex);
+            Shader.RenderDepth.draw(getIndexBuffer());
+        }
     }
-}
+    ArrayList<GeometryItemMesh> _meshes = new ArrayList<GeometryItemMesh>();
 
-class MeshTransform
-{
-    public float rotationVelocity = 0.2f;
-    public float rotation = 0;
-    public Matrix Origin = Matrix.Identity;
-    public void update(float delta)
-    {
-        rotation += delta *  rotationVelocity;
-    }
-    public Matrix getMatrix(){
-        return Matrix.Multiply(Matrix.createRotationZ(rotation), Origin);
-    }
-}
-
-class MeshTransformX extends MeshTransform
-{
-    public void update(float delta)
-    {
-        rotation += delta *  rotationVelocity;
+    @Override
+    public IGeometryTreeItem getGeometryItem(int i) {
+        return _meshes.get(i);
     }
 
     @Override
-    public Matrix getMatrix(){
-        return Matrix.Multiply(Origin, Matrix.createRotationX(rotation));
-    }
-}
-
-class MeshTransformY extends MeshTransform
-{
-    public void update(float delta)
-    {
-        rotation += delta *  rotationVelocity;
-    }
-    @Override
-    public Matrix getMatrix(){
-        return Matrix.Multiply(Matrix.createRotationY(rotation), Origin);
+    public int getGeometryItemsCount() {
+        return _meshes.size();
     }
 }

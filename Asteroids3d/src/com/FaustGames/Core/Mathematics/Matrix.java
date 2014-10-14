@@ -446,4 +446,55 @@ public class Matrix {
                 (values[o + 4] * v.get(o + 0) + values[o + 5] * v.get(o + 1) + values[o + 6] * v.get(o + 2) + values[o + 7]) * w,
                 (values[o + 8] * v.get(o + 0) + values[o + 9] * v.get(o + 1) + values[o + 10] * v.get(o + 2) + values[o + 11]) * w);
     }
+
+    public static Matrix createIdentity() {
+        return new Matrix(
+                1, 0, 0, 0,
+                0, 1, 0, 0,
+                0, 0, 1, 0,
+                0, 0, 0, 1);
+    }
+
+    public static void applyRotationZ(float sine, float cosine, Matrix matrix){
+        matrix.values[matrix.o + 0] = cosine;
+        matrix.values[matrix.o + 1] = sine;
+        matrix.values[matrix.o + 2] = 0;
+        matrix.values[matrix.o + 3] = 0;
+
+        matrix.values[matrix.o + 4] = -sine;
+        matrix.values[matrix.o + 5] = cosine;
+        matrix.values[matrix.o + 6] = 0;
+        matrix.values[matrix.o + 7] = 0;
+    }
+
+    public static void applyRotationX(float sine, float cosine, Matrix matrix){
+        matrix.values[matrix.o + 4] = 0;
+        matrix.values[matrix.o + 5] = cosine;
+        matrix.values[matrix.o + 6] = sine;
+        matrix.values[matrix.o + 7] = 0;
+
+        matrix.values[matrix.o + 8] = 0;
+        matrix.values[matrix.o + 9] = -sine;
+        matrix.values[matrix.o + 10] = cosine;
+        matrix.values[matrix.o + 11] = 0;
+    }
+
+    public static  void applyRotationY(float sine, float cosine, Matrix matrix){
+        matrix.values[matrix.o + 0] = cosine;
+        matrix.values[matrix.o + 1] = 0;
+        matrix.values[matrix.o + 2] = -sine;
+        matrix.values[matrix.o + 3] = 0;
+
+        matrix.values[matrix.o + 8] = sine;
+        matrix.values[matrix.o + 9] = 0;
+        matrix.values[matrix.o + 10] = cosine;
+        matrix.values[matrix.o + 11] = 0;
+    }
+
+    public static void applyTranslate(Vertex position, Matrix matrix) {
+        matrix.values[matrix.o + 12] = position.getX();
+        matrix.values[matrix.o + 13] = position.getY();
+        matrix.values[matrix.o + 14] = position.getZ();
+        matrix.values[matrix.o + 15] = 1;
+    }
 }

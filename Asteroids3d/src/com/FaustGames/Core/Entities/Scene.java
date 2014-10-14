@@ -2,10 +2,13 @@ package com.FaustGames.Core.Entities;
 
 import android.content.Context;
 import android.opengl.GLES20;
+import android.util.Log;
 import com.FaustGames.Core.*;
 import com.FaustGames.Core.Content.*;
 import com.FaustGames.Core.Entities.Mesh.MeshBatch;
 import com.FaustGames.Core.Entities.PatriclessEmitter.EmitterBatch;
+import com.FaustGames.Core.Geometry.*;
+import com.FaustGames.Core.Mathematics.Vertex;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.*;
 import com.FaustGames.Core.Rendering.IndexBuffer;
 import com.FaustGames.Core.Rendering.Textures.TextureRenderTarget;
@@ -59,11 +62,20 @@ public class Scene implements IUpdatable, ILoadable, ICreate {
     public ArrayList<IDepthMapRender> RenderDepth = new ArrayList<IDepthMapRender>();
     public ArrayList<ICreate> Creates = new ArrayList<ICreate>();
     public ArrayList<IUpdatable> Updatables = new ArrayList<IUpdatable>();
-
+    public ArrayList<IGeometryTreeItem> GeometryTreeItems = new ArrayList<IGeometryTreeItem>();
+    public GeometryTree GeometryTree;
+    public Light[] LensRingsLights;
     public Light[] LensLights;
+    public Light[] Lights;
 
+    public Light[] getLights(){
+        return Lights;
+    }
     public Light[] getLensLights(){
         return LensLights;
+    }
+    public Light[] getLensRingsLights(){
+        return LensRingsLights;
     }
 
     public Light getLight(){
@@ -72,9 +84,35 @@ public class Scene implements IUpdatable, ILoadable, ICreate {
 
     public Scene()
     {
+        GeometryTree = new GeometryTree(new Bounds(Vertex.Empty, SceneConfiguration.Default.GeometryTreeSize), SceneConfiguration.Default.GeometryTreeDepth);
+        mCamera.apply();
+        GeometryTree.add(mCamera);
         mLight = new Light(0, 0, -2048, 1.0f);
 
+
+        LensRingsLights = new Light[]{
+                //mLight,
+                new Light(-200f, 0, 0, 1.5f),
+                //new Light(200f, 0, 0, 1.5f),
+        };
+
         LensLights = new Light[]{
+                mLight,
+                new Light(-200f, 0, 0, 1.5f),
+                new Light(200f, 0, 0, 1.5f),
+
+                // corners
+                new Light(1024f, 1024f, 1024f, 1.5f),
+                new Light(1024f, -1024f, 1024f, 1.5f),
+                new Light(-1024f, -1024f, 1024f, 1.5f),
+                new Light(-1024f, 1024f, 1024f, 1.5f),
+                new Light(1024f, 1024f, -1024f, 1.5f),
+                new Light(1024f, -1024f, -1024f, 1.5f),
+                new Light(-1024f, -1024f, -1024f, 1.5f),
+                new Light(-1024f, 1024f, -1024f, 1.5f),
+        };
+
+        Lights = new Light[]{
                 mLight,
                 new Light(-200f, 0, 0, 0.7f),
                 new Light(200f, 0, 0, 0.7f),
@@ -170,6 +208,16 @@ public class Scene implements IUpdatable, ILoadable, ICreate {
                 Updatables.add((IUpdatable)instance);
             if (instance instanceof IDepthMapRender)
                 RenderDepth.add((IDepthMapRender)instance);
+            if (instance instanceof IGeometryContainer)
+            {
+                IGeometryContainer container = (IGeometryContainer)instance;
+                int count = container.getGeometryItemsCount();
+                for (int j = 0; j < count; j++){
+                    IGeometryTreeItem item = container.getGeometryItem(j);
+                    GeometryTree.add(item);
+                    GeometryTreeItems.add(item);
+                }
+            }
         }
     }
 /*
@@ -645,20 +693,51 @@ public class Scene implements IUpdatable, ILoadable, ICreate {
             Loadables.get(i).load(context);
     }
 
+    FillContactsArgs _contactsArgs = new FillContactsArgs(SceneConfiguration.Default.GeometryTreeDepth);
+    IVisitor<GeometryContact> _contactsVisitor =new IVisitor<GeometryContact>() {
+        @Override
+        public void visit(GeometryContact contact) {
+            ContactsProcessor.process(contact);
+        }
+    };
+
+    public int fillContacts(FillContactsArgs contactsArgs){
+        _contactsArgs.getContacts().clear();
+        int result = 0;
+        for (int i = 0; i < GeometryTreeItems.size(); i++){
+            for (int j = i + 1; j < GeometryTreeItems.size(); j++){
+                result++;
+                if (Bounds.cross(GeometryTreeItems.get(i).getBounds(), GeometryTreeItems.get(j).getBounds())) {
+                    contactsArgs.getContacts().add(GeometryTreeItems.get(i), GeometryTreeItems.get(j));
+                }
+            }
+        }
+        return result;
+    }
+
     @Override
     public void update(float timeDelta) {
         mCamera.update(timeDelta);
+        mCamera.apply();
+        GeometryTree.update(mCamera);
+
+        int contactIterationsCount = GeometryTree.fillContacts(_contactsArgs);
+        //Log.d("contactIterationsCount:", "contactIterationsCount:" + contactIterationsCount);
+        _contactsArgs.getContacts().visit(_contactsVisitor);
+
         for (int i = 0; i < Updatables.size(); i++)
             Updatables.get(i).update(timeDelta);
     }
 
     public void render() {
-        mCamera.apply();
+        //mCamera.apply();
 
-        mDepthMap.setAsRenderTarget();
-        for (int i = 0; i < RenderDepth.size(); i++)
-            RenderDepth.get(i).renderDepth(getCamera());
-        mDepthMap.setDefaultRenderTarget(mWidth, mHeight);
+        if (RenderDepth.size() > 0) {
+            mDepthMap.setAsRenderTarget();
+            for (int i = 0; i < RenderDepth.size(); i++)
+                RenderDepth.get(i).renderDepth(getCamera());
+            mDepthMap.setDefaultRenderTarget(mWidth, mHeight);
+        }
         GLES20.glViewport(0, 0, mWidth, mHeight);
 
         for (int i = 0; i < Renderables.size(); i++)

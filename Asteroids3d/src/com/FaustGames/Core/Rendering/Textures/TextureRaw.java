@@ -13,7 +13,6 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 
 public class TextureRaw extends Texture {
-    private static final int bufferSize = 1024*1024*4;
 
     public TextureRaw (final Context context, TextureRawResource resource, boolean wrap) {
         final int[] textureHandle = new int[2];
@@ -23,37 +22,17 @@ public class TextureRaw extends Texture {
 
         if (textureHandle[0] != 0) {
             GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textureHandle[0]);
-            InputStream inStream = context.getResources().openRawResource(resource.getContentId());
-            byte[] buffer = new byte[bufferSize];
-            //ByteBuffer byteData = ByteBuffer.allocate(resource.Width * resource.Height * 4);
-            int width = resource.Width;
-            int height = resource.Height;
-            ByteBuffer[] byteData = new  ByteBuffer[11];
-            for (int i = 0; i <byteData.length; i++) {
-                byteData[i] = ByteBuffer.allocate(width * height * 4);
-                width /= 2;
-                height /= 2;
-            }
 
+            ByteBuffer[] byteData = new ByteBuffer[0];
             try {
-                int read;
-                for (int i = 0; i <byteData.length; i++) {
-                    int bytesLeft = byteData[i].capacity();
-                    while (bytesLeft != 0) {
-                        read = inStream.read(buffer, 0, bytesLeft);
-                        if (read == -1)
-                            break;
-                        byteData[i].put(buffer, 0, read);
-                        bytesLeft -= read;
-                    }
-                }
-                inStream.close();
+                byteData = resource.getByteData(context);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            if(byteData == null) return;
 
-            width = resource.Width;
-            height = resource.Height;
+            int width = resource.Width;
+            int height = resource.Height;
             int level = 0;
             boolean reachedLastLevel;
             do {

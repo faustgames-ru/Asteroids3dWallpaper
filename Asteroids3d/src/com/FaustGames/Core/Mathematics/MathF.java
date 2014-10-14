@@ -7,6 +7,7 @@ public class MathF {
     public static final float Eps = 0.001f;
 
     static Random mRandom = new Random();
+    public static float MaxFloat = 1e10f;
 
     public static boolean equals(float v1, float v2){
         return abs(v1 - v2) < Eps;
@@ -14,6 +15,18 @@ public class MathF {
 
     public static float abs(float v){
         return Math.abs(v);
+    }
+
+    public static float sqr(float v) {
+        return v*v;
+    }
+
+    public static float pow3(float v) {
+        return v*v*v;
+    }
+
+    public static float sphereVolume(float r){
+        return (4.0f/3.0f)* MathF.PI * pow3(r);
     }
 
     public static float cos(float angle){

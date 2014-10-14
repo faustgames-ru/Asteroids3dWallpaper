@@ -98,7 +98,12 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
         {
             long time = System.currentTimeMillis();
             if (lastTime > 0)
-                update((float)(time - lastTime) * 0.001f);
+            {
+                float delta = (float)(time - lastTime) * 0.001f;
+                if (delta > 0.03f)
+                    delta = 0.03f;
+                update(delta);
+            }
             /*
             GLES20.glClearColor(
                     ColorTheme.Default.LightAmbient.getR(),
@@ -113,8 +118,6 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
                     0);
             GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
             mScene.render();
-
-            int dt = (int)(System.currentTimeMillis() - time);
 
             Statistics.AddFps(1000 / (int)(time - lastTime));
             if (Configuration.Default.Auto)
@@ -138,7 +141,7 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
             lastTime = time;
         }
 
-        Log.d("asteroids3d fps", "asteroids3d fps : " + Statistics.Fps);
+        //Log.d("asteroids3d fps", "asteroids3d fps : " + Statistics.Fps);
         sleep();
     }
 
@@ -182,6 +185,8 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
     }
 
     public void update(float timeDelta) {
+        if (timeDelta > 0.03)
+            timeDelta = 0.03f;
         mScene.update(timeDelta);
         //mMesh.update(timeDelta);
     }

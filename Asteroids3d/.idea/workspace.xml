@@ -160,61 +160,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LensLightBatch.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LensLightBatch.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
-              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextureRenderTargetDepth.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Textures/TextureRenderTargetDepth.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3213">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EffectLensLight.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/EffectLensLight.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding>
-                <element signature="e#1404#1405#0" expanded="true" />
-                <element signature="e#1460#1461#0" expanded="true" />
-                <element signature="e#1507#1508#0" expanded="true" />
-                <element signature="e#1563#1564#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Scene.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Scene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2192" max-vertical-offset="11339">
-              <caret line="155" column="52" selection-start-line="155" selection-start-column="52" selection-end-line="155" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="12546">
+              <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
               <folding>
-                <element signature="e#1971#1982#0" expanded="true" />
-                <element signature="e#2129#2146#0" expanded="true" />
-                <element signature="e#2203#2212#0" expanded="true" />
+                <element signature="e#2082#2093#0" expanded="true" />
+                <element signature="e#2661#2662#0" expanded="true" />
+                <element signature="e#2690#2691#0" expanded="true" />
+                <element signature="e#2800#2801#0" expanded="true" />
+                <element signature="e#2838#2839#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextureRenderTarget.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Textures/TextureRenderTarget.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="596" max-vertical-offset="2091">
-              <caret line="52" column="27" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -222,39 +179,93 @@
       <file leaf-file-name="Content.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Asteroids3dFree/Content.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49166667" vertical-offset="954" max-vertical-offset="2057">
-              <caret line="72" column="97" selection-start-line="72" selection-start-column="97" selection-end-line="72" selection-end-column="97" />
+            <state vertical-scroll-proportion="0.575" vertical-offset="829" max-vertical-offset="1411">
+              <caret line="81" column="14" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MeshBatch.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Mesh/MeshBatch.java">
+      <file leaf-file-name="BasicRenderer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/BasicRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2652" max-vertical-offset="3553">
-              <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2160" max-vertical-offset="3332">
+              <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IDepthMapRender.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/IDepthMapRender.java">
+      <file leaf-file-name="GLSurfaceView.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://C:/NVPACK/android-sdk-windows/platforms/android-19/android.jar!/android/opengl/GLSurfaceView.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-              <caret line="4" column="32" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1632">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextureDrawable.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Textures/TextureDrawable.java">
+      <file leaf-file-name="LensLightBatch.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LensLightBatch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1428" max-vertical-offset="2040">
-              <caret line="117" column="0" selection-start-line="94" selection-start-column="8" selection-end-line="117" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="401" max-vertical-offset="1122">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndicesFactory.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/IndicesFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EntityResourceLensFlare.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceLensFlare.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VerticesFactory.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/VerticesFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2074">
+              <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Vertex.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Mathematics/Vertex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="970" max-vertical-offset="3519">
+              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LensRingsBatch.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LensRingsBatch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="197" max-vertical-offset="816">
+              <caret line="15" column="38" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -274,56 +285,56 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/Attributes/AttributesBuffer.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/EffectAttribute.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/Attributes/Attribute.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/Attributes/EffectAttribute.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/Effect.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/EffectSkyBox.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/Attributes/VertexBuffer.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/EffectSkyBoxProcedural.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Mathematics/MathF.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Lights.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResource.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Entity.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceLights.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/ICreate.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/TextureDrawableResource.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/IUnloadable.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/IUnload.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Light.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Mathematics/Vertex.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/IndicesFactory.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/EffectPositionColorTexture.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResoureProceduralSkybox.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceProceduralSkybox.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Asteroids3dFree/BasicActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Asteroids3dFree/ServiceWallpaper.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/SkyBox.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/ProceduralSkybox.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceLensFlare.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Shader.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/Attributes/VertexBufferAttribute.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/AttributeNames.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/VerticesFactory.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LightsBatch.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/TextureRawResource.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Textures/TextureFactory.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceMesh.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/EffectSpecularBump.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Mesh/Mesh.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/NebulaBatch.java" />
         <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LensFlareBatch.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/EntitiesFactory.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Textures/TextureRaw.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/BasicRenderer.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/ColorTheme.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/ColorTheme.java" />
         <option value="$PROJECT_DIR$/src/com/FaustGames/Core/IDepthMapRender.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Mesh/MeshBatch.java" />
-        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Scene.java" />
         <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/EffectLensLight.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Textures/TextureRaw.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/TextureRawResource.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/MeshBatchTransformResource.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/MeshBatchResource.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Physics/PhysicsHelper.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/ShapeType.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/IGeometryShapeSphere.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/ShapesType.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/IGeometryShape.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/IGeometryTreeItem.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/CollisionProcessor.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Physics/IMass.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/GeometryContact.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Physics/IBonce.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Mathematics/Matrix3.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Mathematics/Vertex.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/GeometryTree.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/BasicRenderer.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/Bounds.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/GeometryTreeNode.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceMesh.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/ContactsProcessor.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Mathematics/MathF.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Mesh/MeshBatchItem.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Mathematics/Matrix.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/IGeometryDynamic.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Camera.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/IColorSource.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceParticles.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/PatriclessEmitter/EmitterBatch.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LightsBatch.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Mesh/MeshBatch.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/SceneConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/ColorTheme.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/ColorTheme.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Mesh/GeometryItemMesh.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/PatriclessEmitter/Emitter.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceNebula.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/NebulaBatch.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/ProceduralSkybox.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceLensRings.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/EntitiesFactory.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LensRingsBatch.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceLensFlare.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Scene.java" />
         <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LensLightBatch.java" />
+        <option value="$PROJECT_DIR$/src/com/FaustGames/Core/Entities/VerticesFactory.java" />
         <option value="$PROJECT_DIR$/src/com/FaustGames/Asteroids3dFree/Content.java" />
       </list>
     </option>
@@ -376,6 +387,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -391,7 +404,7 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Asteroids3d" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -401,19 +414,19 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Asteroids3d" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FaustGames" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -423,23 +436,23 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Asteroids3d" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FaustGames" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Core" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -449,27 +462,27 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Asteroids3d" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FaustGames" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Core" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Entities" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -479,23 +492,27 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Asteroids3d" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FaustGames" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Asteroids3dFree" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemId" value="Core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Content" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -505,19 +522,23 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Asteroids3d" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="billing" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemId" value="FaustGames" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Asteroids3dFree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -527,17 +548,19 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Asteroids3d" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -584,13 +607,13 @@
       <recent name="D:\Users\_Faust\sources\c#\FaustGames\Wallpapers\Asteroids3d\res\raw" />
       <recent name="G:\users\_faust\sources\FaustGames\FaustGames\Wallpapers\Asteroids3d\res\raw" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.FaustGames.Asteroids3d" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\users\_faust\sources\FaustGames\FaustGames\Wallpapers\Asteroids3d\res\xml" />
       <recent name="G:\users\_faust\sources\FaustGames\FaustGames\Wallpapers\Asteroids3d\res\values" />
       <recent name="G:\users\_faust\sources\FaustGames\FaustGames\Wallpapers\Asteroids3d\src\com\FaustGames\Asteroids3d" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.FaustGames.Asteroids3d" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.Asteroids3d">
@@ -802,18 +825,18 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42027456" sideWeight="0.5072917" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46356916" sideWeight="0.57447916" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46356916" sideWeight="0.42552084" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43928194" sideWeight="0.24739583" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24739583" sideWeight="0.36008447" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32629356" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3685322" sideWeight="0.6635417" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43928194" sideWeight="0.7526042" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32937366" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25052083" sideWeight="0.6399155" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26041666" sideWeight="0.6399155" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3252376" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -870,10 +893,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LensLightBatch.java</url>
+          <line>42</line>
+          <properties />
+          <option name="timeStamp" value="321" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="230" />
+      <option name="time" value="322" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -881,301 +912,354 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/SkyBox.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/ShapesType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8149" max-vertical-offset="10098">
-          <caret line="517" column="0" selection-start-line="517" selection-start-column="0" selection-end-line="524" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/IUpdatable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/ProceduralSkybox.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/BasicRenderView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5837" max-vertical-offset="6358">
-          <caret line="364" column="40" selection-start-line="364" selection-start-column="40" selection-end-line="364" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1137#1138#0" expanded="false" />
-            <element signature="e#1175#1176#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Light.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="10" max-vertical-offset="578">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceLensFlare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/EffectLensFlare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="969">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="709" max-vertical-offset="1224">
+          <caret line="79" column="19" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/EffectSkyBoxProcedural.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Physics/PhysicsHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <caret line="44" column="5" selection-start-line="23" selection-start-column="3" selection-end-line="44" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/IGeometryTreeItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07439825" vertical-offset="0" max-vertical-offset="457">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/GeometryContacts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="120" max-vertical-offset="595">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/GeometryTreeNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1332" max-vertical-offset="2363">
+          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/EffectPositionColorTexture.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Mathematics/Matrix3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="697">
-          <caret line="43" column="0" selection-start-line="8" selection-start-column="39" selection-end-line="43" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2635">
+          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Mesh/MeshTriangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1241">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/IndicesFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1768">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LightsBatch.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/FillContactsArgs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="455" max-vertical-offset="1020">
-          <caret line="59" column="56" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/ContactsProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="299" max-vertical-offset="1207">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/VerticesFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Mathematics/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="986">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="7283" max-vertical-offset="7888">
+          <caret line="481" column="23" selection-start-line="481" selection-start-column="23" selection-end-line="481" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/AttributeNames.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Mathematics/MathF.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14166667" vertical-offset="0" max-vertical-offset="480">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/Attributes/VertexBufferAttribute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39791667" vertical-offset="47" max-vertical-offset="527">
-          <caret line="14" column="93" selection-start-line="14" selection-start-column="93" selection-end-line="14" selection-end-column="93" />
+        <state vertical-scroll-proportion="0.66202784" vertical-offset="330" max-vertical-offset="884">
+          <caret line="69" column="22" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Shader.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/GeometryTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <caret line="10" column="60" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
-          <folding>
-            <element signature="e#180#181#0" expanded="false" />
-            <element signature="e#218#219#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="146" max-vertical-offset="935">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/Effect.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/IGeometryDynamic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="129" max-vertical-offset="2771">
-          <caret line="39" column="65" selection-start-line="39" selection-start-column="65" selection-end-line="39" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/Bounds.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33200794" vertical-offset="54" max-vertical-offset="2057">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Geometry/IGeometryShapeSphere.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1487965" vertical-offset="0" max-vertical-offset="457">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1955">
-          <caret line="53" column="25" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2036" max-vertical-offset="2720">
+          <caret line="120" column="39" selection-start-line="120" selection-start-column="39" selection-end-line="120" selection-end-column="39" />
+          <folding>
+            <element signature="e#4717#4718#0" expanded="false" />
+            <element signature="e#4741#4742#0" expanded="false" />
+            <element signature="e#4957#4958#0" expanded="false" />
+            <element signature="e#4981#4982#0" expanded="false" />
+            <element signature="e#5028#5029#0" expanded="false" />
+            <element signature="e#5058#5059#0" expanded="false" />
+            <element signature="e#5144#5145#0" expanded="false" />
+            <element signature="e#5186#5187#0" expanded="false" />
+            <element signature="e#5252#5253#0" expanded="false" />
+            <element signature="e#5295#5296#0" expanded="false" />
+            <element signature="e#5349#5350#0" expanded="false" />
+            <element signature="e#5389#5390#0" expanded="false" />
+            <element signature="e#5433#5434#0" expanded="false" />
+            <element signature="e#5461#5462#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceMesh.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+          <caret line="19" column="60" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/MeshGeometryResource.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceProceduralSkybox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="952">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <caret line="2" column="66" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/TextureResource.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/Attributes/AttributesBuffer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="273" max-vertical-offset="1343">
+          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Particles.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/TextureDrawableResource.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/ParticlesBatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="476">
-          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2125">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/NVPACK/android-sdk-windows/platforms/android-19/android.jar!/android/opengl/GLUtils.class">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/IColorSource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51641136" vertical-offset="36" max-vertical-offset="493">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/LensFlareMapsResource.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LightsBatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="82" max-vertical-offset="1020">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResource.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Mesh/MeshBatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="170">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="2686">
+          <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LensFlareBatch.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Mesh/MeshBatchItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3706">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="316" max-vertical-offset="901">
+          <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Mesh/GeometryItemMesh.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1336" max-vertical-offset="2159">
+          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/NebulaBatch.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/PatriclessEmitter/EmitterBatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2261">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1037" max-vertical-offset="1921">
+          <caret line="90" column="30" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/TextureRawResource.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/PatriclessEmitter/Emitter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="2771">
+          <caret line="82" column="48" selection-start-line="82" selection-start-column="48" selection-end-line="82" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Textures/TextureFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/ColorTheme.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="3145">
+          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Entity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/SceneConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07083333" vertical-offset="0" max-vertical-offset="480">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="19" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <caret line="8" column="89" selection-start-line="8" selection-start-column="89" selection-end-line="8" selection-end-column="89" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/EntitiesFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceParticles.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <caret line="5" column="59" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/EffectSpecularBump.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/NebulaResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1181619" vertical-offset="698" max-vertical-offset="2737">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/GLHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceNebula.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/MeshBatchResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="1853">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/TextureImageResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59080964" vertical-offset="750" max-vertical-offset="1241">
-          <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Textures/TextureUncompressed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="952">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceMesh.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="510">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
           <folding>
-            <element signature="e#261#262#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#353#354#0" expanded="true" />
-            <element signature="e#394#395#0" expanded="true" />
-            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#226#227#0" expanded="true" />
+            <element signature="e#256#257#0" expanded="true" />
+            <element signature="e#298#299#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/NVPACK/android-sdk-windows/platforms/android-19/android.jar!/android/opengl/GLES20.class">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/NebulaBatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33260393" vertical-offset="9895" max-vertical-offset="12002">
-          <caret line="592" column="30" selection-start-line="592" selection-start-column="30" selection-end-line="592" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="2176">
+          <caret line="104" column="42" selection-start-line="104" selection-start-column="42" selection-end-line="104" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/NVPACK/android-sdk-windows/platforms/android-19/android.jar!/java/nio/ByteBuffer.class">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/ProceduralSkybox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47921225" vertical-offset="1311" max-vertical-offset="2125">
-          <caret line="91" column="31" selection-start-line="91" selection-start-column="31" selection-end-line="91" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="6052">
+          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/NVPACK/android-sdk-windows/platforms/android-19/android.jar!/java/io/InputStream.class">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/EntitiesFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51641136" vertical-offset="70" max-vertical-offset="527">
-          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/TextureDrawableResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceLensRings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceLensFlare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1188,127 +1272,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Textures/TextureRaw.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/BasicRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="758" max-vertical-offset="1717">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2109" max-vertical-offset="3332">
+          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LensRingsBatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="197" max-vertical-offset="816">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4034#4035#0" expanded="true" />
-            <element signature="e#4106#4107#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/BasicRenderer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Mathematics/Vertex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1277" max-vertical-offset="3247">
-          <caret line="112" column="21" selection-start-line="112" selection-start-column="21" selection-end-line="112" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/ColorTheme.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="3145">
-          <caret line="40" column="57" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/IRenderable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/IDepthMapRender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <caret line="4" column="32" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Textures/TextureDrawable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1428" max-vertical-offset="2040">
-          <caret line="117" column="0" selection-start-line="94" selection-start-column="8" selection-end-line="117" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Mesh/MeshBatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2652" max-vertical-offset="3553">
-          <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Textures/TextureRenderTarget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="596" max-vertical-offset="2091">
-          <caret line="52" column="27" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Textures/TextureRenderTargetDepth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3213">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="970" max-vertical-offset="3519">
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/Scene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2192" max-vertical-offset="11339">
-          <caret line="155" column="52" selection-start-line="155" selection-start-column="52" selection-end-line="155" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="12546">
+          <caret line="76" column="26" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
           <folding>
-            <element signature="e#1971#1982#0" expanded="true" />
-            <element signature="e#2129#2146#0" expanded="true" />
-            <element signature="e#2203#2212#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Rendering/Effects/EffectLensLight.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#1404#1405#0" expanded="true" />
-            <element signature="e#1460#1461#0" expanded="true" />
-            <element signature="e#1507#1508#0" expanded="true" />
-            <element signature="e#1563#1564#0" expanded="true" />
+            <element signature="e#2082#2093#0" expanded="true" />
+            <element signature="e#2661#2662#0" expanded="true" />
+            <element signature="e#2690#2691#0" expanded="true" />
+            <element signature="e#2800#2801#0" expanded="true" />
+            <element signature="e#2838#2839#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/LensLightBatch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
-          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="401" max-vertical-offset="1122">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Content/EntityResourceLights.java">
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/IndicesFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18599562" vertical-offset="0" max-vertical-offset="457">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Core/Entities/VerticesFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2074">
+          <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/FaustGames/Asteroids3dFree/Content.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49166667" vertical-offset="954" max-vertical-offset="2057">
-          <caret line="72" column="97" selection-start-line="72" selection-start-column="97" selection-end-line="72" selection-end-column="97" />
+        <state vertical-scroll-proportion="0.575" vertical-offset="829" max-vertical-offset="1411">
+          <caret line="81" column="14" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
           <folding />
         </state>
       </provider>

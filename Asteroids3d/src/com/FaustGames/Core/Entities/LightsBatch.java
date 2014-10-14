@@ -23,7 +23,7 @@ public class LightsBatch extends Entity implements IRenderable, ILoadable, ICrea
 
     public LightsBatch(Scene scene, EntityResourceLights resources) {
         _resources = resources;
-        _lights = scene.getLensLights();
+        _lights = scene.getLights();
     }
 
     @Override

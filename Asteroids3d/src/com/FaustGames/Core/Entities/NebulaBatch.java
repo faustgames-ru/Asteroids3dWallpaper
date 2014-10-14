@@ -1,7 +1,9 @@
 package com.FaustGames.Core.Entities;
 
 import android.content.Context;
+import android.opengl.GLES20;
 import com.FaustGames.Core.*;
+import com.FaustGames.Core.Content.EntityResourceNebula;
 import com.FaustGames.Core.Content.NebulaResource;
 import com.FaustGames.Core.Mathematics.MathF;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeBufferNebula;
@@ -11,23 +13,20 @@ import com.FaustGames.Core.Rendering.IndexBuffer;
 import com.FaustGames.Core.Rendering.Textures.Texture;
 import com.FaustGames.Core.Rendering.Textures.TextureFactory;
 
-public class NebulaBatch implements IRenderable, ILoadable, IUpdatable {
+public class NebulaBatch extends Entity implements IRenderable, ILoadable, IUpdatable, ICreate {
     Nebula[] mNebula;
     public boolean Created;
 
-    public NebulaBatch(Nebula[] nebula, NebulaResource resource){
-        mNebula = nebula;
-        mResource = resource;
+    public NebulaBatch(EntityResourceNebula resource){
+        mNebula = resource.getNebula();
+        mResource = resource.getResource();
     }
-    Nebula[] nebula;
     IndexBuffer mIndexBuffer;
     public AttributeBufferNebula mNebulaBuffer;
     NebulaResource mResource;
 
     public float Angle1;
     public float Angle2;
-    public float Scale1;
-    public float Scale2;
 
     class NebulaVertex extends PositionTexture implements INebulaVertex{
         public NebulaVertex(float x, float y, float z, float u, float v) {
@@ -102,6 +101,13 @@ public class NebulaBatch implements IRenderable, ILoadable, IUpdatable {
 
     @Override
     public void render(Camera camera) {
+        GLES20.glEnable(GLES20.GL_CULL_FACE);
+        GLES20.glCullFace(GLES20.GL_BACK);
+        GLES20.glEnable(GLES20.GL_BLEND);
+        GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE);
+        GLES20.glDepthMask(false);
+        GLES20.glEnable(GLES20.GL_DEPTH_TEST);
+
         Shader.Nebula.setParameters(
                 camera.getViewTransform(),
                 camera.getProjectionTransform(),

@@ -23,7 +23,9 @@ public class LensLightBatch extends Entity implements IRenderable, ILoadable, IC
     public LensLightBatch(Scene scene, EntityResourceLensFlare resources){
         _depthMap = scene.getDepthMap();
         _resources = resources;
-        _lights = scene.getLensLights();
+        _lights = _resources.Ring
+                ?scene.getLensRingsLights()
+                :scene.getLensLights();
     }
 
     @Override
@@ -34,9 +36,11 @@ public class LensLightBatch extends Entity implements IRenderable, ILoadable, IC
                 VertexBufferAttribute.TexturePosition,
                 VertexBufferAttribute.Color
         });
-        float[] vertices = VerticesFactory.CreateLightsVertices(_lights, _vertexBuffer.Stride, Scale);
+        float[] vertices = _resources.Ring
+                ?VerticesFactory.CreateRingsVertices(_lights, _vertexBuffer.Stride, Scale)
+                :VerticesFactory.CreateLightsVertices(_lights, _vertexBuffer.Stride, Scale);
         _vertexBuffer.setValues(vertices);
-        _indexBuffer = new IndexBuffer(IndicesFactory.CreateQuadIndices(_lights.length));
+        _indexBuffer = new IndexBuffer(IndicesFactory.CreateQuadIndices(vertices.length / (_vertexBuffer.Stride * 4)));
     }
 
     @Override

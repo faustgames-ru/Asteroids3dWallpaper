@@ -37,19 +37,19 @@ public class ProceduralSkybox extends Entity implements IRenderable, ILoadable, 
 
         public VertexColor() {
             Stars = new Color(
-                    MathF.rand(0.9f, 1.0f),
-                    MathF.rand(0.9f, 1.0f),
-                    MathF.rand(0.9f, 1.0f),
+                    MathF.rand(0.8f, 1.0f),
+                    MathF.rand(0.8f, 1.0f),
+                    MathF.rand(0.8f, 1.0f),
                     1.0f);
 
-            float c0 = MathF.saturate(MathF.rand(-1.0f, 1.2f));
+            float c0 = MathF.saturate(MathF.rand(-0.5f, 0.7f));
             /*
             if (c0 < 0.5)
                 c0 = MathF.rand(0.0f, 0.3f);
             else
                 c0 = MathF.rand(0.0f, 1.0f);
             */
-            float c1 = MathF.saturate(MathF.rand(-1.0f, 1.2f));
+            float c1 = MathF.saturate(MathF.rand(-0.5f, 0.7f));
             /*
             if (c1 < 0.5)
                 c1 = MathF.rand(0.0f, 0.3f);

@@ -17,7 +17,7 @@ public class MeshBatchResource {
     public ByteBuffer IndexBuffer;
     public ByteBuffer PositionsBuffer;
 
-    public Matrix[] Positions = new Matrix[32];
+    public MeshBatchTransformResource[] Positions = new MeshBatchTransformResource[32];
     public int Count;
 
     public MeshBatchResource(Context context, String vb, String ib, String transform, boolean useOrder){
@@ -34,12 +34,14 @@ public class MeshBatchResource {
 
         for (int i = 0; i < Count; i++)
         {
-            Positions[i] = new Matrix();
+            Positions[i] = new MeshBatchTransformResource();
+            Positions[i].R = PositionsBuffer.getFloat();
             for (int y = 0; y < 4; y++) {
                 for (int x = 0; x < 4; x++) {
-                    Positions[i].set(y, x, PositionsBuffer.getFloat());
+                    Positions[i].Transform.set(y, x, PositionsBuffer.getFloat());
                 }
             }
+            Positions[i].Position = Positions[i].Transform.createTranspose().transform(Vertex.Empty);
         }
     }
 
@@ -52,7 +54,7 @@ public class MeshBatchResource {
         try {
             InputStream raw = context.getResources().openRawResource(id);
             int size = raw.available();
-            Count = size / 64;
+            Count = size / (64 + 4);
             PositionsBuffer = ByteBuffer.allocate(size);
             PositionsBuffer.order(getByteOrder());
             byte[] buff = new byte[4*1024];

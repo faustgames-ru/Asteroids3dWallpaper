@@ -32,8 +32,8 @@ public class ColorTheme {
 
     public int TitleId = R.string.color_theme_default;
     public Color Light = new Color(1, 1, 1.0f, 1);
-    public Color LightSpecular = new Color(0.5f, 0.5f, 0.25f, 1);
-    public Color LightAmbient= new Color(0.1f, 0.1f, 0.2f, 1);
+    public Color LightSpecular = new Color(1.0f, 1.0f, 0.75f, 1);
+    public Color LightAmbient= new Color(0.1f, 0.1f, 0.3f, 1);
     public Color SkyBoxColor= new Color(1.0f, 1.0f, 1.0f, 1);
     public Color Lens = new Color(1.0f, 1.0f, 1.0f, 1);
     public Color Glow = new Color(1.0f, 0.9f, 0.75f, 1);
@@ -43,7 +43,7 @@ public class ColorTheme {
 
     public Color AdditiveParticles= new Color(1, 0.9f, 0.75f, 1);
     public Color Particles= new Color(0.25f, 0.2f, 0.15f, 1);
-    public Color Clouds= new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    public Color Clouds= new Color(1.0f, 1.0f, 1.0f, 0.7f);
 }
 
 class ColorThemeRed extends ColorTheme {

@@ -29,6 +29,22 @@ public class Matrix3 {
         values[8] = zz;
     }
 
+    public void fromMatrix4(Matrix source){
+        values[0] = source.getXX();
+        values[1] = source.getXY();
+        values[2] = source.getXZ();
+
+        values[3] = source.getYX();
+        values[4] = source.getYY();
+        values[5] = source.getYZ();
+
+        values[6] = source.getZX();
+        values[7] = source.getZY();
+        values[8] = source.getZZ();
+
+
+    }
+
     public Vertex transform(Vertex v){
         return new Vertex(
                 values[0] * v.get(0) + values[1] * v.get(1) + values[2] * v.get(2),
