@@ -1,6 +1,8 @@
 package com.FaustGames.Core;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
+import com.FaustGames.Asteroids3dFree.Preferences;
 
 public class DeviceConfiguration {
     public static boolean isTablet;

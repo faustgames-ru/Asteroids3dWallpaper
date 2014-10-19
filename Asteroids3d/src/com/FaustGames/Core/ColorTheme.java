@@ -5,6 +5,83 @@ import com.FaustGames.Core.Rendering.Color;
 
 public class ColorTheme {
     public static ColorTheme Default = new ColorTheme();
+    private Color diffuseColor;
+    private Color ambientColor;
+
+    public Color getLensFlare() {
+        return Color.fromHSV(Settings.getInstance().SpecularColor, 0.3f, 1.0f, 1.0f);
+    }
+
+    public Color getSkyBox0() {
+        return Color.fromHSV(Settings.getInstance().NebulaColor0, 0.2f, 1.0f, 1.0f);
+    }
+    public Color getSkyBox1() {
+        return Color.fromHSV(Settings.getInstance().NebulaColor0, 0.2f, 1.0f, 1.0f);
+    }
+
+    public Color getNebula0() {
+        return Color.fromHSV(Settings.getInstance().NebulaColor0, 0.3f, 1.0f, 1.0f);
+    }
+    public Color getNebula1() {
+        return Color.fromHSV(Settings.getInstance().NebulaColor1, 0.3f, 1.0f, 1.0f);
+    }
+
+    public Color getGlow() {
+        return Color.fromHSV(Settings.getInstance().GlowColor, 0.5f, 1.0f, 1.0f);
+    }
+
+    public Color getSpecularColor() {
+        return Color.fromHSV(Settings.getInstance().SpecularColor, 0.3f, 1.0f, 1.0f);
+    }
+
+    public Color getDiffuseColor() {
+        Color nebula0 = Color.fromHSV(Settings.getInstance().NebulaColor0, 0.3f, 1.0f, 1.0f);
+        Color nebula1 = Color.fromHSV(Settings.getInstance().NebulaColor1, 0.3f, 1.0f, 1.0f);
+        return new Color(
+                (nebula0.getR() + nebula1.getR()) * 0.5f,
+                (nebula0.getG() + nebula1.getG()) * 0.5f,
+                (nebula0.getB() + nebula1.getB()) * 0.5f,
+                1.0f
+        );
+    }
+
+    public Color getFogColor() {
+        Color nebula0 = Color.fromHSV(Settings.getInstance().NebulaColor0, 0.5f, 0.3f, 1.0f);
+        Color nebula1 = Color.fromHSV(Settings.getInstance().NebulaColor1, 0.5f, 0.3f, 1.0f);
+        return new Color(
+                nebula0.getR() + nebula1.getR(),
+                nebula0.getG() + nebula1.getG(),
+                nebula0.getB() + nebula1.getB(),
+                1.0f
+        );
+
+    }
+    public Color getAmbientColor() {
+        Color nebula0 = Color.fromHSV(Settings.getInstance().NebulaColor0, 0.3f, 0.15f, 1.0f);
+        Color nebula1 = Color.fromHSV(Settings.getInstance().NebulaColor1, 0.3f, 0.15f, 1.0f);
+        return new Color(
+                nebula0.getR() + nebula1.getR(),
+                nebula0.getG() + nebula1.getG(),
+                nebula0.getB() + nebula1.getB(),
+                1.0f
+                );
+    }
+
+    public Color getCloudsColor() {
+        return Color.White;
+    }
+
+    public Color getParticlesColor() {
+        return Color.Black;
+    }
+
+    public Color getAdditiveParticlesColor() {
+        return Color.fromHSV(Settings.getInstance().ParticlesColor, 0.5f, 1.0f, 1.0f);
+    }
+}
+/*
+public class ColorTheme {
+    public static ColorTheme Default = new ColorTheme();
     public static ColorTheme[] ColorThemes = new ColorTheme[]
             {
                 new ColorTheme(),
@@ -45,6 +122,7 @@ public class ColorTheme {
     public Color Particles= new Color(0.25f, 0.2f, 0.15f, 1);
     public Color Clouds= new Color(1.0f, 1.0f, 1.0f, 0.7f);
 }
+
 
 class ColorThemeRed extends ColorTheme {
     public ColorThemeRed()
@@ -178,3 +256,4 @@ class ColorThemeElectric extends ColorTheme {
     }
 }
 
+*/

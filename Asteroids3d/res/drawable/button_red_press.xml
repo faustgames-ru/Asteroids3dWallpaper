@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/button_red_press_background"/>
+    <stroke android:width="0.5dp" android:color="@color/button_red_default_background_stroke" />
+    <padding android:left="12dp"
+             android:top="12dp"
+             android:right="12dp"
+             android:bottom="12dp"/>
+    <corners android:bottomRightRadius="16dp"
+             android:bottomLeftRadius="0dp"
+             android:topLeftRadius="16dp"
+             android:topRightRadius="0dp"/>
+</shape>

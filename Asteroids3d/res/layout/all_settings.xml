@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/all_settings_scrollView" android:layout_gravity="left">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" android:padding="16dp">
+            <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:id="@+id/all_settings_our_products"
+                    android:text="@string/start_screen_button_our_products" android:layout_margin="4dp"/>
+            <Button style="@style/faustgamesButtonRedTheme" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:text="@string/start_screen_button_donate"
+                    android:id="@+id/all_settings_donate"
+                    android:layout_margin="4dp"/>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" android:background="@drawable/settings_panel"
+                    android:layout_marginTop="12dp">
+                <Button
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/all_settings_screen_settings_performance"
+                        android:id="@+id/button4" android:background="@drawable/button_default"/>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent" android:padding="20dp">
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                                  android:layout_height="wrap_content" android:paddingBottom="16dp"
+                                  android:paddingTop="16dp" android:id="@+id/linearLayout"
+                                  android:layout_gravity="center_horizontal">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                  android:textAppearance="?android:attr/textAppearanceLarge"
+                                  android:text="@string/all_settings_screen_performance_asteroids_count" android:id="@+id/textView"
+                                />
+                        <SeekBar android:layout_width="match_parent"
+                                 android:layout_height="wrap_content" android:id="@+id/all_settings_asteroids_count"
+                                 android:tag="AsteroidsCount"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                                  android:layout_height="wrap_content" android:paddingBottom="16dp" android:paddingTop="16dp"
+                                  android:id="@+id/linearLayout2" android:layout_gravity="center_horizontal">
+                        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                  android:textAppearance="?android:attr/textAppearanceLarge"
+                                  android:text="@string/all_settings_screen_performance_particles_count"
+                                  android:id="@+id/textView2"/>
+                        <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
+                                 android:id="@+id/all_settings_particles_count" android:tag="ParticlesCount"/>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content" android:gravity="center_vertical"
+                            android:paddingTop="16dp" android:paddingBottom="16dp">
+                        <CheckBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/all_settings_skybox_detalization" android:paddingTop="16dp" android:paddingBottom="16dp"
+                                android:text="@string/all_settings_screen_performance_ambient"
+                                android:tag="HighQualitySkybox"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                                  android:layout_height="wrap_content" android:gravity="center_vertical"
+                                  android:paddingTop="16dp" android:paddingBottom="16dp"
+                                  android:id="@+id/linearLayout3">
+                        <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:id="@+id/all_settings_lans_flare" android:paddingTop="16dp" android:paddingBottom="16dp"
+                                  android:text="@string/all_settings_screen_performance_display_lens_flare"
+                                  android:tag="DisplayLensFlare"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                                  android:layout_height="wrap_content" android:gravity="center_vertical"
+                                  android:paddingTop="16dp" android:paddingBottom="16dp"
+                                  android:id="@+id/all_settings_clouds">
+                        <CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:paddingTop="16dp" android:paddingBottom="16dp"
+                                  android:text="@string/all_settings_screen_performance_clouds"
+                                  android:tag="DisplayClouds"/>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                                  android:layout_height="wrap_content" android:paddingBottom="16dp"
+                                  android:paddingTop="16dp" android:id="@+id/linearLayout4"
+                                  android:layout_gravity="center_horizontal">
+                        <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent">
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                      android:textAppearance="?android:attr/textAppearanceLarge"
+                                      android:text="@string/settings_screen_energy_saving_label"
+                                      android:id="@+id/textView3"/>
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceMedium"
+                                    android:text="(0%)"
+                                    android:id="@+id/all_settings_energy_saving_label" android:singleLine="false"/>
+                        </LinearLayout>
+                        <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
+                                 android:id="@+id/all_settings_energy_saving" android:focusableInTouchMode="false"
+                                 android:tag="EnergySaving"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent"
+                          android:layout_height="fill_parent" android:background="@drawable/settings_panel"
+                          android:layout_marginTop="12dp" android:id="@+id/linearLayout14">
+                <Button android:layout_width="fill_parent" android:layout_height="wrap_content"
+                        android:text="@string/all_settings_screen_settings_color" android:id="@+id/button5"
+                        android:background="@drawable/button_default"/>
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent"
+                              android:layout_height="fill_parent" android:padding="20dp">
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                                  android:layout_height="wrap_content" android:paddingBottom="16dp"
+                                  android:id="@+id/linearLayout9" android:layout_gravity="center_horizontal">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:textAppearance="?android:attr/textAppearanceLarge"
+                                  android:text="@string/all_settings_screen_color_lens_flare"
+                                  android:id="@+id/textView11"/>
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                     android:padding="4dp">
+                            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                                          android:layout_height="fill_parent">
+                                <FrameLayout android:layout_width="fill_parent" android:layout_height="24dp"
+                                             android:foreground="@drawable/pick_color"
+                                             android:layout_gravity="center_vertical" android:id="@+id/frameLayout11"/>
+                            </LinearLayout>
+                            <SeekBar style="@style/faustgamesSeekBarColorTheme" android:layout_width="match_parent"
+                                     android:layout_height="wrap_content" android:id="@+id/all_settings_specular_color"
+                                     android:tag="SpecularColor"/>
+                        </FrameLayout>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                                  android:layout_height="wrap_content" android:paddingBottom="16dp"
+                                  android:id="@+id/linearLayout10" android:layout_gravity="center_horizontal">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:textAppearance="?android:attr/textAppearanceLarge"
+                                  android:text="@string/all_settings_screen_color_glow" android:id="@+id/textView12"/>
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                     android:padding="4dp">
+                            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                                          android:layout_height="fill_parent">
+                                <FrameLayout android:layout_width="fill_parent" android:layout_height="24dp"
+                                             android:foreground="@drawable/pick_color"
+                                             android:layout_gravity="center_vertical" android:id="@+id/frameLayout12"/>
+                            </LinearLayout>
+                            <SeekBar style="@style/faustgamesSeekBarColorTheme" android:layout_width="match_parent"
+                                     android:layout_height="wrap_content" android:id="@+id/all_settings_glow_color"
+                                     android:tag="GlowColor"/>
+                        </FrameLayout>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                                  android:layout_height="wrap_content" android:paddingBottom="16dp"
+                                  android:id="@+id/linearLayout11" android:layout_gravity="center_horizontal">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:textAppearance="?android:attr/textAppearanceLarge"
+                                  android:text="@string/all_settings_screen_color_nebula0" android:id="@+id/textView13"
+                                  android:singleLine="false"/>
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                     android:padding="4dp">
+                            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                                          android:layout_height="fill_parent">
+                                <FrameLayout android:layout_width="fill_parent" android:layout_height="24dp"
+                                             android:foreground="@drawable/pick_color"
+                                             android:layout_gravity="center_vertical" android:id="@+id/frameLayout13"/>
+                            </LinearLayout>
+                            <SeekBar style="@style/faustgamesSeekBarColorTheme" android:layout_width="match_parent"
+                                     android:layout_height="wrap_content" android:id="@+id/all_settings_nebula0"
+                                     android:tag="NebulaColor0"/>
+                        </FrameLayout>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                                  android:layout_height="wrap_content" android:paddingBottom="16dp"
+                                  android:id="@+id/linearLayout12" android:layout_gravity="center_horizontal">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:textAppearance="?android:attr/textAppearanceLarge"
+                                  android:text="@string/all_settings_screen_color_nebula1" android:id="@+id/textView14"/>
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                     android:padding="4dp">
+                            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                                          android:layout_height="fill_parent">
+                                <FrameLayout android:layout_width="fill_parent" android:layout_height="24dp"
+                                             android:foreground="@drawable/pick_color"
+                                             android:layout_gravity="center_vertical" android:id="@+id/frameLayout14"/>
+                            </LinearLayout>
+                            <SeekBar style="@style/faustgamesSeekBarColorTheme" android:layout_width="match_parent"
+                                     android:layout_height="wrap_content" android:id="@+id/all_settings_nebula1"
+                                     android:tag="NebulaColor1"/>
+                        </FrameLayout>
+                    </LinearLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="match_parent"
+                                  android:layout_height="wrap_content" android:paddingBottom="16dp"
+                                  android:id="@+id/linearLayout13" android:layout_gravity="center_horizontal">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                  android:textAppearance="?android:attr/textAppearanceLarge"
+                                  android:text="@string/all_settings_screen_color_particles"
+                                  android:id="@+id/textView15"/>
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                     android:padding="4dp">
+                            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                                          android:layout_height="fill_parent">
+                                <FrameLayout android:layout_width="fill_parent" android:layout_height="24dp"
+                                             android:foreground="@drawable/pick_color"
+                                             android:layout_gravity="center_vertical" android:id="@+id/frameLayout15"/>
+                            </LinearLayout>
+                            <SeekBar style="@style/faustgamesSeekBarColorTheme" android:layout_width="match_parent"
+                                     android:layout_height="wrap_content" android:id="@+id/all_settings_particles"
+                                     android:tag="ParticlesColor"/>
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

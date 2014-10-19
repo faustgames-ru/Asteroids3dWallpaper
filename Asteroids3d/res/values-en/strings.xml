@@ -10,6 +10,25 @@
     <string name="settings_screen_quality_label">Quality</string>
     <string name="settings_screen_color_theme_label">Color theme</string>
     <string name="settings_screen_energy_saving_label">Energy saving</string>
+
+    <string name="all_settings_screen_reset">Reset to default</string>
+    <string name="all_settings_screen_color_ambient">Ambient</string>
+    <string name="all_settings_screen_color_specular">Specular</string>
+    <string name="all_settings_screen_color_diffuse">Diffuse</string>
+    <string name="all_settings_screen_color_glow">Glow</string>
+    <string name="all_settings_screen_color_nebula0">Nebula primary</string>
+    <string name="all_settings_screen_color_nebula1">Nebula secondary</string>
+    <string name="all_settings_screen_color_particles">Particles</string>
+    <string name="all_settings_screen_color_lens_flare">Lens flare</string>
+    <string name="all_settings_screen_settings_color">Colors</string>
+    <string name="all_settings_screen_settings_performance">Performance</string>
+
+    <string name="all_settings_screen_performance_asteroids_count">Asteroids count</string>
+    <string name="all_settings_screen_performance_particles_count">Particles count</string>
+    <string name="all_settings_screen_performance_display_lens_flare">Display lens flare</string>
+    <string name="all_settings_screen_performance_ambient">High quality Ambient</string>
+    <string name="all_settings_screen_performance_clouds">Display clouds</string>
+
     <string name="Min">Min</string>
     <string name="Max">Max</string>
     <string name="start_screen_button_our_products">Our products</string>

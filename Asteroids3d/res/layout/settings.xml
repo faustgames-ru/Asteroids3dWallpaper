@@ -31,6 +31,18 @@
                                     android:id="@+id/settings_screen_label_color_theme"
                                     android:visibility="visible" android:text="@string/color_theme_default"/>
                         </LinearLayout>
+                        <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                                     android:id="@+id/frameLayout2" android:padding="4dp">
+                            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent"
+                                          android:layout_height="fill_parent"
+                                    >
+                                <FrameLayout android:layout_width="fill_parent" android:layout_height="24dp"
+                                             android:foreground="@drawable/pick_color"
+                                             android:layout_gravity="center_vertical" android:id="@+id/frameLayout"/>
+                            </LinearLayout>
+                            <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
+                                     android:id="@+id/seekBar" style="@style/faustgamesSeekBarColorTheme"/>
+                        </FrameLayout>
                         <SeekBar android:layout_width="match_parent" android:layout_height="wrap_content"
                                  android:id="@+id/settings_screen_seekbar_color_theme"/>
                     </LinearLayout>
@@ -92,11 +104,11 @@
                     android:layout_height="fill_parent">
                 <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
                         android:id="@+id/settings_screen_button_our_products_id"
-                        android:text="@string/start_screen_button_our_products"/>
+                        android:text="@string/start_screen_button_our_products" android:layout_margin="4dp"/>
                 <Button style="@style/faustgamesButtonRedTheme" android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:text="@string/start_screen_button_donate"
                         android:id="@+id/settings_screen_button_donate_id" android:layout_gravity="center_horizontal"
-                        android:background="@drawable/button_red"/>
+                        android:layout_margin="4dp"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

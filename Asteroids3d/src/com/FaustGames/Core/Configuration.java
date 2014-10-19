@@ -2,7 +2,7 @@ package com.FaustGames.Core;
 
 import com.FaustGames.Asteroids3dFree.R;
 import com.FaustGames.Core.Entities.LensFlareBatch;
-
+/*
 public class Configuration {
     public static Configuration AutoConfiguration = new Configuration();
     public static Configuration Lowest = new LowestConfiguration();
@@ -97,3 +97,4 @@ class HighConfiguration extends Configuration {
         LowClouds = false;
     }
 }
+*/

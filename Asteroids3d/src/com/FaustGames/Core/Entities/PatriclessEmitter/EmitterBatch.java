@@ -32,6 +32,7 @@ public class EmitterBatch extends Entity implements IRenderable, ILoadable, IUpd
     public float FadingScalePercent = 0.25f;
     float mTimeStep;
     boolean _additive;
+    boolean _isOptional;
     IColorSource _colorSource;
 
     public boolean LowLevel = false;
@@ -42,6 +43,7 @@ public class EmitterBatch extends Entity implements IRenderable, ILoadable, IUpd
         mTimeStep = resource.getTimeStep();
         _additive = resource.isAdditive();
         _colorSource = resource.getColorSource();
+        _isOptional = resource.isOptional();
     }
 
     @Override
@@ -53,6 +55,7 @@ public class EmitterBatch extends Entity implements IRenderable, ILoadable, IUpd
 
     @Override
     public void render(Camera camera) {
+        if (_isOptional && !Settings.getInstance().DisplayClouds) return;
         GLES20.glDisable(GLES20.GL_CULL_FACE);
         if (_additive) {
             GLES20.glEnable(GLES20.GL_BLEND);
@@ -77,10 +80,10 @@ public class EmitterBatch extends Entity implements IRenderable, ILoadable, IUpd
                 mTimeStep);
         Shader.ParticlesEmitter.apply();
         mParticlesBuffer.apply(Shader.ParticlesEmitter.Attributes);
-        if (LowLevel)
-            Shader.ParticlesEmitter.draw(mIndexBufferHalf);
-        else
+        if (_isOptional)
             Shader.ParticlesEmitter.draw(mIndexBuffer);
+        else
+            Shader.ParticlesEmitter.draw(mIndexBuffer, Settings.getInstance().ParticlesCount);
     }
 
     float time = 0;

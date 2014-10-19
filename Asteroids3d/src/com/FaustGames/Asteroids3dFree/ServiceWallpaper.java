@@ -21,6 +21,8 @@ import com.FaustGames.Core.Entities.Camera;
 import com.FaustGames.Core.Entities.Scene;
 import com.FaustGames.Core.Entities.SkyBox;
 import com.FaustGames.Core.Mathematics.Vertex;
+import com.FaustGames.Core.Settings;
+import com.FaustGames.PreferencesBinding.PreferencesBinding;
 
 public class ServiceWallpaper extends WallpaperService implements Thread.UncaughtExceptionHandler
 {
@@ -63,6 +65,7 @@ public class ServiceWallpaper extends WallpaperService implements Thread.Uncaugh
         public WallpaperServiceEngine(Context context)  {
             DeviceConfiguration.load(context);
 
+            PreferencesBinding.bind(context, Settings.getInstance());
             Preferences = new Preferences(context);
 
             this.context = context;

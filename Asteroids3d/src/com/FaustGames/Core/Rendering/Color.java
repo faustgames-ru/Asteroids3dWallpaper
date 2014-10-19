@@ -36,4 +36,13 @@ public class Color {
     public float[] toArray() {
         return rgba;
     }
+
+    public static Color fromHSV(float h, float s, float v, float a) {
+        int c = android.graphics.Color.HSVToColor(new float[]{h * 360, s, v});
+        return new Color(
+                (float)android.graphics.Color.red(c) / 255,
+                (float)android.graphics.Color.green(c) / 255,
+                (float)android.graphics.Color.blue(c) / 255,
+                a);
+    }
 }

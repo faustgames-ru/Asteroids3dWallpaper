@@ -2,10 +2,7 @@ package com.FaustGames.Core.Rendering.Effects;
 
 import com.FaustGames.Core.Mathematics.Matrix;
 import com.FaustGames.Core.Rendering.Color;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeBufferPosition;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeBufferTexturePosition;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeType;
-import com.FaustGames.Core.Rendering.Effects.Attributes.AttributesBufferSkybox;
+import com.FaustGames.Core.Rendering.Effects.Attributes.*;
 import com.FaustGames.Core.Rendering.Textures.Texture;
 
 public class EffectPositionTexture extends Effect {
@@ -18,11 +15,11 @@ public class EffectPositionTexture extends Effect {
                 "uniform mat4 u_ModelMatrix;\n"+
                 "precision mediump float;\n" +
                 "attribute vec3 a_Position;\n" +
-                "attribute vec2 a_TexCoordinate;\n" +
+                "attribute vec2 a_TexturePosition;\n" +
                 "varying vec2 v_TexCoordinate;\n" +
                 "\n" +
                 "void main() {\n" +
-                "  v_TexCoordinate = a_TexCoordinate;\n" +
+                "  v_TexCoordinate = a_TexturePosition;\n" +
                 "  gl_Position = u_ProjectionMatrix *  (u_ModelMatrix * vec4(a_Position, 1.0));\n" +
                 "}",
                 "precision mediump float;\n" +
@@ -34,7 +31,7 @@ public class EffectPositionTexture extends Effect {
                 "  gl_FragColor = texture2D(u_Texture, v_TexCoordinate) * u_Color;\n" +
                 "}",
                 new String[] { "u_ProjectionMatrix", "u_ModelMatrix", "u_Texture", "u_Color" },
-                new String[] { "a_Position", "a_TexCoordinate" });
+                new VertexBufferAttribute[] { VertexBufferAttribute.Position, VertexBufferAttribute.TexturePosition });
         mPositionAttributeIndex = 0;
         mTexturePositionAttributeIndex = 1;
     }

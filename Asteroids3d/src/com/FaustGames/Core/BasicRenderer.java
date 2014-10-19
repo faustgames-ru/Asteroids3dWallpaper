@@ -75,11 +75,13 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
 
     @Override
     public void onSurfaceChanged(GL10 gl, int width, int height) {
+        /*
         if (DeviceConfiguration.isTablet)
             mScene.getCamera().setViewport(MathF.PI / 1.5f, width, height);
         else
-            mScene.getCamera().setViewport(MathF.PI / 1.8f, width, height);
-        mScene.getCamera().apply();
+        */
+        mScene.getCamera().setViewport(MathF.PI / 1.8f, width, height);
+        //mScene.getCamera().apply();
         mScene.viewPort(width, height);
         mScene.resize(width, height);
         if (!loaded) {
@@ -94,7 +96,7 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
 
     @Override
     public void onDrawFrame(GL10 gl) {
-        synchronized (this)
+        //synchronized (this)
         {
             long time = System.currentTimeMillis();
             if (lastTime > 0)
@@ -120,6 +122,7 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
             mScene.render();
 
             Statistics.AddFps(1000 / (int)(time - lastTime));
+            /*
             if (Configuration.Default.Auto)
             {
                 if (Statistics.Fps > 0)
@@ -138,6 +141,7 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
                     }
                 }
             }
+            */
             lastTime = time;
         }
 
@@ -149,6 +153,7 @@ public class BasicRenderer implements GLSurfaceView.Renderer, IUpdatable {
     public static int Interval = 0;
 
     private void sleep() {
+        Interval = Math.round(Settings.getInstance().EnergySaving * MaxInterval);
         if (Interval == 0) return;
         try
         {

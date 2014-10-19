@@ -2,11 +2,9 @@ package com.FaustGames.Core.Entities;
 
 import android.content.Context;
 import android.opengl.GLES20;
+import com.FaustGames.Core.*;
 import com.FaustGames.Core.Content.EntityResource;
 import com.FaustGames.Core.Content.EntityResourceProceduralSkybox;
-import com.FaustGames.Core.ICreate;
-import com.FaustGames.Core.ILoadable;
-import com.FaustGames.Core.IRenderable;
 import com.FaustGames.Core.Mathematics.MathF;
 import com.FaustGames.Core.Mathematics.Matrix;
 import com.FaustGames.Core.Mathematics.Vertex;
@@ -16,7 +14,6 @@ import com.FaustGames.Core.Rendering.Effects.Attributes.VertexBufferAttribute;
 import com.FaustGames.Core.Rendering.IndexBuffer;
 import com.FaustGames.Core.Rendering.Textures.Texture;
 import com.FaustGames.Core.Rendering.Textures.TextureFactory;
-import com.FaustGames.Core.Shader;
 
 public class ProceduralSkybox extends Entity implements IRenderable, ILoadable, ICreate {
     static final float Distance = 2048;
@@ -351,18 +348,41 @@ public class ProceduralSkybox extends Entity implements IRenderable, ILoadable, 
 
     @Override
     public void render(Camera camera) {
-        GLES20.glDepthMask(false);
-        GLES20.glEnable(GLES20.GL_DEPTH_TEST);
+        if (Settings.getInstance().HighQualitySkybox) {
 
-        GLES20.glEnable(GLES20.GL_BLEND);
-        GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE_MINUS_SRC_ALPHA);
+            GLES20.glDepthMask(false);
+            GLES20.glEnable(GLES20.GL_DEPTH_TEST);
 
-        _vertexBuffer.apply(Shader.SkyBoxProcedural.Attributes);
-        Shader.SkyBoxProcedural.setView(camera.getViewTransform());
-        Shader.SkyBoxProcedural.setProjection(camera.getProjectionTransform());
-        Shader.SkyBoxProcedural.setModel(Matrix.Identity);
-        Shader.SkyBoxProcedural.setTexture(_texture);
-        Shader.SkyBoxProcedural.apply();
-        Shader.SkyBoxProcedural.draw(_indexBuffer );
+            GLES20.glEnable(GLES20.GL_BLEND);
+            GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE_MINUS_SRC_ALPHA);
+
+            _vertexBuffer.apply(Shader.SkyBoxProcedural.Attributes);
+            Shader.SkyBoxProcedural.setView(camera.getViewTransform());
+            Shader.SkyBoxProcedural.setProjection(camera.getProjectionTransform());
+            Shader.SkyBoxProcedural.setModel(Matrix.Identity);
+            Shader.SkyBoxProcedural.setTexture(_texture);
+            Shader.SkyBoxProcedural.apply();
+            Shader.SkyBoxProcedural.draw(_indexBuffer);
+            Shader.SkyBoxProcedural.setFogColor(ColorTheme.Default.getFogColor());
+            Shader.SkyBoxProcedural.setColor0(ColorTheme.Default.getSkyBox0());
+            Shader.SkyBoxProcedural.setColor1(ColorTheme.Default.getSkyBox1());
+        } else {
+            GLES20.glDepthMask(false);
+            GLES20.glEnable(GLES20.GL_DEPTH_TEST);
+
+            GLES20.glEnable(GLES20.GL_BLEND);
+            GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE_MINUS_SRC_ALPHA);
+
+            _vertexBuffer.apply(Shader.SkyBoxProceduralSimple.Attributes);
+            Shader.SkyBoxProceduralSimple.setView(camera.getViewTransform());
+            Shader.SkyBoxProceduralSimple.setProjection(camera.getProjectionTransform());
+            Shader.SkyBoxProceduralSimple.setModel(Matrix.Identity);
+            Shader.SkyBoxProceduralSimple.setTexture(_texture);
+            Shader.SkyBoxProceduralSimple.apply();
+            Shader.SkyBoxProceduralSimple.draw(_indexBuffer);
+            Shader.SkyBoxProceduralSimple.setFogColor(ColorTheme.Default.getFogColor());
+            Shader.SkyBoxProceduralSimple.setColor0(ColorTheme.Default.getSkyBox0());
+            Shader.SkyBoxProceduralSimple.setColor1(ColorTheme.Default.getSkyBox1());
+        }
     }
 }

@@ -53,7 +53,7 @@ public class Camera implements IUpdatable, IGeometryTreeItem, IGeometryShapeSphe
     }
 
     public void apply() {
-        synchronized (this) {
+       // synchronized (this) {
             mSkyBoxTransform = Matrix.Multiply(Rotation.getMatrix(), ExtraRotation.getMatrix(), mProjection);
             //mFullTransform = Matrix.Multiply(Translation.getMatrix(), Matrix.createTranslate(0, 0, mDistance), Rotation.getMatrix(), mProjection);
             mViewTransform = Matrix.Multiply(Rotation.getMatrix(), ExtraRotation.getMatrix(), Matrix.createTranslate(0, 0, mDistance));
@@ -65,7 +65,7 @@ public class Camera implements IUpdatable, IGeometryTreeItem, IGeometryShapeSphe
                     mFullTransform.getYX(), mFullTransform.getYY(), mFullTransform.getYZ(),
                     mFullTransform.getZX(), mFullTransform.getZY(), mFullTransform.getZZ());
             _bounds.apply(position, getRadius());
-        }
+       // }
     }
 
     public float getFov(){ return mFov; }
@@ -87,10 +87,10 @@ public class Camera implements IUpdatable, IGeometryTreeItem, IGeometryShapeSphe
     public void update(float timeDelta) {
         float v = RotationVelocity.getValue();
         float ev = ExtraRotationVelocity.getValue();
-        synchronized (this) {
+        //synchronized (this) {
             Rotation.rotate(RotationVelocity.getAxis(), v * timeDelta);
             ExtraRotation.rotate(ExtraRotationVelocity.getAxis(), ev * timeDelta);
-        }
+        //}
         //apply();
 
         float resistanceA = resistanceK * RotationVelocity.getValue();// * RotationVelocity.getValue();

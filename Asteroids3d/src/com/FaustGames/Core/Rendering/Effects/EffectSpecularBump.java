@@ -50,7 +50,8 @@ public class EffectSpecularBump extends Effect {
                     "u_AmbientLight",
                     "u_GlowLevel",
                     "u_GlowColor",
-                    "u_Eye"
+                    "u_Eye",
+                    "u_FogColor"
             },
             new String[]{
                     "a_Position",
@@ -157,6 +158,9 @@ public class EffectSpecularBump extends Effect {
 
     public void setEye(Vertex v) {
         Parameters.get(13).setPosition(v);
+    }
+    public void setFogColor(Color value) {
+        Parameters.get(14).setColor(value);
     }
 
     public AttributesBufferMesh createMeshBuffer(){

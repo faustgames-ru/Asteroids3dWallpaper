@@ -25,6 +25,8 @@ import com.FaustGames.Core.Entities.Camera;
 import com.FaustGames.Core.Entities.Scene;
 import com.FaustGames.Core.Entities.SkyBox;
 import com.FaustGames.Core.Mathematics.Vertex;
+import com.FaustGames.Core.Settings;
+import com.FaustGames.PreferencesBinding.PreferencesBinding;
 import com.android.vending.billing.IInAppBillingService;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,6 +58,16 @@ public class BasicActivity  extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DeviceConfiguration.load(this);
+
+        if (DeviceConfiguration.isTablet){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        }
+        else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
+
+        PreferencesBinding.bind(this.getApplicationContext(), Settings.getInstance());
+
         Preferences = new Preferences(this.getApplicationContext());
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -94,7 +106,7 @@ public class BasicActivity  extends Activity {
 
         UIViewContainer = new FrameLayout(this);
 
-        //mFrame.addView(UIViewContainer);
+        mFrame.addView(UIViewContainer);
 
         setContentView(mFrame);
 
@@ -106,7 +118,7 @@ public class BasicActivity  extends Activity {
         if (CurrentView != null)
             CurrentView.Remove(this);
         UIViewContainer.removeAllViews();
-        if (view == null) return;;
+        if (view == null) return;
         CurrentView = view;
         CurrentView.Add(this);
         UIViewContainer.addView(view.View);

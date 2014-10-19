@@ -12,19 +12,23 @@ public class Preferences {
     public Preferences(Context context) {
         this.context = context;
         settings = context.getSharedPreferences(PREFERENCES_NAME, 0);
+        /*
         ColorTheme.apply(getColorTheme());
         com.FaustGames.Core.Configuration.apply(getConfiguration());
+        */
         BasicRenderer.Interval = getSleepInterval();
     }
 
     public String getColorThemeTitle() {
         int value = settings.getInt("ColorTheme", 0);
-        return context.getString(ColorTheme.getTitleId(value));
+        return "";
+        //return context.getString(ColorTheme.getTitleId(value));
     }
 
     public String getConfigurationTitle() {
         int value = settings.getInt("Configuration", 0);
-        return context.getString(com.FaustGames.Core.Configuration.getTitleId(value));
+        return "";
+        //return context.getString(com.FaustGames.Core.Configuration.getTitleId(value));
     }
 
     public String getSleepIntervalTitle() {
@@ -45,7 +49,7 @@ public class Preferences {
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt("ColorTheme", value);
         editor.commit();
-        ColorTheme.apply(value);
+        //ColorTheme.apply(value);
     }
 
     public int getConfiguration(){
@@ -56,7 +60,7 @@ public class Preferences {
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt("Configuration", value);
         editor.commit();
-        com.FaustGames.Core.Configuration.apply(value);
+        //com.FaustGames.Core.Configuration.apply(value);
     }
 
     public int getSleepInterval(){

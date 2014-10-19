@@ -23,7 +23,7 @@ public class EffectRenderDepth extends Effect {
                 //"vec4 pos = vec4(a_Position, 1.0);" +
                 "vec4 pos = u_ModelMatrix[transformIndex] * vec4(a_Position, 1.0);" +
                 "pos = u_ViewMatrix * pos;" +
-                "v_Z = 1.0 - clamp(pos.z * 0.01, 0.0, 1.0);"+
+                "v_Z = 1.0 - clamp(length(pos) * 0.007, 0.0, 1.0);"+
                 "gl_Position = u_ProjectionMatrix * pos;" +
                 "}",
 

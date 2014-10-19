@@ -81,7 +81,7 @@ public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdata
         Shader.SpecularBump.setEye(camera.getPosition());
 
         Shader.SpecularBump.setGlowLevel(0.5f + MathF.abs(mTime) * 0.5f);
-        Shader.SpecularBump.setGlowColor(ColorTheme.Default.Glow);
+        Shader.SpecularBump.setGlowColor(ColorTheme.Default.getGlow());
         Shader.SpecularBump.setNormalSpecularMap(mNormalSpecular);
         Shader.SpecularBump.setDiffuseGlowMap(mDiffuseGlow);
 
@@ -89,9 +89,13 @@ public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdata
         Shader.SpecularBump.setViewTransform(camera.getViewTransform());
         Shader.SpecularBump.setNormalTransform(camera.getNormal());
 
-        Shader.SpecularBump.setLight(mLight.getPosition(), ColorTheme.Default.Light, ColorTheme.Default.LightSpecular, ColorTheme.Default.LightAmbient);
+        //Shader.SpecularBump.setLight(mLight.getPosition(), ColorTheme.Default.getSpecularColor(), ColorTheme.Default.getDiffuseColor(), ColorTheme.Default.getAmbientColor());
+        Shader.SpecularBump.setLight(mLight.getPosition(), Color.White, ColorTheme.Default.getDiffuseColor(), ColorTheme.Default.getAmbientColor());
+        Shader.SpecularBump.setFogColor(ColorTheme.Default.getFogColor());
 
-        for (int i = 0; i < _items.length; i++) {
+        int count = getCount();
+
+        for (int i = 0; i < count; i++) {
         //for (int i = 0; i < 1; i++) {
             Shader.SpecularBump.setModelTransforms(_items[i].getTransforms());
             Shader.SpecularBump.setNormalModelTransforms(_items[i].getNormalsTransforms());
@@ -99,6 +103,11 @@ public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdata
             mMeshBuffer.apply();
             Shader.SpecularBump.draw(mMeshIndexBuffer);
         }
+    }
+
+    int _lastCount = 0;
+    int getCount(){
+        return 1 + Math.round((_items.length - 1) * Settings.getInstance().AsteroidsCount);
     }
 
     @Override
@@ -131,12 +140,28 @@ public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdata
 
     @Override
     public void update(float timeDelta) {
+        int count = getCount();
+        if (count != _lastCount){
+            for (int i = count; i < _items.length; i++) {
+                for (int j = 0; j < _items[i].getMeshes().size(); j++) {
+                    _scene.GeometryTree.remove(_items[i].getMeshes().get(j));
+                }
+            }
+            _lastCount = count;
+        }
+        for (int i = 0; i < count; i++) {
+            for (int j = 0; j < _items[i].getMeshes().size(); j++) {
+                _items[i].getMeshes().get(j).update(timeDelta);
+                _scene.GeometryTree.update(_items[i].getMeshes().get(j));
+            }
+        }
+/*
         for (int i = 0; i < _meshes.size(); i++)
         {
             _meshes.get(i).update(timeDelta);
             _scene.GeometryTree.update(_meshes.get(i));
         }
-
+*/
         mTime += timeDelta;
         while (mTime > 1)
             mTime -= 2;
@@ -173,8 +198,8 @@ public class MeshBatch extends Entity implements IRenderable, ILoadable, IUpdata
 
         Shader.RenderDepth.setViewTransform(camera.getViewTransform());
         Shader.RenderDepth.setProjectionTransform(camera.getProjectionTransform());
-        for (int i = 0; i < _items.length; i++) {
-        //for (int i = 0; i < 1; i++) {
+        int count = getCount();
+        for (int i = 0; i < count; i++) {
             Shader.RenderDepth.setModelTransforms(_items[i].getTransforms());
             Shader.RenderDepth.apply();
             mMeshBuffer.applyForDepth(Shader.RenderDepth.Position, Shader.RenderDepth.TransformIndex);

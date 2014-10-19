@@ -18,6 +18,10 @@ public class GeometryTree {
         });
     }
 
+    public int getItemsCount(){
+        return _root.getItemsCount();
+    }
+
     public void add(IGeometryTreeItem item){
         Bounds bounds = item.getBounds();
         GeometryTreeNode node = _root.GetNode(bounds);

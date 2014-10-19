@@ -3,6 +3,7 @@ package com.FaustGames.Core.Rendering.Effects;
 import android.content.Context;
 import com.FaustGames.Asteroids3dFree.R;
 import com.FaustGames.Core.Mathematics.Matrix;
+import com.FaustGames.Core.Rendering.Color;
 import com.FaustGames.Core.Rendering.Effects.Attributes.VertexBufferAttribute;
 import com.FaustGames.Core.Rendering.Textures.Texture;
 
@@ -10,7 +11,7 @@ public class EffectSkyBoxProcedural  extends Effect {
     public EffectSkyBoxProcedural() {
         super(
                 "", "",
-                new String[]{"u_ProjectionMatrix", "u_ModelMatrix", "u_ViewMatrix", "u_Texture"},
+                new String[]{"u_ProjectionMatrix", "u_ModelMatrix", "u_ViewMatrix", "u_Texture", "u_CloudsColor0", "u_CloudsColor1", "u_FogColor"},
                 new VertexBufferAttribute[]{
                         VertexBufferAttribute.Position,
                         VertexBufferAttribute.TexturePosition,
@@ -42,5 +43,15 @@ public class EffectSkyBoxProcedural  extends Effect {
 
     public void setTexture(Texture texture) {
         Parameters.get(3).setTexture(0, texture);
+    }
+
+    public void setColor0(Color value) {
+        Parameters.get(4).setColor(value);
+    }
+    public void setColor1(Color value) {
+        Parameters.get(5).setColor(value);
+    }
+    public void setFogColor(Color value) {
+        Parameters.get(6).setColor(value);
     }
 }

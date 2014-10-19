@@ -1,6 +1,7 @@
 precision mediump float;
 
 uniform sampler2D u_Texture;
+uniform vec4 u_FogColor;
 
 varying vec2 v_TexturePosition1;
 varying vec2 v_TexturePosition2;
@@ -9,6 +10,11 @@ varying vec4 v_CloudsColor0;
 varying vec4 v_CloudsColor1;
 varying vec4 v_StartsColor;
 varying float v_Alpha;
+
+vec4 applyFog(vec4 rgb)
+{
+	return mix(rgb, u_FogColor, 0.2);
+}
 
 void main()
 {
@@ -29,12 +35,11 @@ void main()
 	//vec4 c = c1 + c2;
 	//gl_FragColor = vec4(c4.x + c.x * c.y + (c4.z * 0.1 + (c.y + c.z) * 0.5 * c.z) * v_CloudsLevel);
 	gl_FragColor = 
-		c1.x * 0.25 + c2.x * 0.5 +
-		v_StartsColor * c4.x * v_StartsColor.w * 2.0 +
-		//v_StartsColor * (c1.x + c2.x + c4.x) * v_StartsColor.w +
 		v_CloudsColor0 * (c1.y + c2.y + c4.y) * v_CloudsColor0.w + 
 		v_CloudsColor1 * (c1.z + c2.z + c4.z) * v_CloudsColor1.w;
 	gl_FragColor.w = v_Alpha;
+	gl_FragColor = mix(gl_FragColor, u_FogColor, 0.2);
+	gl_FragColor += v_StartsColor * c4.x * v_StartsColor.w * 1.5;
 }
 
 

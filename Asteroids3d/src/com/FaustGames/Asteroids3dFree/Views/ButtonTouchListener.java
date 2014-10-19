@@ -7,10 +7,13 @@ import android.view.View;
 public abstract class ButtonTouchListener implements View.OnTouchListener {
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if(event.getAction()==MotionEvent.ACTION_DOWN)
-        {
-            v.playSoundEffect(SoundEffectConstants.CLICK);
-            OnClick();
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                v.playSoundEffect(SoundEffectConstants.CLICK);
+                break;
+            case MotionEvent.ACTION_UP:
+                OnClick();
+                break;
         }
         return false;
     }

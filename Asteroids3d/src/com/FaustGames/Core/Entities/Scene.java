@@ -8,7 +8,10 @@ import com.FaustGames.Core.Content.*;
 import com.FaustGames.Core.Entities.Mesh.MeshBatch;
 import com.FaustGames.Core.Entities.PatriclessEmitter.EmitterBatch;
 import com.FaustGames.Core.Geometry.*;
+import com.FaustGames.Core.Mathematics.MathF;
+import com.FaustGames.Core.Mathematics.Matrix;
 import com.FaustGames.Core.Mathematics.Vertex;
+import com.FaustGames.Core.Rendering.Color;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.*;
 import com.FaustGames.Core.Rendering.IndexBuffer;
 import com.FaustGames.Core.Rendering.Textures.TextureRenderTarget;
@@ -35,8 +38,8 @@ public class Scene implements IUpdatable, ILoadable, ICreate {
     EmitterBatch mCloudsEmitterBatch;
     LensFlareBatch mLensFlareBatch;
     Light mLight = new Light();
-    TextureRenderTarget mDepthMap;
-    TextureRenderTarget getDepthMap(){return mDepthMap;}
+    TextureRenderTargetDepth mDepthMap;
+    TextureRenderTargetDepth getDepthMap(){return mDepthMap;}
 
     //TextureRenderTarget mPostProcessRoot;
     //TextureRenderTarget mPostProcessBlurFilter;
@@ -56,6 +59,8 @@ public class Scene implements IUpdatable, ILoadable, ICreate {
     public EGLConfig RenderConfig;
     public EGLSurface RenderSurface;
     //TextureETC1 mGlassTexture;
+
+    PostProcess _depthMapClearQuad;
 
     public ArrayList<ILoadable> Loadables = new ArrayList<ILoadable>();
     public ArrayList<IRenderable> Renderables = new ArrayList<IRenderable>();
@@ -88,7 +93,6 @@ public class Scene implements IUpdatable, ILoadable, ICreate {
         mCamera.apply();
         GeometryTree.add(mCamera);
         mLight = new Light(0, 0, -2048, 1.0f);
-
 
         LensRingsLights = new Light[]{
                 //mLight,
@@ -192,32 +196,38 @@ public class Scene implements IUpdatable, ILoadable, ICreate {
         };
 
         mDepthMap = new TextureRenderTargetDepth(512, 512);
+        _depthMapClearQuad = new PostProcess();
+        addEntity(_depthMapClearQuad);
+    }
+
+    void addEntity(Object instance){
+        if (instance == null) return;
+        if (instance instanceof ICreate)
+            Creates.add((ICreate)instance);
+        if (instance instanceof ILoadable)
+            Loadables.add((ILoadable)instance);
+        if (instance instanceof IRenderable)
+            Renderables.add((IRenderable)instance);
+        if (instance instanceof IUpdatable)
+            Updatables.add((IUpdatable)instance);
+        if (instance instanceof IDepthMapRender)
+            RenderDepth.add((IDepthMapRender)instance);
+        if (instance instanceof IGeometryContainer)
+        {
+            IGeometryContainer container = (IGeometryContainer)instance;
+            int count = container.getGeometryItemsCount();
+            for (int j = 0; j < count; j++){
+                IGeometryTreeItem item = container.getGeometryItem(j);
+                GeometryTree.add(item);
+                GeometryTreeItems.add(item);
+            }
+        }
     }
 
     public void setEntities(EntityResource[] entitiesResources) {
         for(int i = 0; i < entitiesResources.length; i++) {
             Object instance = EntitiesFactory.CreateEntity(this, entitiesResources[i]);
-            if (instance == null) continue;
-            if (instance instanceof ICreate)
-                Creates.add((ICreate)instance);
-            if (instance instanceof ILoadable)
-                Loadables.add((ILoadable)instance);
-            if (instance instanceof IRenderable)
-                Renderables.add((IRenderable)instance);
-            if (instance instanceof IUpdatable)
-                Updatables.add((IUpdatable)instance);
-            if (instance instanceof IDepthMapRender)
-                RenderDepth.add((IDepthMapRender)instance);
-            if (instance instanceof IGeometryContainer)
-            {
-                IGeometryContainer container = (IGeometryContainer)instance;
-                int count = container.getGeometryItemsCount();
-                for (int j = 0; j < count; j++){
-                    IGeometryTreeItem item = container.getGeometryItem(j);
-                    GeometryTree.add(item);
-                    GeometryTreeItems.add(item);
-                }
-            }
+            addEntity(instance);
         }
     }
 /*
@@ -729,11 +739,43 @@ public class Scene implements IUpdatable, ILoadable, ICreate {
             Updatables.get(i).update(timeDelta);
     }
 
+    void renderDepthMap(){
+        GLES20.glDisable(GLES20.GL_BLEND);
+        GLES20.glDisable(GLES20.GL_CULL_FACE);
+        GLES20.glDepthMask(true);
+        GLES20.glDisable(GLES20.GL_DEPTH_TEST);
+        Shader.PositionTexture.setTexture(mDepthMap);
+        Shader.PositionTexture.setColor(Color.White);
+        Shader.PositionTexture.setProjection(Matrix.Identity);
+        Shader.PositionTexture.setModel(Matrix.Identity);
+        Shader.PositionTexture.apply();
+        _depthMapClearQuad.getVertexBuffer().apply(Shader.PositionTexture.Attributes);
+        Shader.PositionTexture.draw(_depthMapClearQuad.getIndexBuffer());
+    }
+
+    void renderClearQuad(){
+        GLES20.glDisable(GLES20.GL_BLEND);
+        GLES20.glDisable(GLES20.GL_CULL_FACE);
+        GLES20.glDepthMask(true);
+        GLES20.glDisable(GLES20.GL_DEPTH_TEST);
+        GLES20.glDepthFunc(GLES20.GL_ALWAYS);
+        Shader.SolidBlack.apply();
+        _depthMapClearQuad.getVertexBuffer().apply(Shader.SolidBlack.Attributes);
+        Shader.SolidBlack.draw(_depthMapClearQuad.getIndexBuffer());
+        GLES20.glDepthFunc(GLES20.GL_LESS);
+    }
+
     public void render() {
         //mCamera.apply();
-
         if (RenderDepth.size() > 0) {
             mDepthMap.setAsRenderTarget();
+            //renderClearQuad();
+
+            /// depth clear does not work on asus transformer ???
+            GLES20.glDepthFunc(GLES20.GL_ALWAYS);
+            for (int i = 0; i < RenderDepth.size(); i++)
+                RenderDepth.get(i).renderDepth(getCamera());
+            GLES20.glDepthFunc(GLES20.GL_LESS);
             for (int i = 0; i < RenderDepth.size(); i++)
                 RenderDepth.get(i).renderDepth(getCamera());
             mDepthMap.setDefaultRenderTarget(mWidth, mHeight);
@@ -742,6 +784,8 @@ public class Scene implements IUpdatable, ILoadable, ICreate {
 
         for (int i = 0; i < Renderables.size(); i++)
             Renderables.get(i).render(getCamera());
+
+        //renderDepthMap();
     }
 /*
     public void unload() {

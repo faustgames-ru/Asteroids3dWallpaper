@@ -10,6 +10,25 @@
     <string name="settings_screen_quality_label">Качетсво</string>
     <string name="settings_screen_color_theme_label">Цветовая схема</string>
     <string name="settings_screen_energy_saving_label">Энергосбережение</string>
+
+    <string name="all_settings_screen_reset">Сбросить настройки</string>
+    <string name="all_settings_screen_color_ambient">Окружение</string>
+    <string name="all_settings_screen_color_specular">Отражения</string>
+    <string name="all_settings_screen_color_diffuse">Aстероиды</string>
+    <string name="all_settings_screen_color_glow">Cвечение</string>
+    <string name="all_settings_screen_color_nebula0">Туманности основной</string>
+    <string name="all_settings_screen_color_nebula1">Туманности доп.</string>
+    <string name="all_settings_screen_color_particles">Частицы</string>
+    <string name="all_settings_screen_color_lens_flare">Блики</string>
+    <string name="all_settings_screen_settings_color">Цвета</string>
+    <string name="all_settings_screen_settings_performance">Производительность</string>
+
+    <string name="all_settings_screen_performance_asteroids_count">Количество астероидов</string>
+    <string name="all_settings_screen_performance_particles_count">Количество частиц</string>
+    <string name="all_settings_screen_performance_display_lens_flare">Отображать блики</string>
+    <string name="all_settings_screen_performance_ambient">Детализация окружения</string>
+    <string name="all_settings_screen_performance_clouds">Отображать облака</string>
+
     <string name="Min">Мин</string>
     <string name="Max">Макс</string>
     <string name="start_screen_button_our_products">Наши продукты</string>

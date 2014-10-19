@@ -50,18 +50,17 @@ public class Emitter {
 
     public void InitFires()
     {
-        if (DeviceConfiguration.isTablet)
-            Position = new VectorValueRange(new Vertex(-20f, -20f, -20f), new Vertex(20f, 20f, 20f));
-        else
-            Position = new VectorValueRange(new Vertex(-20f, -20f, -20f), new Vertex(20f, 20f, 20f));
+        Position = new VectorValueRange(new Vertex(-20f, -20f, -20f), new Vertex(20f, 20f, 20f));
         Velocity = new VectorValueRange(new Vertex(5f, -5f, -5f), new Vertex(5f, 5f, 5f));
         Acceleration = new VectorValueRange(new Vertex(2.0f, 0.0f, 0.0f), new Vertex(2.5f, 0.0f, 0.0f));
         Color = new VectorValueRange(0.65f, 1.0f);
         Count = 400;
+        /*
         if (DeviceConfiguration.isTablet)
             Scale = new FloatValueRange(0.1f, 0.3f);
         else
-            Scale = new FloatValueRange(0.05f, 0.2f);
+        */
+        Scale = new FloatValueRange(0.05f, 0.2f);
         LifeTime = new FloatValueRange(0.5f, 1.0f);
         RebornTime = new FloatValueRange(0.0f, 0.1f);
         InitPhase = new FloatValueRange(0.0f, LifeTime.Max - LifeTime.Min);
@@ -69,18 +68,17 @@ public class Emitter {
 
     public void InitClouds()
     {
-        if (DeviceConfiguration.isTablet)
-            Position = new VectorValueRange(new Vertex(-20f, -20f, -20f), new Vertex(20f, 20f, 20f));
-        else
-            Position = new VectorValueRange(new Vertex(-20f, -20f, -20f), new Vertex(20f, 20f, 20f));
-        Velocity = new VectorValueRange(new Vertex(-2f, -2f, -2f), new Vertex(2f, 2f, 2f));
-        Acceleration = new VectorValueRange(new Vertex(-1f, 0.0f, 0.0f), new Vertex(1f, 0.0f, 0.0f));
+        Position = new VectorValueRange(new Vertex(-20f, -20f, -20f), new Vertex(20f, 20f, 20f));
+        Velocity = new VectorValueRange(new Vertex(-4f, -4f, -4f), new Vertex(4f, 4f, 4f));
+        Acceleration = new VectorValueRange(new Vertex(-2f, 0.0f, 0.0f), new Vertex(2f, 0.0f, 0.0f));
         Color = new VectorValueRange(0.65f, 1.0f);
         Count = 10;
+        /*
         if (DeviceConfiguration.isTablet)
             Scale = new FloatValueRange(30.0f, 40.0f);
         else
-            Scale = new FloatValueRange(5.0f, 15.0f);
+        */
+        Scale = new FloatValueRange(5.0f, 15.0f);
         LifeTime = new FloatValueRange(3.0f, 6.0f);
         RebornTime = new FloatValueRange(0.0f, 0.5f);
         InitPhase = new FloatValueRange(0.0f, LifeTime.Max - LifeTime.Min);

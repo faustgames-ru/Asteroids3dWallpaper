@@ -51,6 +51,7 @@ public class LensLightBatch extends Entity implements IRenderable, ILoadable, IC
 
     @Override
     public void render(Camera camera) {
+        if (!Settings.getInstance().DisplayLensFlare) return;
         GLES20.glDisable(GLES20.GL_CULL_FACE);
         GLES20.glEnable(GLES20.GL_BLEND);
         GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE);
@@ -62,6 +63,7 @@ public class LensLightBatch extends Entity implements IRenderable, ILoadable, IC
         Shader.LensLight.setProjection(camera.getProjectionTransform());
         Shader.LensLight.setTexture(_texture);
         Shader.LensLight.setDepthMap(_depthMap);
+        Shader.LensLight.setColor(ColorTheme.Default.getLensFlare());
         Shader.LensLight.apply();
         _vertexBuffer.apply(Shader.LensLight.Attributes);
         Shader.LensLight.draw(_indexBuffer);

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
-
-    <item android:drawable="@drawable/steel"
-          android:tileMode="repeat"
-          android:dither="true"/>
-    <!--<item android:drawable="@drawable/panel"/>-->
-</layer-list>

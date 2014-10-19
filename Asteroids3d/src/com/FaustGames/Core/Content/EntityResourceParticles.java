@@ -8,6 +8,7 @@ public class EntityResourceParticles extends EntityResource {
     Emitter[] _emitters;
     float _timeStep;
     boolean _additive;
+    boolean _isOptional;
     IColorSource _colorSource;
 
     public IColorSource getColorSource(){
@@ -30,11 +31,16 @@ public class EntityResourceParticles extends EntityResource {
         return _timeStep;
     }
 
-    public EntityResourceParticles(TextureResource texture, Emitter[] emitters, float timeStep, boolean additive, IColorSource colorSource){
+    public EntityResourceParticles(TextureResource texture, Emitter[] emitters, float timeStep, boolean additive, boolean isOptional, IColorSource colorSource){
         _texture = texture;
         _emitters = emitters;
         _timeStep = timeStep;
         _additive = additive;
         _colorSource = colorSource;
+        _isOptional = isOptional;
+    }
+
+    public boolean isOptional() {
+        return _isOptional;
     }
 }

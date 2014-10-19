@@ -16,13 +16,13 @@ public class Statistics {
 
     public void AddFps(int value){
         mFps.offer(value);
-        if (mFps.size() > 100)
+        if (mFps.size() > 10)
             mFps.poll();
         int result = 0;
         for (Integer fps: mFps){
             result += fps;
         }
-        if (mFps.size() > 70)
+        if (mFps.size() > 7)
             Fps = result / mFps.size();
     }
 }

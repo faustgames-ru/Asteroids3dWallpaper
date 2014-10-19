@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import com.FaustGames.Asteroids3dFree.BasicActivity;
@@ -19,9 +20,23 @@ public class BasicView {
     public View View;
     public BasicActivity Activity;
 
+    public static String FontAsset = "Roboto-Medium.ttf";
+
+    public CheckBox getCheckBox(int id) {
+        CheckBox b = (CheckBox) View.findViewById(id);
+        Typeface font = Typeface.createFromAsset(Activity.getAssets(), FontAsset);
+        b.setTypeface(font);
+        b.setSoundEffectsEnabled(true);
+        return b;
+    }
+
+    public View getView(int id) {
+        return View.findViewById(id);
+    }
+
     public Button getButton(int id) {
         Button b = (Button) View.findViewById(id);
-        Typeface font = Typeface.createFromAsset(Activity.getAssets(), "Roboto-Light.ttf");
+        Typeface font = Typeface.createFromAsset(Activity.getAssets(), FontAsset);
         b.setTypeface(font);
         b.setSoundEffectsEnabled(true);
         return b;
@@ -29,7 +44,7 @@ public class BasicView {
 
     public TextView getLabel(int id) {
         TextView b = (TextView) View.findViewById(id);
-        Typeface font = Typeface.createFromAsset(Activity.getAssets(), "Roboto-Light.ttf");
+        Typeface font = Typeface.createFromAsset(Activity.getAssets(), FontAsset);
         b.setTypeface(font);
         return b;
     }

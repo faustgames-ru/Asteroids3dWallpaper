@@ -127,6 +127,16 @@ public class Effect {
         GLHelper.checkGlError("GLES20.glDrawElements");
     }
 
+    public void draw(IndexBuffer indexBuffer, float countScale) {
+        int count = (int)((indexBuffer.Count / 2)* countScale) * 2;
+        GLES20.glDrawElements(GLES20.GL_TRIANGLES, count,
+                GLES20.GL_UNSIGNED_SHORT, indexBuffer.drawListByteBuffer);
+        //GLES20.glDrawElements(GLES20.GL_TRIANGLES, indexBuffer.Count,
+        //        GLES20.GL_UNSIGNED_SHORT, indexBuffer.drawListBuffer);
+        //GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, count);
+        GLHelper.checkGlError("GLES20.glDrawElements");
+    }
+
 
     public void drawLines(IndexBuffer indexBuffer) {
         GLES20.glDrawElements(GLES20.GL_LINES, indexBuffer.Count,

@@ -23,6 +23,7 @@ varying vec3 v_RayDirection;
 varying vec3 v_SunDirection;
 varying vec3 v_Eye;
 
+
 void main()
 {
   int transformIndex = int(a_TransformIndex);
@@ -47,7 +48,7 @@ void main()
     v.y = dot (lightDir, b);
     v.z = dot (lightDir, n);
     v_Light = normalize (v);
-	vec3 halfVector = normalize(normalize(pos.xyz) + lightDir);
+	vec3 halfVector = normalize(lightDir - normalize(pos.xyz));
     v.x = dot (halfVector, t);
     v.y = dot (halfVector, b);
     v.z = dot (halfVector, n);

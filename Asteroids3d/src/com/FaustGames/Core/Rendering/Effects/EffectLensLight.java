@@ -3,6 +3,7 @@ package com.FaustGames.Core.Rendering.Effects;
 import android.content.Context;
 import com.FaustGames.Asteroids3dFree.R;
 import com.FaustGames.Core.Mathematics.Matrix;
+import com.FaustGames.Core.Rendering.Color;
 import com.FaustGames.Core.Rendering.Effects.Attributes.VertexBufferAttribute;
 import com.FaustGames.Core.Rendering.Textures.Texture;
 
@@ -10,7 +11,7 @@ public class EffectLensLight  extends Effect {
     public EffectLensLight() {
         super(
                 "", "",
-                new String[]{"u_ProjectionMatrix", "u_ModelMatrix", "u_ViewMatrix", "u_Texture", "u_DepthMap"},
+                new String[]{"u_ProjectionMatrix", "u_ModelMatrix", "u_ViewMatrix", "u_Texture", "u_DepthMap", "u_Color"},
                 new VertexBufferAttribute[]{
                         VertexBufferAttribute.Center,
                         VertexBufferAttribute.Position,
@@ -43,6 +44,9 @@ public class EffectLensLight  extends Effect {
     }
     public void setDepthMap(Texture texture) {
         Parameters.get(4).setTexture(1, texture);
+    }
+    public void setColor(Color color) {
+        Parameters.get(5).setColor(color);
     }
 }
 

@@ -29,12 +29,12 @@ public class Content {
                     new MeshBatchResource(context, "asteroids_180_0_v", "asteroids_180_0_i", "asteroids_180_0_t", false),
                     new TextureRawResource(R.raw.asteroid_180_nrm_spc, 11, 1024, 1024),
                     new TextureRawResource(R.raw.asteroid_180_dif_glw, 11, 1024, 1024),
-                    1),
+                    3),
             new EntityResourceMesh(
                     new MeshBatchResource(context, "asteroids_80_0_v", "asteroids_80_0_i", "asteroids_80_0_t", false),
                     new TextureRawResource(R.raw.asteroid_80_nrm_spc, 10, 512, 512),
                     new TextureRawResource(R.raw.asteroid_80_dif_glw, 10, 512, 512),
-                    2),
+                    3),
         };
 
         Emitter firesEmitter = Emitter.createFires();
@@ -42,22 +42,22 @@ public class Content {
         Emitter cloudsEmitter = Emitter.createClouds();
 
         Particles = new EntityResourceParticles[]{
-            new EntityResourceParticles(new TextureDrawableResource(R.drawable.particle), new Emitter[]{ firesEmitter, defaultEmitter }, 0.5f, true, new IColorSource() {
+            new EntityResourceParticles(new TextureDrawableResource(R.drawable.particle), new Emitter[]{ firesEmitter, defaultEmitter }, 0.5f, true, false, new IColorSource() {
                 @Override
                 public Color getColor() {
-                    return ColorTheme.Default.AdditiveParticles;
+                    return ColorTheme.Default.getAdditiveParticlesColor();
                 }
             }),
-            new EntityResourceParticles(new TextureDrawableResource(R.drawable.particle), new Emitter[]{ firesEmitter, defaultEmitter }, 0.25f, false, new IColorSource() {
+            new EntityResourceParticles(new TextureDrawableResource(R.drawable.particle), new Emitter[]{ firesEmitter, defaultEmitter }, 0.25f, false, false, new IColorSource() {
                 @Override
                 public Color getColor() {
-                    return ColorTheme.Default.Particles;
+                    return ColorTheme.Default.getParticlesColor();
                 }
             }),
-            new EntityResourceParticles(new TextureDrawableResource(R.drawable.cloud), new Emitter[]{ cloudsEmitter }, 2.0f, true, new IColorSource() {
+            new EntityResourceParticles(new TextureDrawableResource(R.drawable.cloud), new Emitter[]{ cloudsEmitter }, 0.5f, true, true, new IColorSource() {
                 @Override
                 public Color getColor() {
-                    return ColorTheme.Default.Clouds;
+                    return ColorTheme.Default.getCloudsColor();
                 }
             }),
         };

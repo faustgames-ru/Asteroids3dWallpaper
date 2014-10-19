@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="button_red_press_background">#ffc00000</color>
+    <color name="button_red_default_background">#a0c00000</color>
+    <color name="button_red_default_background_stroke">#ffffffff</color>
+    <color name="button_red_text">#ffffffff</color>
+
+    <color name="button_press_background">#ffffffff</color>
+    <color name="button_default_background">#a0ffffff</color>
+    <color name="button_default_background_stroke">#ff000040</color>
+    <color name="button_default_background_light_stroke">#ffffffff</color>
+    <color name="button_text">#ff000040</color>
+
+    <color name="seekbar_track">#c0c0c0c0</color>
+    <color name="seekbar_track_primary">#ffc00000</color>
+    <color name="seekbar_track_secondary">#ffc00000</color>
+
+    <color name="settings_panel_default_background">#40000000</color>
+
     <color name="white">#FFFFFF</color>
     <color name="dark_red">#800000</color>
     <color name="black">#000000</color>
-    <color name="black_transparent">#C0000000</color>
+    <color name="black_transparent">#00000000</color>
 </resources>

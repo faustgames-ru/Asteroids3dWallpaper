@@ -3,6 +3,7 @@ precision mediump float;
 uniform mat4 u_ViewMatrix;
 uniform mat4 u_ProjectionMatrix;
 uniform mat4 u_ModelMatrix;
+uniform vec4 u_Color;
 
 attribute vec3 a_Position;
 attribute vec3 a_Center;
@@ -32,6 +33,6 @@ void main()
 	v_DepthMapPosition = 0.5 + (center.xy / center.w) * 0.5;
 
 	v_TexturePosition = a_TexturePosition;
-	v_Color = a_Color;
+	v_Color = a_Color * u_Color;
 
 }

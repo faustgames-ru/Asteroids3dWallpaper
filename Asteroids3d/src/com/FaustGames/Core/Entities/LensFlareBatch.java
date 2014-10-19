@@ -5,6 +5,7 @@ import com.FaustGames.Core.ColorTheme;
 import com.FaustGames.Core.Content.LensFlareMapsResource;
 import com.FaustGames.Core.ILoadable;
 import com.FaustGames.Core.IRenderable;
+import com.FaustGames.Core.Rendering.Color;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.ILensFlareVertex;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.LensFlareVertex;
 import com.FaustGames.Core.Rendering.Effects.Attributes.AttributeFormats.PositionTexture;
@@ -13,6 +14,7 @@ import com.FaustGames.Core.Rendering.IndexBuffer;
 import com.FaustGames.Core.Rendering.Textures.Texture;
 import com.FaustGames.Core.Rendering.Textures.TextureFactory;
 import com.FaustGames.Core.Rendering.Textures.TextureRenderTarget;
+import com.FaustGames.Core.Settings;
 import com.FaustGames.Core.Shader;
 
 public class LensFlareBatch implements IRenderable, ILoadable {
@@ -174,7 +176,7 @@ public class LensFlareBatch implements IRenderable, ILoadable {
     public void render(Camera camera) {
         Shader.LensFlare.setDepthMap(mDepthMap);
         Shader.LensFlare.setColorMap(mMap);
-        Shader.LensFlare.setColor(ColorTheme.Default.Lens);
+        Shader.LensFlare.setColor(ColorTheme.Default.getLensFlare());
         Shader.LensFlare.setAspect(mAspect);
         Shader.LensFlare.setProjectionTransform(camera.getLensProjectionTransform());
         Shader.LensFlare.setViewTransform(camera.getViewTransform());
@@ -188,7 +190,7 @@ public class LensFlareBatch implements IRenderable, ILoadable {
     public void renderSimple(Camera camera) {
         Shader.LensFlare.setDepthMap(mDepthMap);
         Shader.LensFlare.setColorMap(mMap);
-        Shader.LensFlare.setColor(ColorTheme.Default.Lens);
+        Shader.LensFlare.setColor(ColorTheme.Default.getLensFlare());
         Shader.LensFlare.setAspect(mAspect);
         Shader.LensFlare.setProjectionTransform(camera.getLensProjectionTransform());
         Shader.LensFlare.setViewTransform(camera.getViewTransform());

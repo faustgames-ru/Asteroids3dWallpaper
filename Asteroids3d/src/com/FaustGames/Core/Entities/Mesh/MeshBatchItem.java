@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class MeshBatchItem {
     Matrix[] _transforms;
     Matrix3[] _normalTransforms;
-
+    ArrayList<GeometryItemMesh> _meshes = new ArrayList<GeometryItemMesh>();
     public Matrix[] getTransforms() {
         return _transforms;
     }
@@ -45,7 +45,13 @@ public class MeshBatchItem {
             }
             _normalTransforms[j] = new Matrix3();
             _normalTransforms[j].fromMatrix4(_transforms[j]);
-            meshes.add(new GeometryItemMesh(position, batchResource.Positions[j].R * 0.8f, 1.0f, 0.5f, _transforms[j],  _normalTransforms[j]));
+            GeometryItemMesh mesh = new GeometryItemMesh(position, batchResource.Positions[j].R * 0.8f, 1.0f, 0.5f, _transforms[j],  _normalTransforms[j]);
+            meshes.add(mesh);
+            _meshes.add(mesh);
         }
+    }
+
+    public ArrayList<GeometryItemMesh> getMeshes() {
+        return _meshes;
     }
 }
